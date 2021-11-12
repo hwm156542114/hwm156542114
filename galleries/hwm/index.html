@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="404, MrHou">
-    <meta name="description" content="404 | MrHou">
+    <meta name="keywords" content="hwm, MrHou">
+    <meta name="description" content="hwm | MrHou">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>404 | MrHou</title>
+    <title>hwm | MrHou</title>
     <link rel="icon" type="image/png" href="https://img0.baidu.com/it/u=1040699198,4243503392&fm=26&fmt=auto">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -30,7 +30,137 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+    
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+    
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+    
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+    
+   
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="MrHou" type="application/atom+xml">
 </head>
@@ -38,7 +168,17 @@
 
 
 
-<body>
+
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -99,7 +239,7 @@
           
           <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
           
-          <span>Galleries</span>
+          <span>相册</span>
         </a>
       </li>
       
@@ -147,6 +287,17 @@
       <i class="fas fa-comment" style="zoom: 0.6;"></i>
       
       <span>哔哔</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/navigate" class="waves-effect waves-light">
+      
+      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
     </a>
     
   </li>
@@ -255,7 +406,7 @@
 				  
 				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
 			      
-		          <span>Galleries</span>
+		          <span>相册</span>
                   </a>
                 </li>
               
@@ -303,6 +454,17 @@
 			    <i class="fa-fw fas fa-comment"></i>
 			
 			哔哔
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/navigate" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-location-arrow"></i>
+			
+			导航
 		</a>
           
         </li>
@@ -415,43 +577,69 @@
 
 </header>
 
-    <style type="text/css">
-    /* don't remove. */
-    .about-cover {
-        height: 90.2vh;
-    }
-</style>
-<div class="bg-cover pd-header about-cover">
-    <div class="container">
+    <link rel="stylesheet" href="/css/gallery.css">
+<link type="text/css" href="/libs/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link type="text/css" href="/libs/justifiedGallery/justifiedGallery.min.css" rel="stylesheet">
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+            <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="title center-align">
-                        404 Sorry 您找的页面不存在！
-                    </div>
-                    <div class="title center-align">
-                        试试右上角的<span style="color:blue;font-weight:bold">搜索</span>功能？
-                    </div>
-                    <div class="title center-align">
-                        <a href="/" target="_blank">返回首页</a>
-                    </div>
-                    <div class="description center-align">
-                        Oops～，我崩溃了！找不到你想要的页面 :(
-                    </div>
+                    <h1 class="description center-align post-title">hwm</h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+  
 
-    <script>
-        // 每天切换 banner 图.  Switch banner image every day.
-        var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-        $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-    </script>
+<div class="container">
+    <div class="photo-wrapper">
+        
+            <div class="waterfall" id="encrypt-blog">
+                <a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/0.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/0.jpg"       alt=img/featureimages/0.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/1.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/1.jpg"       alt=img/featureimages/1.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/2.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/2.jpg"       alt=img/featureimages/2.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/3.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/3.jpg"       alt=img/featureimages/3.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/4.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/4.jpg"       alt=img/featureimages/4.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/5.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/5.jpg"       alt=img/featureimages/5.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/6.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/6.jpg"       alt=img/featureimages/6.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/7.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/7.jpg"       alt=img/featureimages/7.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/8.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/8.jpg"       alt=img/featureimages/8.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/9.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/9.jpg"       alt=img/featureimages/9.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/10.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/10.jpg"       alt=img/featureimages/10.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/11.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/11.jpg"       alt=img/featureimages/11.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/12.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/12.jpg"       alt=img/featureimages/12.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/13.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/13.jpg"       alt=img/featureimages/13.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/14.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/14.jpg"       alt=img/featureimages/14.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/15.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/15.jpg"       alt=img/featureimages/15.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/16.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/16.jpg"       alt=img/featureimages/16.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/17.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/17.jpg"       alt=img/featureimages/17.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/18.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/18.jpg"       alt=img/featureimages/18.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/19.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/19.jpg"       alt=img/featureimages/19.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/20.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/20.jpg"       alt=img/featureimages/20.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/21.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/21.jpg"       alt=img/featureimages/21.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/22.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/22.jpg"       alt=img/featureimages/22.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/23.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/23.jpg"       alt=img/featureimages/23.jpg>
+    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/24.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/24.jpg"       alt=img/featureimages/24.jpg>
+    </a>
+            </div>
+        
+    </div>
+</div>
 
+<script src="/libs/fancybox/fancybox.js"></script>
+<script src="/libs/justifiedGallery/justifiedGallery.min.js"></script>
+<script>
 
+  $("a[rel=example_group]").fancybox();
+  $("#encrypt-blog").justifiedGallery({margins: 5, rowHeight: 150});
+
+</script>
 
     <footer class="page-footer bg-color">
     
