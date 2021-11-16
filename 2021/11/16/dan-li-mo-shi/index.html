@@ -4,8 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="心灵树洞, MrHou">
-    <meta name="description" content="心灵树洞 | MrHou">
+    <meta name="keywords" content="单例模式, MrHou">
+    <meta name="description" content="单例模式特点：
+
+在JVM中，单例模式能保证对象实例只有一个
+构造器必须是私有的，外部无法通过构造器创建对象实例
+没有公开的set方法，外部不能通过set方法进行对象的创建
+对外公开提供一个get方法，通过get方法可以获取对象实例
+
+优点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>心灵树洞 | MrHou</title>
+    <title>单例模式 | MrHou</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.iohttps://img0.baidu.com/it/u=1040699198,4243503392&fm=26&fmt=auto">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/awesome/css/all.min.css">
@@ -588,16 +595,15 @@
 </header>
 
     
-    
 
-    
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">心灵树洞</h1>
+                    <h1 class="description center-align post-title">单例模式</h1>
                 </div>
             </div>
         </div>
@@ -605,9 +611,108 @@
 </div>
 
 
-    
 
-    <main class="post-container content">
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        background-color: rgb(255, 255, 255,0.7);
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
         <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
@@ -615,12 +720,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">设计模式</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                设计模式
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -629,28 +747,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-11
+                    2021-11-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-12
+                    2021-11-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -673,51 +791,121 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="世界那么精彩，为什么不多去看看呢？"><a href="#世界那么精彩，为什么不多去看看呢？" class="headerlink" title="世界那么精彩，为什么不多去看看呢？"></a>世界那么精彩，为什么不多去看看呢？</h1>
-                
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/css/bb.css">
-                    <style>
-                        @font-face {
-                            font-family: "iconfont";
-                            src: url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.eot?t=1586882866168');
-                            /* IE9 */
-                            src: url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.eot?t=1586882866168#iefix') format('embedded-opentype'),
-                                /* IE6-IE8 */
-                            url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALcAAsAAAAAB2gAAAKPAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCfgqCUII8ATYCJAMMCwgABCAFhG0HQBuEBsiuMRkynL4YFCHtLKs4b+k7/80U8DwHIB6+xtr7u3vniDZI6tmnkyDS8NC5iFgJlE7pTPcO8e5b+803aYQy8YtH1JPKyZzY3ttb1EonioVGSBAiRJp4JV9cFppCxLpe2z8sUs37O4QEDFRM0lFeAw4XN6bQPG06zTG8DRwHFOBeGEVWIjE+mP8wduVFPCbQNK4ktN8/OgFJhbEqEFemLkEyFVcUVqoL1ZKDRbyIqafb9AA8+9+PX41IklQyY+PBSZ8KnR+9iBx0OxZcp8PxvGDHyFgACnFY6j8QCfMLIppKPmoCrGtW8OG/y0eufLX/8AiJqDKa22AGWpMzUth6p6aARySQQRUUL4AnSBmuyvIwPdbz21OX5ybO5duOJifaLl6cvkrd1HR7kWEy6yikff29PvgO17V/Tf/9f/oN3PDqz22a719IYlZJHQetpLY08MV6fwFDrF0B6F4XyB3/FyEEnZnU2XGtVwHvpxtA1d6pftKB4AcoWo4U1QQbiiy35Xow27whbwK2NNFlhAc99zeOtM4S6ikFQ1IzhqxuglAoC6ho2UBV3Raa5g0cbxnCRURpYM4pQOh3h6TXG7J+j4RCeULFqFdU9UcETYfRdGHLVJjpHk6SIBXlTTQV5mmWS6SD1jHSVx2JJ1U+a4p4YKawvrSSLQ2QR3yMLcGa3hBCQ40zF/vBc+Q4DH3OLFJExRDCb64un5S9qaIwF9L2cEQiEBWSbUImBePR3PFCOvf5MUS3yiHhNR0VySmEC5jTo7qKWgvCgN5r1XEtrwTW6BoEQYM0HONC/cBLHDPPIL98noUohAqjR7uvWVV1HlVbfWV+o/t8J6DJOJ4jRY6idmVKnmVS1q8tK8zfBAAA') format('woff2'),
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.woff?t=1586882866168') format('woff'),
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.ttf?t=1586882866168') format('truetype'),
-                                /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.svg?t=1586882866168#iconfont') format('svg');
-                            /* iOS 4.1- */
-                        }
+                <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>特点：</p>
+<ol>
+<li>在JVM中，单例模式能保证对象实例只有一个</li>
+<li>构造器必须是私有的，外部无法通过构造器创建对象实例</li>
+<li>没有公开的set方法，外部不能通过set方法进行对象的创建</li>
+<li>对外公开提供一个get方法，通过get方法可以获取对象实例</li>
+</ol>
+<p>优点：</p>
+<ol>
+<li>某些类创建非常繁琐，使用单例模式避免对象的频繁创建，而造成性能损耗</li>
+<li>省去了new操作符，减轻系统内存使用频率，减轻GC的压力</li>
+<li>避免对资源的重复占用</li>
+</ol>
+<h2 id="饿汉式单例模式"><a href="#饿汉式单例模式" class="headerlink" title="饿汉式单例模式"></a>饿汉式单例模式</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-                        .iconfont {
-                            font-family: "iconfont" !important;
-                            font-size: 16px;
-                            font-style: normal;
-                            -webkit-font-smoothing: antialiased;
-                            -moz-osx-font-smoothing: grayscale;
-                        }
+<p>为什么说是饿汉式呢？</p>
+<p>​    因为它在类加载的时候就直接把实例创建了出来，后面的方法直接进行返回即可</p>
+<p>应用场景：</p>
+<p>​    适用于热点数据，在启动JVM的时候，就将热点数据创建好，这样也可以避免预热阶段，直接就可以使用了。</p>
+<p>为什么是线程安全的？</p>
+<p>​    因为类加载的方式是按需加载，且只加载一次，因此在访问单例对象的时候，其实单例对象的实例已经创建好了。因此饿汉式天生就是线程安全的。</p>
+<h2 id="懒汉式单例模式"><a href="#懒汉式单例模式" class="headerlink" title="懒汉式单例模式"></a>懒汉式单例模式</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>instance<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+         <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-                        .icon-lianjie:before {
-                            content: "\e6a3";
-                        }
+<p>懒汉式单例模式是<strong>非线程安全的</strong></p>
+<p>为什么叫懒汉式呢？</p>
+<p>​    因为类加载的时候，并不会直接将这个实例创建出来，而是在需要使用的时候进行创建</p>
+<p>使用场景</p>
+<p>​    适用于那些不热门的数据，因为只有在需要使用的时候进行调用并创建，这样就不会造成不必要的空间浪费</p>
+<p>为什么是非线程安全的呢？</p>
+<p>​    这里假设有两个线程，第一个线程和第二个线程现在都进行了if的判断，进入到了对象的创建，那么这两个线程就会创建两个对象。</p>
+<p>那么针对这个懒汉式的非线程安全使用下面加锁的方式进行解决</p>
+<h2 id="懒汉式加锁"><a href="#懒汉式加锁" class="headerlink" title="懒汉式加锁"></a>懒汉式加锁</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">synchronized</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-                        .icon-lianjie-copy:before {
-                            content: "\e6a4";
-                        }
-                    </style>
-                    <main id="app">
-                        <p class="tip">共计发送 {{count}} 条说说</p>
-                        <div class="timenode" v-for="item in contents" v-cloak>
-                            <div class="meta">
-                                <p><time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time></p>
-                            </div>
-                            <div class="body">
-                                <p v-html='item.attributes.content'></p>
-                            </div>
-                        </div>
-                    </main>
+<p>这样直接在获取对象实例的方法上加锁，虽然保证了线程的安全，但是这样加锁性能太低了，那么如何解决呢？？？</p>
+<h2 id="懒汉式加锁进阶"><a href="#懒汉式加锁进阶" class="headerlink" title="懒汉式加锁进阶"></a>懒汉式加锁进阶</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">Singleton</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这样把锁加在方法内，而且进行了一次判断，这样性能比上一个性能有提高，但是JVM对代码的运行会有运行优化，也就是在运行期间会进行指令重排操作，意思就是比如现在一个线程已经创建好了实例，而且JVM内存中也开辟了空间给这个实例，但是还没有初始化完成，而这个时候另一个线程判断instance不为空，那么直接返回进行调用，发现还没有实例化而出现错误，那么又如何解决这个问题呢？？？</p>
+<h2 id="懒汉式加锁进阶加强-volatile"><a href="#懒汉式加锁进阶加强-volatile" class="headerlink" title="懒汉式加锁进阶加强(volatile)"></a>懒汉式加锁进阶加强(volatile)</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">Singleton</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>instance<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            	<span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>volatile主要是防止代码运行时的指令重排，可以保证，在创建实例完成，并且初始化之后，另外的线程才能对实例进行使用，那么这个已经很完美了，但是还有比这个更好的方式进行实现吗？？</p>
+<h2 id="基于静态内部类实现的单例模式"><a href="#基于静态内部类实现的单例模式" class="headerlink" title="基于静态内部类实现的单例模式"></a>基于静态内部类实现的单例模式</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
+	<span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">SingletonFactory</span><span class="token punctuation">{</span>
+        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token class-name">SingletonFactory</span><span class="token punctuation">.</span>instance<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="基于枚举的单例模式"><a href="#基于枚举的单例模式" class="headerlink" title="基于枚举的单例模式"></a>基于枚举的单例模式</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token keyword">enum</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
+	<span class="token class-name">Instance</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h2 id="为什么使用单例模式而不使用静态类呢"><a href="#为什么使用单例模式而不使用静态类呢" class="headerlink" title="为什么使用单例模式而不使用静态类呢?"></a>为什么使用单例模式而不使用静态类呢?</h2><ol>
+<li>单例模式有懒汉模式，可以按需进行资源加载，而静态类会直接加载进内存中</li>
+<li>静态类每次创建使用之后，都会被GC掉，而单例对象不会被GC</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -743,7 +931,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hwm156542114.github.io/bb/index.html">http://hwm156542114.github.io/bb/index.html</a>
+                    <a href="http://hwm156542114.github.io/2021/11/16/dan-li-mo-shi/">http://hwm156542114.github.io/2021/11/16/dan-li-mo-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -780,7 +968,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">设计模式</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1273,18 +1465,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/bb/index.html">
+                <a href="/2021/11/16/spring-yuan-ma-fen-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="心灵树洞">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Spring源码分析">
                         
-                        <span class="card-title">心灵树洞</span>
+                        <span class="card-title">Spring源码分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1294,18 +1485,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mr Hou
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1313,16 +1515,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/bb/index.html">
+                <a href="/2021/11/16/xiang-mu-fu-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="心灵树洞">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="项目复习">
                         
-                        <span class="card-title">心灵树洞</span>
+                        <span class="card-title">项目复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1333,17 +1535,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mr Hou
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">电商项目</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1373,117 +1586,104 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
-    </main>
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
 
-    <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
-    <script type="text/javascript">
-        var {
-            Query
-        } = AV;
-        AV.init({
-            appId: "yygXBV3nGgxAre2UfbVQddYS-MdYXbMMI",
-            appKey: "1wy3QgyAujeKUIdp8j0PCoAS",
-            serverURLs: 'https://yygXBV3n.api.lncldglobal.com'
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
         });
 
-        var query = new AV.Query('content');
-        var app = new Vue({
-            el: '#app',
-            data: {
-                page: 0,
-                count: 0,
-                contents: []
-            },
-            methods: {
-                loadMore: function (event) {
-                    getData(++this.page);
-                }
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
-        })
+        });
 
-        function urlToLink(str) {
-            //增加发图片功能
-            var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-            var re_forpic = /\bhttps?:\/\/.*?(\.gif|\.jpeg|\.png|\.jpg|\.bmp|\.webp)/g;
-            str = str.replace(re, function (website) {
-                return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>链接 </a>";
-            });
-            str = str.replace(re_forpic, function (imgurl) {
-                return "<img src='" + imgurl + "' /> ";
-            });
-	    str = qqWechatEmotionParser(str)
-            return str;
-        }
-
-        //友好地显示时间
-        function timeago(dateTimeStamp) {
-            var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示。
-            var hour = minute * 60;
-            var day = hour * 24;
-            var week = day * 7;
-            var month = day * 30;
-            var now = new Date().getTime(); //获取当前时间毫秒
-            var diffValue = now - dateTimeStamp; //时间差
-            if (diffValue < 0) {
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
                 return;
             }
-            var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-            var hourC = diffValue / hour;
-            var dayC = diffValue / day;
-            var weekC = diffValue / week;
-            var monthC = diffValue / month;
-            if (monthC >= 1 && monthC <= 3) {
-                result = " " + parseInt(monthC) + " 月前"
-            } else if (weekC >= 1 && weekC <= 3) {
-                result = " " + parseInt(weekC) + " 周前"
-            } else if (dayC >= 1 && dayC <= 6) {
-                result = " " + parseInt(dayC) + " 天前"
-            } else if (hourC >= 1 && hourC <= 23) {
-                result = " " + parseInt(hourC) + " 小时前"
-            } else if (minC >= 1 && minC <= 59) {
-                result = " " + parseInt(minC) + " 分钟前"
-            } else if (diffValue >= 0 && diffValue <= minute) {
-                result = "刚刚"
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
             } else {
-                var datetime = new Date();
-                datetime.setTime(dateTimeStamp);
-                var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                result = Nmonth + "-" + Ndate
+                w = w + 14;
             }
-            return result;
-        }
+            $('#' + targetId).width(w);
+        };
 
-        function getData(page = 0) {
-            query.descending('createdAt').skip(page * 10).limit(10).find().then(function (results) {
-                if (results.length == 0) {
-                    alert('之前没发表过说说')
-                } else {
-                    let resC = results;
-                    reqData = false;
-                    resC.forEach((i) => {
-                        let dateTmp = new Date(i.createdAt);
-                        i.attributes.time = timeago(dateTmp);
-                        i.attributes.content = urlToLink(i.attributes.content);
-                        app.contents.push(i);
-                    })
-                }
-
-            }, function (error) {
-            });
-        }
-
-        getData(0);
-
-        query.count().then(function (count) {
-            app.count = count;
-        }, function (error) {
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
         });
-    </script>
+        
+    });
+</script>
 
     
+
+</main>
+
 
 
 

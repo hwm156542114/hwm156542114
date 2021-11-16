@@ -1,0 +1,3131 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JAVA复习面试, MrHou">
+    <meta name="description" content="Java基础复习
+Java和c++的区别：
+
+
+首先是都是面向对象的编程语言
+其次Java是没有指针，对内存管理更加安全
+Java是单继承的，c++是多继承的，但是Java的接口是多继承的
+Java有自动的垃圾回收机制，无需手动释放内存
+J">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JAVA复习面试 | MrHou</title>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.iohttps://img0.baidu.com/it/u=1040699198,4243503392&fm=26&fmt=auto">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/css/my.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/jquery/jquery.min.js"></script>
+
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+    
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+    
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+    
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+    
+   
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="MrHou" type="application/atom+xml">
+</head>
+
+
+
+   <style>
+    body{
+       background-image: url(https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/11.jpg);
+       background-repeat:no-repeat;
+       background-size: 100% 100%;
+       background-attachment:fixed;
+    }
+</style>
+
+
+
+
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">MrHou</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/bb" class="waves-effect waves-light">
+      
+      <i class="fas fa-comment" style="zoom: 0.6;"></i>
+      
+      <span>哔哔</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/navigate" class="waves-effect waves-light">
+      
+      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      
+      <span>导航</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">MrHou</div>
+        <div class="logo-desc">
+            
+            Nothing is impossible��Nerver give up ~~~
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-home"></i>
+			
+			首页
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/bb" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comment"></i>
+			
+			哔哔
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/navigate" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-location-arrow"></i>
+			
+			导航
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://hwm156542114.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://hwm156542114.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JAVA复习面试</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        background-color: rgb(255, 255, 255,0.7);
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-11-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-11-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    19.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    66 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Java基础复习"><a href="#Java基础复习" class="headerlink" title="Java基础复习"></a>Java基础复习</h1><blockquote>
+<p>Java和c++的区别：</p>
+</blockquote>
+<ol>
+<li>首先是都是面向对象的编程语言</li>
+<li>其次Java是没有指针，对内存管理更加安全</li>
+<li>Java是单继承的，c++是多继承的，但是Java的接口是多继承的</li>
+<li>Java有自动的垃圾回收机制，无需手动释放内存</li>
+<li>Java只支持方法的重载，但是c++支持方法重载和操作符的重载</li>
+</ol>
+<blockquote>
+<p>import java 和javax有什么区别：</p>
+</blockquote>
+<p>​    没有本质的区别，因为当时javax是java api的扩展包，随着时间的推移，javax的api包，逐渐称为java扩展api的一部分，但是合并javax包到Java包中太麻烦，所以将javax作为Java标准api的一部分</p>
+<blockquote>
+<p>字符型常量和字符串常量的区别：</p>
+</blockquote>
+<ol>
+<li>一个是单引号引用，一个是双引号引用，长度可以为0</li>
+<li>字符型常量相当于一个ascll值，可以参与运算，但是字符串常量代表的是一个地址值(存放在内存中的地址值)</li>
+<li>字符型常量的长度是2个字节，另一个占若干个字符</li>
+</ol>
+<blockquote>
+<p>java中的注释有几种：</p>
+</blockquote>
+<ol>
+<li>单行注释</li>
+<li>多行注释</li>
+<li>文本注释</li>
+</ol>
+<blockquote>
+<p>continue、break、和 return 的区别是什么？</p>
+</blockquote>
+<ol>
+<li>跳出当前循环，下面的循环继续进行</li>
+<li>跳出整个循环体</li>
+<li>返回 ：<ol>
+<li>返回一个特定的值</li>
+<li>直接返回，相当于方法的结束</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>== 和equals的区别：</p>
+</blockquote>
+<p>==对于基本数据类型是值的比较，对于引用类型，比较的是引用比较，equals是引用比较，但是有的类重写了equals方法，例如String，Interger将引用比较变成了值比较</p>
+<blockquote>
+<p>为什么重写equals就必须重写hashcode？</p>
+</blockquote>
+<p>​    因为如果两个对象的hashcode的值相等，但是两个对象不是相等的，那么他们存储就会存在问题，所以重写equals也必须重写hashcode的算法来实现</p>
+<p>例子：现在我们new两个对象，这两个对象都是自定义的相同的属性，如果这里我们不重写equals方法和hashcode方法，那么我们会发现计算这两个hashcode的值是不同的，但是实际上属性是相同的，那么存储到hashmap中，就会发现存储了两个一样的对象，因此在重写了equals方法之后，必须重写hashcode的计算方法，否则会出现存储的元素重复情况。</p>
+<blockquote>
+<p>介绍一下hashcode</p>
+</blockquote>
+<p>​    hashcode（）这个方法是返回一个int类型的值，这个值对应的就是对象存储在散列表中的位置</p>
+<blockquote>
+<p>为什么要有hashcode</p>
+</blockquote>
+<p>​    因为在散列表中存储对象的时候，如果没有hashcode，那么就以hashset为例子，我们需要对每个地址中的对象都进行equals比较，这样耗费太多的时间与性能，所以用hashcode就很好的解决了这个问题，我们首先在存储对象的时候，可以先根据这个对象所算出的散列值在散列表中查找，如果已经存在那么就不用再进行重复插入了，这个值已经存在，如果没有那么就可以进行插入。</p>
+<blockquote>
+<p>为什么两个对象有相同的hashcode值，但是他们却不相等</p>
+</blockquote>
+<p>​    因为这个涉及到hash算法的问题，越简单的算法就代表着重复的可能性会越高，所以不可避免的就是hashcode可能一样，但是对象不一样，以hashset为例子，在存储对象的时候，如果两个对象的hashcode值是相同的，这时候会用equals进行比较，如果相同那么就不会进行插入，如果不相同就会散列到其他位置</p>
+<blockquote>
+<p>Java中有哪几种数据类型：</p>
+</blockquote>
+<p>​    有八种数据类型：</p>
+<p>​        数字类型：byte、short、int、long、float、double</p>
+<p>​        字符类型：char</p>
+<p>​        布尔类型：Boolean</p>
+<blockquote>
+<p>自动装箱与拆箱</p>
+</blockquote>
+<p>​    装箱：将基本数据类型包装成对应的引用类型</p>
+<p>​        实质上：装箱就是用了valueof（）方法</p>
+<p>​    拆箱：将引用类型转换为基本数据类型</p>
+<p>​        实质上：拆箱就是用了***value（）方法</p>
+<blockquote>
+<p>什么是方法的返回值</p>
+</blockquote>
+<p>​    就是一个方法执行后，得到的结果</p>
+<blockquote>
+<p>方法有哪几种类型</p>
+</blockquote>
+<ol>
+<li>无参无返回值</li>
+<li>无参有返回值</li>
+<li>有参无返回值</li>
+<li>有参有返回值</li>
+</ol>
+<blockquote>
+<p>在静态方法内调用一个非静态成员为什么是违法的</p>
+</blockquote>
+<p>​    因为静态方法是属于类的，在类加载的时候，就会分配内存给静态方法，因此静态方法可以用过类来调用，但是非静态成员是属于对象的，只有当对象创建的时候，非静态成员才会被创建，因此在类加载的时候调用内存中不存在的非静态成员是违法的。</p>
+<blockquote>
+<p>静态方法和实例方法有什么不同</p>
+</blockquote>
+<p>​    这里有两处不同：</p>
+<ol>
+<li><p>首先是方法的调用方式不同：</p>
+<p>静态方法可以通过类名.方法名或者对象.方法名进行调用，但是实例方法只能是对象.方法名，但是为了不混淆，静态方法还是使用类型.方法名进行调用</p>
+</li>
+<li><p>成员变量访问限制：</p>
+<p>静态方法只能访问静态变量，但是实例方法都可以访问</p>
+</li>
+</ol>
+<blockquote>
+<p>Java是按值传递的，不是按引用传递的</p>
+</blockquote>
+<ol>
+<li>一个方法不能改变基本类型参数的值</li>
+<li>一个方法可以改变对象的状态，但是不能让对象参数引用另一个对象</li>
+</ol>
+<blockquote>
+<p>重写和重载：</p>
+</blockquote>
+<ol>
+<li>重载：<ol>
+<li>方法的重载一般是发生在一个类中，重载的方法必须有着相同的方法名，但是参数类型的数量、顺序、方法返回值和访问修饰符都可以不同</li>
+<li>编译器在进行重载方法的匹配时，叫做重载解析</li>
+</ol>
+</li>
+<li>重写：<ol>
+<li>发生在父类和子类中，方法重写返回值类型、方法名以及参数都必须一致</li>
+<li>这里返回值类型可以小于等于父类的返回值类型</li>
+<li>抛出的异常可以小于等于返回值类型</li>
+<li>访问修饰符要大于等于父类的访问修饰符</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>深拷贝和浅拷贝：</p>
+</blockquote>
+<ul>
+<li>浅拷贝：就是增加了一个新的指针，指向了原来的内存地址，当原地址发生变化，新的指针也跟着变化</li>
+<li>深拷贝：也是增加了一个新指针，但是指向了一个新的内存地址，当原地址发生改变，新指针不会发生变化</li>
+</ul>
+<blockquote>
+<p>面向对象和面向过程的区别</p>
+</blockquote>
+<ul>
+<li>面向对象：面向对象没有面向过程的性能高，但是由于面向对象有着封装、继承、多态这些特性，所以有着易维护、易扩展、易复用的特点</li>
+<li>面向过程：面向过程性能比面向对象高，但是类调用需要实例化，开销比较大。</li>
+</ul>
+<blockquote>
+<p>成员变量和局部变量的区别：</p>
+</blockquote>
+<ul>
+<li>成员变量可以被访问修饰符所修饰，但是局部变量不能，不过这里特殊情况就是他们都能被final所修饰</li>
+<li>成员变量随着对象创建而产生，局部变量随着方法调用而消失</li>
+<li>成员变量在对象实例化的时候会被赋给类型的默认值，但是局部变量不行</li>
+<li>如果有static修饰符，那么成员变量时属于类的，但是如果成员变量没有static修饰符，就是数据实例化对象的。对象存储在堆中，而局部变量存储在栈中</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">创建一个对象用new运算符
+
+对象实例存在与堆内存中，对象引用存在与栈内存中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<blockquote>
+<p>对象的相等和指向他们引用的相等有什么区别</p>
+</blockquote>
+<p>​    对象的相等指的是对象的值相等，而对象引用的相等时指向他们内存的地址相等</p>
+<blockquote>
+<p>一个类的构造方法有什么作用？如果没有构造方法程序是否能正确执行，为什么</p>
+</blockquote>
+<ul>
+<li>完成类的初始化工作</li>
+<li>没有构造方法程序时可以执行的，因为即使类中没有声明构造方法，也会有默认的无参构造方法，如果有我们创建的构造方法，那么就必须使用我们自己创建的构造方法来初始化一个对象、</li>
+</ul>
+<blockquote>
+<p>构造方法有哪些特点，可以被override吗？</p>
+</blockquote>
+<ul>
+<li>构造方法的名字必须和类名相同</li>
+<li>构造方法没有返回值，不能用void声明构造函数</li>
+<li>构造方法自动执行，无需调用</li>
+<li>构造方法不能被override，但是可以被重载，一个类中可以有多个构造方法</li>
+</ul>
+<blockquote>
+<p>面向对象的三大特征：</p>
+</blockquote>
+<ul>
+<li>封装：就是将对象中的属性，全部隐藏在对象内部，外部对象不能直接操作对象内部的属性，只能通过对象内部提供的方法来操作属性</li>
+<li>继承：通过已有的类，创建出新类，也就是子类继承父类，子类拥有父类的所有属性和方法，并且子类可以重写父类的方法，以及可以定义自己的属性及方法，这里子类拥有父类的所有属性，但是不能直接访问父类的属性，只是拥有</li>
+<li>多态：就是继承了父类或者接口的类，以多种不同的形态进行展示</li>
+</ul>
+<blockquote>
+<p>String为什么是不可变的？</p>
+</blockquote>
+<p>​    因为String类中，是以final来定义字符串存储的数组，所以是不可变的</p>
+<p>​    Java9之后，就改变成byte数组来进行存储字符串</p>
+<blockquote>
+<p>StringBuffer和StringBuilder以及String的区别：</p>
+</blockquote>
+<ul>
+<li>StringBuffer和StringBuilder都继承了abstractStringBuilder类，在abstractStringBuilder中，保存字符串的修饰符并没有final字段进行限制</li>
+<li>String中的对象是不可变的，所以可以理解为常量，线程安全，StringBuffer中的方法都加了同步锁，线程也是安全的，但是StringBuilder没有同步锁，所以线程是不安全的，但是StringBuilder的性能比StringBuffer的性能高处10％-15％</li>
+<li>综上所述：<ul>
+<li>操作少量数据用String</li>
+<li>单线程下，操作大量数据使用StringBuilder</li>
+<li>多线程下，操作大量数据使用StringBuffer</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>何为反射？</p>
+</blockquote>
+<ul>
+<li>反射就是在运行期间，我们拥有执行类的方法和分析类的能力</li>
+<li>反射可以获取类的所有属性和方法，并且可以调用执行方法</li>
+</ul>
+<blockquote>
+<p>反射机制的优缺点：</p>
+</blockquote>
+<ul>
+<li>优点：可以让代码更加灵活，为各种框架提供开箱即用的便利性</li>
+<li>缺点：让我们在运行期间拥有分析类和执行类的能力，这也造成了安全问题，性能也会有一定的影响</li>
+</ul>
+<blockquote>
+<p>什么事序列化，什么是反序列化？</p>
+</blockquote>
+<ul>
+<li>序列化：就是将要持久化的对象转换成机器能识别的二进制字节流的过程</li>
+<li>反序列化：就是将二进制字节流转换成我们的对象</li>
+</ul>
+<blockquote>
+<p>final关键字总结：</p>
+</blockquote>
+<ul>
+<li>final关键字意为最终的，不可修改的，可以用来修饰类，方法以及变量<ul>
+<li>用来修饰类：那么类不能被继承，而且这个类的所有成员方法都被隐式的用final修饰了</li>
+<li>用来修饰方法：那么这个方法不能被重写</li>
+<li>用来修饰变量：如果是基本类型，那么初始化后就不能被修改，如果是引用类型，那么在初始化之后，就不能指向别的对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><h3 id="静态代理"><a href="#静态代理" class="headerlink" title="静态代理"></a>静态代理</h3><p>​    类中的所有接口都需要实现，一旦接口发生了改变，那么代理对象的方法也必须重写，因此会很麻烦</p>
+<h3 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h3><p>​    动态代理，不需要实现所有的接口，可以针对我们需要代理的对象，然后实现其方法</p>
+<p>对比：动态代理比静态代理更加灵活，静态代理在编译的时候就将接口，实现类以及代理类变成了.class文件，而动态代理是在运行期将代理类，接口实现变成二进制字节码加载进jvm中</p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><blockquote>
+<p>集合存放单一元素：Collection接口</p>
+</blockquote>
+<h3 id="collection接口"><a href="#collection接口" class="headerlink" title="collection接口"></a>collection接口</h3><h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><ul>
+<li><p>ArrayList</p>
+<ul>
+<li><p>arrayList：object[]数组</p>
+<ul>
+<li><p>怎么进行初始化的？</p>
+<ul>
+<li>如果是默认无参构造，那么就会置为一个空数组</li>
+<li>如果是有参，参数是大小，那么就会根据这个大小进行初始化数组的大小</li>
+<li>如果参数是集合，首先判断传过来的集合大小是否为空，空则置为空数组，不为空就进行数组拷贝，数组大小就是集合传过来的数据大小</li>
+</ul>
+</li>
+<li><p>怎么进行增删改查的？（<strong>扩容根据数据添加来讲解</strong>）</p>
+<ul>
+<li>增：首先判断数组是否为空，如果为空就将数组设为默认的大小10，然后进入到扩容判断，扩容判断是根据当前数组的大小和元素添加进数组之后的大小进行比较，如果大于那么就需要进行扩容，创建一个新数组，数组长度是原来数组的1.5倍，然后进行数组拷贝。</li>
+<li>删：根据下标进行删除</li>
+<li>改：set方法，首先判断下标是否越界，然后将旧值记录，将新值写入，返回旧值</li>
+<li>查：通过下标进行查找</li>
+</ul>
+</li>
+<li><p>如何解决线程安全？线程不安全表现？</p>
+<ul>
+<li>线程不安全表现：<ul>
+<li>输出值为null;</li>
+<li>数组越界异常;</li>
+<li>某些线程没有输出值;</li>
+<li>public static void main(String[] args) throws InterruptedException {<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+for (int i =1; i&lt;=30 ; i++) {
+    new Thread(() -&gt; {
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        list.add("d");
+        System.out.println(list.toString());
+    }).start();
+}
+</code></pre>
+}</li>
+</ul>
+</li>
+<li>解决办法：Vector、Collections.synchronizedList()、CopyOnWriteArrayList<ul>
+<li>Vector在方法上添加了synchronize的锁，对代码进行加锁，力度大，所以代码执行效率低下</li>
+<li>CopyOnWrite容器即写时复制的容器。往一个容器添加元索的时候，不直接往当前容器Object[]添加，而是先将当前容器Object[]进行Copy,复制出一个新的容器object[] newElements,然后往新的容器object[] newElements 里添加元素，添加完元素之后，再将原容器的引用指向新的容器setArray(newElements);。 这样做的好处是可以CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite 容器也是一种读写分离的思想，读和写不同的容器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>频繁扩容带来的影响？如何解决？</p>
+<ul>
+<li>添加效率低，可以通过初始化的时候设置容量大小，不过这样浪费空间。<strong>以空间换时间</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>LinkedList：jdk1.6之前是循环链表，之后变成了双向链表</p>
+<ul>
+<li>如何进行增删改查的？<ul>
+<li>增：可以通过头插法和尾插法进行（<strong>中间插入</strong>：通过获取当前要插入节点的前面一个节点，然后通过指针进行添加），主要设置前驱节点后后驱节点的指向</li>
+<li>删：删除头结点或者尾节点</li>
+<li>改：首先查找要修改的节点，进行遍历找到，通过旧值返回，新值覆盖的操作进行修改。</li>
+<li>查：通过下标索引进行查找，主要是遍历整个链表进行数据的返回</li>
+</ul>
+</li>
+<li>线程安全？如何解决？什么情况下出现不安全？<ul>
+<li>线程是不安全的</li>
+<li>解决：Collections.synchronizedList()、ConcurrentLinkedQueue</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Vector：object[]数组 <strong>线程安全！</strong></p>
+</li>
+</ul>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><ul>
+<li><p>HashSet</p>
+<ul>
+<li>底层用的hashMap存储数据</li>
+<li>LinkHashSet：其实是hash set的子类，不过底层用的是LinkHashMap进行存储元素的</li>
+<li>TreeSet：红黑树（自平衡的二叉树）</li>
+</ul>
+</li>
+<li><p>LinkedHashSet</p>
+</li>
+<li><p>TreeSet</p>
+</li>
+</ul>
+<h4 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h4><ul>
+<li>queue<ul>
+<li>PriorityQueue：object[]数组</li>
+<li>ArraryQueue：object[]数组+双指针</li>
+</ul>
+</li>
+<li>dequeue：双端队列<ul>
+<li>怎么实现双端队列的?</li>
+</ul>
+</li>
+</ul>
+<h3 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h3><p>三大接口：</p>
+<ul>
+<li>hashTable</li>
+<li>hashMap</li>
+<li>SortedMap</li>
+</ul>
+<h4 id="HashMap详解"><a href="#HashMap详解" class="headerlink" title="HashMap详解"></a>HashMap详解</h4><h5 id="jdk1-7的hashmap："><a href="#jdk1-7的hashmap：" class="headerlink" title="jdk1.7的hashmap："></a>jdk1.7的hashmap：</h5><ol>
+<li><p>hashmap的构造方法，基本上都是初始化一些基本参数，比如默认的容量为16，默认的负载因子是0.75，还有阈值是通过计算得出的</p>
+<ol>
+<li><p>为什么初始化的数组都是2的幂次</p>
+<ol>
+<li><p>方便与运算</p>
+<p>因为我们计算出来了hash值之后，还需要根据hash值计算出对应的数组下标，而这里的计算都是通过<strong>与运算</strong>进行的，所以都需要转换成二进制进行计算，如果此时数组的长度不是2的幂次，那么得到的与运算只是数组下标的部分值。</p>
+</li>
+<li><p>均匀分布</p>
+<p><strong>为2的幂次</strong>，length-1 为奇数，奇数的二进制最后一位是 1，这样便保证了 hash &amp;(length-1) 的最后一位可能为 0，也可能为 1（这取决于 h 的值），即 &amp; 运算后的结果可能为偶数，也可能为奇数，<strong>这样便可以保证散列的均匀性</strong>。</p>
+<p>而如果 length 为奇数的话，很明显 length-1 为偶数，它的最后一位是 0，这样 hash &amp; (length-1) 的最后一位肯定为 0，即只能为偶数，这样任何 hash 值都只会被散列到数组的<strong>偶数下标位置</strong>上，这便<strong>浪费了近一半的空间</strong></p>
+</li>
+</ol>
+</li>
+<li><p>为什么计算hashcode需要右移以及进行异或运算？</p>
+<p>用与运算计算完之后，会发现我们都是用低四位进行运算的，而高四位并没有进行运算，因此再进行了与运算之后，又将获取到的结果进行异或运算，这样高四位也得到了使用，这样就<strong>使散列更加均匀，减少了hash冲突的问题</strong>。</p>
+</li>
+<li><p>当我们存入的对象键是相同的，会进行怎么样的操作</p>
+<p>会将原来的值进行覆盖</p>
+</li>
+<li><p>扩容机制：</p>
+<p>在1.7的扩容机制是先判断是否扩容，再进行添加的，而在1.8之后，就是先插入后进行扩容的判断。</p>
+<p>怎么进行扩容的？</p>
+<p>​    1.7的扩容机制，首先判断size的大小是否超出阈值，如果超出了就会进行扩容，首先将数组的大小扩容到原来的两倍，也就是新创建一个数组，这个数组是原来的两倍，然后遍历这个数组中的链表，通过hashcode进行计算，是否需要rehash，如果得到的数组下标不变，那么就直接将这个链表转移到新的数组上，如果下标发生变化，就需要重新计算下标的值，然后将链表转移过去。</p>
+</li>
+</ol>
+</li>
+<li><p>插入：jdk1.7的HashMap的插入，实际上就是根据key然后算出一个hashcode，然后根据hashcode的值来找到相应的地址，然后将对象插入进去，当然在插入的过程中是很有可能发生hash冲突的，因此解决hash冲突我们需要将此节点下加上链表，使用链表进行冲突元素的存储，而且存储冲突元素是根据头插法进行插入的。将冲突元素插入到头部之后，还需要将头节点移动到数组下表位置，否则遍历的时候找不到头结点的元素。</p>
+<ol>
+<li><p>为什么使用<strong>头插法</strong>呢？ </p>
+<p>因为头插法效率比尾插法高，因为使用头插法可以直接将当前要插入的元素的引用指向头结点就可以的，但是如果使用尾插法，那么我们还需要遍历整个链表，直到找到链表的尾部才能进行插入</p>
+</li>
+</ol>
+</li>
+<li><p>get方法：首先是通过key值计算hash，然后通过hash计算出数组的下标，然后找到这个数组下表对应的key值所对应的元素</p>
+</li>
+</ol>
+<h5 id="jdk1-8的hashMap·"><a href="#jdk1-8的hashMap·" class="headerlink" title="jdk1.8的hashMap·"></a>jdk1.8的hashMap·</h5><ol>
+<li><p>为什么1.8中新加了红黑树代替了链表？</p>
+<p>因为对链表的添加很方便，但是遍历就会很麻烦，而红黑树对于添加和遍历都是差不多的，因此将红黑树代替了链表</p>
+</li>
+<li><p>为什么链表默认值大于等于8的时候变成红黑树，而链表默认值小于等于6的时候是链表，这两个临界值为什么不一样</p>
+<p>因为当我们在这个临界值左右频繁的做增删操作的时候，如果这个临界值是一样的，那么就会导致频繁的在链表和红黑树之间进行转换，这样会严重的影响map的效率。</p>
+</li>
+<li><p>put方法：</p>
+<p>首先根据key来计算hashcode，然后根据hashcode计算数组下标的位置，这里的计算也是同1.7一样，用与和异或来计算出来的，计算出来之后，就将这个元素插入进去，不过这里是尾插法，不再是1.7的头插法了；因为我们需要判断链表的长度，所以无论如何我们都需要对链表进行遍历，因此这里使用<strong>尾插法</strong>来插入元素，在插入过程中，依然会对这个键进行判断，如果重复则会进行覆盖。</p>
+</li>
+</ol>
+<h5 id="线程安全问题"><a href="#线程安全问题" class="headerlink" title="线程安全问题"></a>线程安全问题</h5><p>Hashmap是线程不安全的</p>
+<ul>
+<li>为什么不安全？<ol>
+<li>插入的时候不安全，如果此时有两个线程进来进行插入操作，插入的对象计算出来的下标是一样的，那么如果此时线程一进行插入操作之后，紧接着线程二也进行插入操作，那么就会出现线程二插入的数据覆盖了线程一所插入的数据</li>
+<li>针对1.7扩容会出现<strong>死循环问题</strong>，因为1.7中使用的是头插法，比如现在两个线程都检测到hashmap应该进行扩容操作，那么线程会同时进行扩容，因为是头插法，会将之前的数据倒序，这样如果第一个线程记录了头结点以及头结点的next节点，但是此时线程一被挂起，线程二进行执行，并且完成了扩容操作，那么线程一此时指向的节点就是扩容后链表的尾节点，那么进行遍历会将尾节点的next指针指向前一个节点，这样就形成了一个环</li>
+</ol>
+</li>
+</ul>
+<p><strong>解决办法？</strong></p>
+<ul>
+<li>Hashtable：对put和get方法直接加了synchronized互斥锁，效率很低，不长用</li>
+<li>ConcurrentHashMap</li>
+<li>Collections.synchronizedMap：也是加了synchronized</li>
+</ul>
+<h4 id="LinkedHashMap详解"><a href="#LinkedHashMap详解" class="headerlink" title="LinkedHashMap详解:"></a>LinkedHashMap详解:</h4><blockquote>
+<p>LinkedHashMap的底层实现因为它是继承HashMap，所以也是通过数组、链表和红黑树完成的，当然区别在于LinkedHashMap增加了两个指针，用于双向链表的维护。</p>
+</blockquote>
+<ol>
+<li><p>添加元素操作</p>
+<p>LinkedHashMap的插入操作其实是重写了HashMap的插入操作，只不过因为LinkedHashMap中有双向链表的操作，而HashMap中没有，因此在重写的方法中，添加了对双向链表的操作，首先将插入的元素new了一个新的Entry对象，然后将这个新的对象插入到链表中，然后通过后置的LinkNodeLast方法将两个指针指向链表的前置和后置</p>
+</li>
+<li><p>删除元素的操作</p>
+<p>删除元素的操作，在LinkedHashMap中，其实也是重写了HashMap的remove方法，只不过这里还重写了一个AfterNodeRemove方法，这个方法就是在删除了节点之后的操作</p>
+<p>主要的步骤：</p>
+<ol>
+<li>首先定位要删除的节点位置</li>
+<li>然后删除这个节点</li>
+<li>之后删除双向链表的指向</li>
+</ol>
+</li>
+<li><p>访问顺序的维护</p>
+<p>LinkedHashMap是按插入顺序维护链表的，不过我们可以在初始化的时候指定accessOrder为ture。这样就是使他按访问顺序维护链表，当我们访问一个节点的时候，就会将这个节点移到末尾。</p>
+</li>
+</ol>
+<h4 id="ConcurrentHashmap详解：-https-blog-csdn-net-zycxnanwang-article-details-105424734-https-blog-csdn-net-wangnanwlw-article-details-111587507"><a href="#ConcurrentHashmap详解：-https-blog-csdn-net-zycxnanwang-article-details-105424734-https-blog-csdn-net-wangnanwlw-article-details-111587507" class="headerlink" title="ConcurrentHashmap详解：(https://blog.csdn.net/zycxnanwang/article/details/105424734)(https://blog.csdn.net/wangnanwlw/article/details/111587507)"></a>ConcurrentHashmap详解：(<a target="_blank" rel="noopener" href="https://blog.csdn.net/zycxnanwang/article/details/105424734)(https://blog.csdn.net/wangnanwlw/article/details/111587507)">https://blog.csdn.net/zycxnanwang/article/details/105424734)(https://blog.csdn.net/wangnanwlw/article/details/111587507)</a></h4><h5 id="1-7ConcurrentHashmap"><a href="#1-7ConcurrentHashmap" class="headerlink" title="1.7ConcurrentHashmap"></a>1.7ConcurrentHashmap</h5><p>数据结构：Segment数组加链表</p>
+<p><strong>怎么保证线程安全的？</strong></p>
+<p>主要是通过获取Segment分段锁来保证线程安全的。</p>
+<ul>
+<li><p>get操作</p>
+<p>1.7的时候，get操作并没有加锁，因为它所有的共享变量都定义成volatile类型，保证了变量在线程间的可见性</p>
+</li>
+<li><p>put操作</p>
+<p>1.7的时候，首先获取segment锁，然后判断是否扩容，再进行添加操作</p>
+</li>
+</ul>
+<h5 id="1-8ConcurrentHashmap"><a href="#1-8ConcurrentHashmap" class="headerlink" title="1.8ConcurrentHashmap"></a>1.8ConcurrentHashmap</h5><p>数据结构：数组+链表+红黑树</p>
+<p><strong>怎么保证线程安全的？</strong></p>
+<ul>
+<li><p>初始化数组的时候怎么保证线程安全的？</p>
+<p>在JDK1.8中，初始化ConcurrentHashMap的时候这个Node[]数组是还未初始化的，会等到第一次put方法调用时才初始化，线程如果要进行初始化，首先会通过CAS操作将标志位置为-1，别的线程同时进来进行初始化的时候，如果标志位不为0，那么就会等待，进来的线程就会完成初始化操作，这样就保证了只有一个线程完成初始化工作。</p>
+</li>
+<li><p>put操作怎么保证线程安全的?<br>putValue函数，首先调用spread函数，计算hash值，之后进入一个自旋循环过程，直到插入或替换成功，才会返回。如果table未被初始化，则调用initTable进行初始化。之后判断hash映射的位置是否为null,如果为null,直接通过CAS自旋操作，插入元素成功，则直接返回，如果映射的位置值为MOVED(-1),则直接去协助扩容，排除以上条件后，尝试对链头Node节点f加锁，加锁成功后，链表通过尾插遍历，进行插入或替换。红黑树通过查询遍历，进行插入或替换。之后如果当前链表节点数量大于阈值，则调用treeifyBin函数，转换为红黑树最后通过调用addCount,执行CAS操作，更新数组大小，并且判断是否需要进行扩容</p>
+</li>
+<li><p>扩容怎么保证线程安全？</p>
+<ol>
+<li>构建一个nextTable，大小为table的两倍。</li>
+<li>把table的数据复制到nextTable中。</li>
+</ol>
+</li>
+<li><p>get怎么保证线程安全？</p>
+<ul>
+<li><p>判断table是否为空，如果为空，直接返回null；</p>
+</li>
+<li><p>首先计算hash值，定位到该table索引位置，如果是首节点符合就返回；</p>
+</li>
+<li><p>如果遇到扩容的时候，会调用标志正在扩容节点ForwardingNode的find方法，查找该节点，匹配就返回</p>
+</li>
+<li><p>hash值为负值表示正在扩容，这个时候查的是ForwardingNode的find方法来定位到nextTable（扩容新数组）</p>
+<ul>
+<li>eh=-1，说明该节点是一个ForwardingNode，正在迁移，此时调用ForwardingNode的find方法去nextTable里找。</li>
+<li>eh=-2，说明该节点是一个TreeBin，此时调用TreeBin的find方法遍历红黑树，由于红黑树有可能正在旋转变色，所以find里会有读写锁。</li>
+</ul>
+</li>
+<li><p>以上都不符合的话，就往下遍历节点，匹配就返回，否则最后就返回null</p>
+</li>
+<li><p>eh&gt;=0，说明该节点下挂的是一个链表，直接遍历该链表即可。 通过遍历链表或则树结构找到对应的节点，返回value值。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="HashTable详解"><a href="#HashTable详解" class="headerlink" title="HashTable详解"></a>HashTable详解</h4><ul>
+<li>底层数据结构：数组+链表</li>
+<li>通过对方法加synchronize保证了线程安全，性能很差</li>
+<li>初始化默认的容量为11，扩容机制就是2n+1</li>
+</ul>
+<h4 id="TreeMap底层实现："><a href="#TreeMap底层实现：" class="headerlink" title="TreeMap底层实现："></a>TreeMap底层实现：</h4><p>底层数据结构：红黑树</p>
+<p>弄清楚了红黑树，基本上TreeMap就没有什么秘密了</p>
+<h4 id="红黑树详解："><a href="#红黑树详解：" class="headerlink" title="红黑树详解："></a>红黑树详解：</h4><blockquote>
+<p>定义：红黑树是一个自平衡的二叉树，一种高效的查找树，可以在O(logN）时间内完成增删查等操作。</p>
+</blockquote>
+<blockquote>
+<p>性质：</p>
+<ol>
+<li>节点是红色或者黑色</li>
+<li>根是黑色</li>
+<li>所有叶子都是黑色</li>
+<li>每个红色节点必须有两个黑色子节点，并且不能出现连续的两个红色节点</li>
+<li>从任意节点到叶子节点，包含的黑色节点都是相同的</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>插入：</p>
+</li>
+<li><p>删除：</p>
+</li>
+</ol>
+<h3 id="List、set、queue、Map的区别？"><a href="#List、set、queue、Map的区别？" class="headerlink" title="List、set、queue、Map的区别？"></a>List、set、queue、Map的区别？</h3><blockquote>
+<p>List、set、queue、map的区别：</p>
+</blockquote>
+<p>List：存储的数据是有序的，可重复的</p>
+<p>set：存储的数据是无序的，不可重复的</p>
+<p>queue：按照特定的顺序进行存储，数据可以重复</p>
+<p>map：通过键值对进行存储，key只能是唯一的，value可以是重复的，他们都是无序的</p>
+<h2 id="并发基础"><a href="#并发基础" class="headerlink" title="并发基础"></a>并发基础</h2><ol>
+<li><p>什么是进程？</p>
+<p>比如在电脑上运行一个程序，进程就是这个程序运行的基本单位，程序的一次运行就代表着进程的创建，运行到消亡的过程，因此进程是动态的。‘</p>
+</li>
+<li><p>什么是线程<br>线程是比进程更小的执行单位，一个进程中可以包含多个线程，与进程不同的是，同类的多个线程共享进程区的堆和方法区资源，而每个线程又拥有自己的程序计数器、虚拟机栈、本地方法栈。线程又被称为轻量级进程</p>
+</li>
+</ol>
+<h3 id="对象的创建过程："><a href="#对象的创建过程：" class="headerlink" title="对象的创建过程："></a>对象的创建过程：</h3><ol>
+<li>类加载检查：虚拟机遇到了new指令的时候，首先会检查这个指令的参数是否能在常量池中定位到这个类的引用，然后检查这个符号引用代表的类是否存在，如果不存在才会进行类加载过程</li>
+<li>分配内存：在类加载完成之后，虚拟机就会分配一块堆的内存给这个对象。分配的方式有两种，这取决于Java堆是否规整，Java堆是否规整又取决于垃圾收集器是否带有压缩整理功能<ol>
+<li>指针碰撞：适用于堆内存规整的情况，用过的内存全部分配到一边，没用过的内存全部分配到另一边，并且中间有一个分界指针</li>
+<li>空闲列表：适用于对内存不规整的情况，虚拟机通过维护一个列表来分配内存，它会找一个足够大的堆内存划分给对象实例</li>
+</ol>
+</li>
+<li>初始化零值</li>
+<li>设置对象头</li>
+<li>执行init方法</li>
+</ol>
+<h3 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h3><ol>
+<li>句柄<br>通过句柄访问的话，首先在Java堆中就会分配一块内存用于存储句柄池，句柄池中存储着到对象实例和对象类型的指针；实例池存在于Java堆中，而对象类型则存储在方法区中</li>
+<li>直接指针<br>如果使用直接指针，那么reference指向的直接就是对象实例的数据，这时候我们就需要考虑如何存放数据类型的相关信息</li>
+</ol>
+<h3 id="程序计数器为什么是私有的？"><a href="#程序计数器为什么是私有的？" class="headerlink" title="程序计数器为什么是私有的？"></a>程序计数器为什么是私有的？</h3><p>​    主要是因为线程切换后，能正确的恢复到执行位置</p>
+<p>​    程序计数器的作用：</p>
+<pre><code>1. 字节码解释器通过改变程序计数器来执行指令，从而实现代码的流程控制
+2. 在多线程的情况下，程序计数器用于记录当前线程执行的位置，从而能在线程切换回来的时候知道上次运行到哪了
+</code></pre>
+<h3 id="虚拟机栈和本地内存栈为什么是私有的？"><a href="#虚拟机栈和本地内存栈为什么是私有的？" class="headerlink" title="虚拟机栈和本地内存栈为什么是私有的？"></a>虚拟机栈和本地内存栈为什么是私有的？</h3><p>虚拟机栈：因为每个Java方法在执行的同时都会创建一个栈针用于存储局部变量表，操作数栈，常量池引用等信息，从方法的执行到完成对应着，栈针在虚拟机栈中的入栈和出栈操作</p>
+<p>本地内存栈：和虚拟机栈的作用是相同的，区别在于本地内存栈是为Native方法服务的，而虚拟机栈是为Java方法服务的。</p>
+<h3 id="简单的介绍一下堆和方法区"><a href="#简单的介绍一下堆和方法区" class="headerlink" title="简单的介绍一下堆和方法区"></a>简单的介绍一下堆和方法区</h3><p>首先这两个都是线程的共享资源，堆是进程中最大的内存，主要用于存储新创建的对象，而方法区则用于存储已被加载的类信息、常量、静态变量等信息</p>
+<h3 id="并发和并行的区别"><a href="#并发和并行的区别" class="headerlink" title="并发和并行的区别"></a>并发和并行的区别</h3><p>并发：同一时间内多个任务同时进行</p>
+<p>并行：单位时间内，多个任务同时进行</p>
+<h3 id="为什么要使用多线程呢？"><a href="#为什么要使用多线程呢？" class="headerlink" title="为什么要使用多线程呢？"></a>为什么要使用多线程呢？</h3><p>从计算机底层原理解释：线程也称之为轻量级进程，是程序的最小执行单位，线程的切换和调用的成本远远小于进程。然后现代的多核CPU的出现意味着多个线程可以同时运行，减少上下文切换的开销。</p>
+<p>从互联网发展来看：现在的系统几乎都是要支持百万级甚至千万级的并发量，而多线程并发编程正是支持这些高并发的系统的基础，充分利用多线程就机制可以有效的提升高并发系统的性能</p>
+<h3 id="使用多线程可能带来什么问题"><a href="#使用多线程可能带来什么问题" class="headerlink" title="使用多线程可能带来什么问题"></a>使用多线程可能带来什么问题</h3><p>内存泄露、死锁、线程不安全</p>
+<h3 id="线程的生命周期和状态"><a href="#线程的生命周期和状态" class="headerlink" title="线程的生命周期和状态"></a>线程的生命周期和状态</h3><p>初始化-&gt;运行-&gt;阻塞-&gt;等待-&gt;超时等待-&gt;终止</p>
+<h3 id="什么是上下文切换"><a href="#什么是上下文切换" class="headerlink" title="什么是上下文切换?"></a>什么是上下文切换?</h3><p>上下文切换意思就是，保存当前线程运行的条件和状态，当下次切换到这个线程的时候，可以恢复上次的状态进行运行。</p>
+<h3 id="什么时候会发生上下文切换呢？"><a href="#什么时候会发生上下文切换呢？" class="headerlink" title="什么时候会发生上下文切换呢？"></a>什么时候会发生上下文切换呢？</h3><ol>
+<li>主动让出了cpu。例如调用了sleep（）、wait（）方法</li>
+<li>当前线程的时间片用完</li>
+<li>调用阻塞类型的系统中断</li>
+</ol>
+<h3 id="什么是线程死锁？如何避免死锁"><a href="#什么是线程死锁？如何避免死锁" class="headerlink" title="什么是线程死锁？如何避免死锁"></a>什么是线程死锁？如何避免死锁</h3><p>死锁：多个线程同时被阻塞，他们中的一个或者多个都在等待某个资源的释放，因为这些线程被无限期的阻塞，导致程序无法正常终止。</p>
+<p>产生死锁的必要条件：</p>
+<ol>
+<li>互斥条件：该资源任意时刻只能被一个线程占用</li>
+<li>请求与保持</li>
+<li>不剥夺</li>
+<li>循环等待</li>
+</ol>
+<p>如何预防死锁呢？（破坏产生死锁的必要条件）</p>
+<ol>
+<li>破坏请求与保持条件</li>
+<li>破坏不剥夺条件</li>
+<li>破坏循环等待条件</li>
+</ol>
+<p>如何避免死锁？</p>
+<p>就是在分配资源的时候借助算法（银行家算法）来对资源分配进行计算，使其进入安全状态</p>
+<p>安全状态：系统能够按照某种推进顺序，为每个进程分配所需的资源，直到进程所需的资源全部完成分配。</p>
+<h3 id="sleep和wait方法的异同"><a href="#sleep和wait方法的异同" class="headerlink" title="sleep和wait方法的异同"></a>sleep和wait方法的异同</h3><ol>
+<li>sleep没有释放锁，wait释放锁</li>
+<li>它们俩都可以暂停线程，但是wait通常用于线程的交互/通信，sleep通常用于线程的暂停</li>
+<li>sleep方法暂停之后可以让线程自动苏醒，但是wait方法不会，除非在wait方法上设置一个超时时间，那么时间超时后就会自动苏醒，但是如果不设置超时时间，那么就必须调用notify或者notifyall方法让线程苏醒</li>
+</ol>
+<h3 id="为什么不能直接调用run方法，而是需要调用start来执行run方法"><a href="#为什么不能直接调用run方法，而是需要调用start来执行run方法" class="headerlink" title="为什么不能直接调用run方法，而是需要调用start来执行run方法"></a>为什么不能直接调用run方法，而是需要调用start来执行run方法</h3><p>因为如果直接使用run方法，那么就会将这个线程当做为main方法下的线程来执行，并不是以线程的方式来执行。而使用start方法运行run方法的时候，首先线程会先进入就绪状态，当有时间片分配到当前线程的时候，才会运行run方法，这是线程的完整的执行流程。</p>
+<h3 id="对synchronize的理解"><a href="#对synchronize的理解" class="headerlink" title="对synchronize的理解"></a>对synchronize的理解</h3><ol>
+<li><p>synchronize主要是解决多个线程之间访问资源的同步性</p>
+</li>
+<li><p>synchronize可以保证被它修饰的方法或者代码块只能被一个线程执行</p>
+</li>
+<li><p>synchronize在jdk6之前被称之为重量级锁，因为在6之前，synchronize是依靠操作系统的mutex lock进行实现的，这就相当于我们对线程的操作，都需要依靠操作系统来配合完成，会花费很长的时间成本。在6之后对synchronize进行了很大的优化，这就让原始的synchronize不再是重量级锁了，因为6之后加入了很多的新锁，比如首先是无锁状态，然后还有偏向锁，轻量级锁最后会变成重量级锁</p>
+</li>
+</ol>
+<h3 id="自己是怎么使用synchronize？"><a href="#自己是怎么使用synchronize？" class="headerlink" title="自己是怎么使用synchronize？"></a>自己是怎么使用synchronize？</h3><ol>
+<li>修饰实例方法：对当前对象的实例进行加锁</li>
+<li>修饰静态方法：对当前类进行加锁</li>
+<li>修饰代码块：给指定的对象加锁，给对象/类加锁</li>
+</ol>
+<h3 id="说说jdk6之后，对synchronize做了那些优化"><a href="#说说jdk6之后，对synchronize做了那些优化" class="headerlink" title="说说jdk6之后，对synchronize做了那些优化"></a>说说jdk6之后，对synchronize做了那些优化</h3><p>优化之后的synchronize，现在锁的状态主要有四种：无锁状态-&gt;偏向锁状态-&gt;轻量级锁状态-&gt;重量级锁状态，随着竞争的激烈，锁会逐渐升级，且锁只能升级成越来越重的锁，而不会降级，这种策略提高获取锁和释放锁的效率。</p>
+<h3 id="锁升级的过程？"><a href="#锁升级的过程？" class="headerlink" title="锁升级的过程？"></a>锁升级的过程？</h3><p>锁的状态：无锁-&gt;偏向锁-&gt;轻量级锁-&gt;重量级锁</p>
+<p><strong>偏向锁</strong></p>
+<p>当一个线程访问同步块的时候，会在对象头和栈针中记录锁偏向的线程ID，然后下一次进来的时候就不用通过CAS操作来加锁和解锁，只需要简单的验证一下MarkWord里面指向的是否为当前线程的偏向锁，如果成功就获取锁，如果失败则需要再测试一下MarkWord中偏向锁的标志位是否为1，如果是则尝试使用Cas将对象头的偏向锁指向当前线程，如果不是则尝试CAS竞争锁。</p>
+<h3 id="synchronize和reentrantlock的区别"><a href="#synchronize和reentrantlock的区别" class="headerlink" title="synchronize和reentrantlock的区别"></a>synchronize和reentrantlock的区别</h3><ol>
+<li>两者都是可重入锁：可重入锁的意思就是当线程获取了一个对象的锁之后，锁没有被释放，但是还是可以再次获取这个锁，如果是不可重入锁那么就会造成死锁的状态，因为每个线程获取锁的时候，计数器会加1，而线程释放锁的时候计数器就-1也就是0才能释放锁。</li>
+<li>synchronize是依赖JVM实现的，而reentrantlock是依赖于API实现的（jdk层面的实现，需要lock、unlock方法配合try/finally块来完成）</li>
+<li>reentrantlock比synchronize新增了三个功能<ol>
+<li>等待可中断：中断等待锁的机制，线程可以选择放弃等待改为做其他的事情</li>
+<li>可实现公平锁：reentrantlock默认是非公平的，但是可以通过构造方法将它改成公平锁（先等待的线程先获得锁）</li>
+<li>可实现选择性通知：一个Lock对象中可以创建多个condition对象，然后线程对象可以指定的注册在某个condition对象中，从而可以有选择性的进行线程的通知。（synchronize中Lock对象只有一个Condition对象，这样所有的线程对象都注册在这一个condition对象中，这样使得如果调用notifyall就会使所有的线程都进行了通知，会造成很大的效率问题）</li>
+</ol>
+</li>
+</ol>
+<h3 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h3><h4 id="CPU缓存模型"><a href="#CPU缓存模型" class="headerlink" title="CPU缓存模型"></a>CPU缓存模型</h4><p>为什么要使用CPU高速缓存模型呢？</p>
+<p>​    用CPU高速缓存模型是为了解决CPU处理速度和内存处理速度不对等的问题。    </p>
+<h4 id="说说JMM（Java内存模型）"><a href="#说说JMM（Java内存模型）" class="headerlink" title="说说JMM（Java内存模型）"></a>说说JMM（Java内存模型）</h4><p>volatile关键字除了防止JVM的指令重排，还保证了变量的可见性</p>
+<h4 id="并发编程的三个重要特征"><a href="#并发编程的三个重要特征" class="headerlink" title="并发编程的三个重要特征"></a>并发编程的三个重要特征</h4><ol>
+<li>原子性：一次或多次操作，要么全部执行成功，要么全部执行失败</li>
+<li>可见性：当一个线程对共享变量进行了修改的时候，其他的线程都是可以立即看到修改后的值，volatile保证了共享变量了可见性</li>
+<li>有序性：代码在执行的过程中有先后顺序，但是Java编译器在运行期间会进行优化，所以可能导致执行的顺序并不是编写代码时的顺序，volatile关键字可以防止指令重排保证代码执行的有序性</li>
+</ol>
+<h4 id="说说synchronize和volatile的区别"><a href="#说说synchronize和volatile的区别" class="headerlink" title="说说synchronize和volatile的区别"></a>说说synchronize和volatile的区别</h4><blockquote>
+<p>它们是互补的存在，而不是对立的存在</p>
+</blockquote>
+<ol>
+<li>volatile是线程同步的轻量级实现，性能比synchronize好，但是volatile只能用于变量，而synchronize可以用于方法和代码块</li>
+<li>synchronize可以保证数据的原子性和可见性，但是volatile只能保证数据的可见性</li>
+<li>volatile主要解决的是变量在多个线程间的可见性，而synchronize主要解决的是多个线程之间访问资源的同步性</li>
+</ol>
+<h3 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h3><p>简介：可以把ThreadLocal简单的比喻成数据盒子，这个数据盒子中存储着每个线程的私有数据，当线程访问这个ThreadLocal的时候，就会得到这个数据的副本。</p>
+<h4 id="ThreadLocal内存泄露问题怎么解决"><a href="#ThreadLocal内存泄露问题怎么解决" class="headerlink" title="ThreadLocal内存泄露问题怎么解决"></a>ThreadLocal内存泄露问题怎么解决</h4><p>在ThreadLocalMap中，是以ThreadLocal为key的弱引用和强引用的value组成，如果ThreadLocal没有被强引用，在垃圾回收的时候会将key清除掉，而value还继续存在，这样就会形成一个键为null的entry对象， 如果不采取任何措施，那么value值将永远不会被Gc，这时候就会产生内存泄露的问题。ThreadLocal已经考虑了这种情况，在调用set、get方法的时候，会自动清除掉键为null的entry对象。建议：使用完ThreadLocal对象最好是手动调用remove方法</p>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><ol>
+<li><p>为什么使用线程池</p>
+<ol>
+<li>降低资源的消耗：重复利用已经创建的线程来降低线程创建和销毁带来的消耗</li>
+<li>提高响应速度：当任务到达的时候，不用等待线程的创建，直接就可以运行</li>
+<li>提高线程的可管理性</li>
+</ol>
+</li>
+<li><p>实现runnable接口和callable的区别 </p>
+<p>主要的区别在于：runnable接口不会有返回值或者抛出异常，而callable就有；首先runnable接口是从1.0就有的，而callable接口是从1.5开始的，callable的出现主要解决runnable无法解决的情况。</p>
+</li>
+<li><p>执行execute方法和submit方法的区别<br>execute方法主要是用于提交没有返回值的任务，而submit主要是提交那些有返回值的任务，有返回值的任务可以通过Future类的get方法来获取返回值，如果调用get方法则会阻塞当前的任务（必须等任务完成）</p>
+</li>
+<li><p>ThreadPoolExecutor构造函数的七大重要参数</p>
+<ol>
+<li><strong>corePoolSize</strong>：核心线程数，定义了最小可以同时运行的线程数</li>
+<li><strong>maximumPoolSize</strong>：当队列中存放的任务达到队列的容量的时候，就会将当前线程数变成最大线程数</li>
+<li><strong>workQueue</strong>：当任务进来的时候，如果线程数达到核心线程数，就会将新任务存储到队列中</li>
+<li><strong>keepAliveTime</strong>：当线程池中的线程数量大于核心线程数，这时候又没有新的任务提交，多出的线程数不会立即销毁，而是会等待一段时间之后再进行销毁</li>
+<li><strong>unit</strong>：keepAliveTime的时间单位</li>
+<li><strong>threadFactory</strong>：executor创建线程会用到</li>
+<li><strong>handler</strong>:饱和策略<ol>
+<li>AbortPolicy（拒绝策略）：当有新任务时，直接拒绝执行，并且报拒绝异常</li>
+<li>CallerRunsPolicy：这个是调用自己的线程来执行任务，但是这个会延迟任务的提交速度，如果程序能等待这么久，或者你的每一个线程必须执行，那么就可以使用这种策略</li>
+<li>DiscordPolicy：不执行，直接抛弃的策略</li>
+<li>Discord01destPolicy：丢弃最早未处理的线程策略</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="创建线程池有哪几种方式？"><a href="#创建线程池有哪几种方式？" class="headerlink" title="创建线程池有哪几种方式？"></a>创建线程池有哪几种方式？</h3><ol>
+<li>可以直接使用构造方法进行创建</li>
+<li>可以使用executor的框架工具类executors进行创建<ol>
+<li>fixedThreadPool：该方法创建了一个固定线程数量的线程池。当任务线程进来之后，如果线程池有空闲，那么就执行该任务，如果线程池没有空闲，那么就会将任务存放到任务队列中</li>
+<li>SingleThreadExecutor：该方法创建的是只有一个线程的线程池。若多余任务进来，那么就会将任务暂存到任务队列中，等线程池空闲之后，就将任务队列中的任务取出进行运行，这些任务的执行顺序遵循先进先出</li>
+<li>CachedThreadPool：该任务创建了一个可以根据实际情况来改变线程数量的线程池。当多余任务进来时，如果线程池有空闲的线程就会复用空闲的线程，如果没有，那么就会新创建一个线程对当前任务进行执行</li>
+</ol>
+</li>
+</ol>
+<h3 id="线程池原理分析"><a href="#线程池原理分析" class="headerlink" title="线程池原理分析"></a>线程池原理分析</h3><p>​    线程池到底是依据什么原理进行运行的呢？</p>
+<p>​        首先当有任务进来的时候，先判断核心线程数是否满了，如果没满那么就创建线程对任务进行执行，如果满了那么就加入任务队列，然后当任务不断进来的时候，核心线程数满了，这时候要考虑任务队列是否满了，如果任务队列没满，就将新任务先添加到任务队列中，如果满了就将核心线程数变成最大线程数，这时候，如果线程数足够使用，那么就创建线程对任务执行，如果不够用加进任务队列，如果队列也满了，那么就会根据定制的饱和策略进行处理。</p>
+<h3 id="JUC中的原子类有哪几种？"><a href="#JUC中的原子类有哪几种？" class="headerlink" title="JUC中的原子类有哪几种？"></a>JUC中的原子类有哪几种？</h3><p>一共有四类</p>
+<ol>
+<li>基本类型<ul>
+<li>AtomicInteger</li>
+<li>AtomicLong</li>
+<li>AtomicBoolean</li>
+</ul>
+</li>
+<li>数组类型<ul>
+<li>AtomicIntegerArray</li>
+<li>AtomicLongArray</li>
+<li>AtomicReferenceArray：引用类型数组原子类</li>
+</ul>
+</li>
+<li>引用类型<ul>
+<li>AtomicReference：引用类型</li>
+<li>AtomicStampedReference：带有版本号的引用类型</li>
+<li>AtomicMarkableReference：带有标记的引用类型</li>
+</ul>
+</li>
+<li>对象属性修改类型<ul>
+<li><code>AtomicIntegerFieldUpdater</code>：原子更新整形字段的更新器</li>
+<li><code>AtomicLongFieldUpdater</code>：原子更新长整形字段的更新器</li>
+<li><code>AtomicReferenceFieldUpdater</code>：原子更新引用类型字段的更新器</li>
+</ul>
+</li>
+</ol>
+<h3 id="JUC中Atomic原子类的总结"><a href="#JUC中Atomic原子类的总结" class="headerlink" title="JUC中Atomic原子类的总结"></a>JUC中Atomic原子类的总结</h3><h3 id="什么是AQS？"><a href="#什么是AQS？" class="headerlink" title="什么是AQS？"></a>什么是AQS？</h3><p>AQS是用来构建锁和同步器的框架</p>
+<h3 id="AQS原理分析"><a href="#AQS原理分析" class="headerlink" title="AQS原理分析"></a>AQS原理分析</h3><p>AQS的核心思想就是，如果共享资源是空闲状态，那么就将当前请求资源的线程设置为有效工作线程。如果当前共享资源是被占有的状态，那么就会将这些获取不到锁的线程都加入到CLH队列中，这个队列有一套阻塞等待以及唤醒锁的机制。<strong>CLH</strong>队列是一个虚拟双向队列，这个队列遵从先进先出的原则。AQS使用原子操作，实现对值的修改。</p>
+<h3 id="AQS对资源共享的方式"><a href="#AQS对资源共享的方式" class="headerlink" title="AQS对资源共享的方式"></a>AQS对资源共享的方式</h3><ol>
+<li>Exclusive（独占）：只有一个线程能执行。这里分为两种情况：公平和非公平竞争</li>
+<li>Share：可以多个线程同时执行</li>
+</ol>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="有哪几种类加载器"><a href="#有哪几种类加载器" class="headerlink" title="有哪几种类加载器"></a>有哪几种类加载器</h3><p><img src="D:\笔记\Typora\note\图片\image-20210924164846691.png" alt="image-20210924164846691"></p>
+<h3 id="简单介绍一下程序计数器"><a href="#简单介绍一下程序计数器" class="headerlink" title="简单介绍一下程序计数器"></a>简单介绍一下程序计数器</h3><p>程序计数器是线程私有的，每个线程都有一个程序计数器，它是随着线程的创建而创建，随着线程的销毁而销毁</p>
+<p>它有两个作用：</p>
+<ol>
+<li>字节码解释器通过改变程序计数器的值依次读取指令，从而实现代码的流程控制</li>
+<li>在多线程情况下，记录上一次程序执行的地方，保证在上下文切换的时候可以回到上一次线程执行的位置。</li>
+</ol>
+<h3 id="简单说一下虚拟机栈和本地方法栈"><a href="#简单说一下虚拟机栈和本地方法栈" class="headerlink" title="简单说一下虚拟机栈和本地方法栈"></a>简单说一下虚拟机栈和本地方法栈</h3><p>它们俩都属于线程私有的，生命周期和线程也是相同的。</p>
+<p>虚拟机栈主要是Java方法的运行，而本地方法栈主要是Native方法服务。虚拟机栈在运行方法的时候，都会有一个栈针对应这个方法，被压入方法栈中，带待所有方法都被执行完成的时候，就会一一弹出。每个栈针中都会存在局部变量表、操作数栈、方法出口、动态连接等信息。栈都会出现OOM和StackOverFlowError错误</p>
+<h3 id="简单的说一下堆"><a href="#简单的说一下堆" class="headerlink" title="简单的说一下堆"></a>简单的说一下堆</h3><p>首先堆在1.8之前分为新生代、老年代和永久代，在1.8的时候就变成了新生代、老年代、元空间。而新生代又分为Eden区，Survivor区，survivor有两个区，一个是from 一个是to区。然后新生代是发生GC的频繁区域，而且它的大小大约占用整个新生区的三分之一。而且GC算法有四种：在新生区用的都是<strong>复制算法</strong>而在老年区用的都是<strong>标记清除</strong>和<strong>标记压缩算法</strong></p>
+<p>经常发生的错误：OOM</p>
+<ol>
+<li>内存不足而出现的OOM</li>
+<li>GC时间太长出现的OOM</li>
+</ol>
+<h3 id="简单说一下方法区"><a href="#简单说一下方法区" class="headerlink" title="简单说一下方法区"></a>简单说一下方法区</h3><p>主要用于存储已经被虚拟机加载的类信息、常量、静态变量，即时编译器编译后的数据</p>
+<h4 id="方法区和永久代有什么区别？"><a href="#方法区和永久代有什么区别？" class="headerlink" title="方法区和永久代有什么区别？"></a>方法区和永久代有什么区别？</h4><p>永久代是方法区的一种实现</p>
+<h3 id="为什么元空间替换永久代"><a href="#为什么元空间替换永久代" class="headerlink" title="为什么元空间替换永久代"></a>为什么元空间替换永久代</h3><p>因为之前的永久代都是需要自定义大小的，内存很受限制，很容易出现内存不足的异常，为了解决这个问题，直接将元空间代替永久带，并且移入本地内存区，这样不管是类的加载还是数据的存放，都只受本地内存的影响，并且很少出现内存异常</p>
+<h3 id="空间分配担保"><a href="#空间分配担保" class="headerlink" title="空间分配担保"></a>空间分配担保</h3><p>什么是空间分配担保呢？？</p>
+<p>​    首先在发生minorGc之前，虚拟机会检查老年代的剩余空间大小是否大于新生代的空间大小，如果成立那么就会进行一次minorGC，如果不成立那么就会判断虚拟机中的担保参数，如果设置了这个担保参数为ture，那么就会检查历代新生区中晋升对象的平均大小空间，如果小于老年代的剩余空间，那么就允许这次GC进行，如果小于那么就不允许这次的GC进行，而是进行FUllGC</p>
+<h3 id="有哪几种垃圾收集器"><a href="#有哪几种垃圾收集器" class="headerlink" title="有哪几种垃圾收集器"></a>有哪几种垃圾收集器</h3><ol>
+<li>serial（串行）收集器：这个串行收集器是一个单线程收集器，它的单线程不仅仅在于收集垃圾的时候使用的是一个线程进行的，而是在垃圾回收期间暂停其他所有的线程进行垃圾回收的<ul>
+<li>优点：因为是单线程的垃圾收集器，它没有线程交互的额外开销，所以它是很高效的。</li>
+</ul>
+</li>
+<li>ParNew收集器：这个收集器就是serial的多线程版本，其他都和serial是一致的</li>
+<li>parallelScanvege收集器：这个收集器和ParNew没什么区别，主要的区别是这个收集器更注重于吞吐量的提升，可以自定义参数，最大效率的利用了cpu</li>
+</ol>
+<h3 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h3><ol>
+<li>加载：加载第一步主要完成下面三件事<ol>
+<li>通过类的全限定名来获取该类的二进制字节流</li>
+<li>将这个字节流所代表的静态存储结构转换成方法区的运行时数据结构</li>
+<li>在内存区生成一个代表此类的class对象，作为方法区这个类的各种数据访问入口</li>
+</ol>
+</li>
+<li>连接<ol>
+<li>验证<ol>
+<li>文件格式验证：验证字节流是否符合class文件格式的规范（例如：魔数、版本、常量池。。。）</li>
+<li>元数据验证：主要是对类的元数据进行语意校验，保证不存在与Java语言规范相悖的元数据信息</li>
+<li>字节码验证：是最复杂的一个阶段，主要目的是通过数据流分析和控制流分析，确定程序语意是否合法、符合逻辑</li>
+<li>符号引用验证：确保解析动作能够正确执行</li>
+</ol>
+</li>
+<li>准备：这里的准备阶段就是将类的静态变量进行内存分配。这里进行内存分配的时候类变量都是初始值，而不是我们给定的值，只有在后面的初始化之后，才会加载给定的值</li>
+<li>解析：这个阶段主要就是将常量池中的符号引用全部转换成直接饮用的过程，也就是得到类、字段、方法在内存中的地址或者偏移量</li>
+</ol>
+</li>
+<li>初始化：虚拟机执行字节码操作</li>
+<li>卸载<ol>
+<li>该类的所有的实例对象都已被 GC，也就是说堆不存在该类的实例对象。</li>
+<li>该类没有在其他任何地方被引用</li>
+<li>该类的类加载器的实例已被 GC</li>
+</ol>
+</li>
+</ol>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><h3 id="何为索引？有什么作用"><a href="#何为索引？有什么作用" class="headerlink" title="何为索引？有什么作用"></a>何为索引？有什么作用</h3><p>索引是一种快速查询和检索的数据结构。常见的索引结构：B树，B+树和hash</p>
+<p>索引通俗易懂的解释：其实索引就相当于一本书的目录一样，有了索引我们就可以根据目录快速查询我们想看的数据，不然全面扫描会很慢</p>
+<h3 id="索引的优缺点"><a href="#索引的优缺点" class="headerlink" title="索引的优缺点"></a>索引的优缺点</h3><ul>
+<li><p>优点</p>
+<ul>
+<li>使用检索可以大大的提升查询速度，这也是创建索引的最主要原因</li>
+<li>通过创建唯一索引，可以保证数据库中的每一行数据的唯一性</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>创建索引和维护索引需要耗费很多时间。</li>
+<li>增删改的时候，如果数据有索引，那么就会在操作的时候索引也需要动态修改，这样会降低sql的效率</li>
+<li>索引需要物理空间的存储，这样也会耗费一些资源</li>
+</ul>
+</li>
+</ul>
+<p>问题：索引一定可以提高查询性能吗？</p>
+<p>​                大多数情况下索引比全盘扫描的效率是更高的，但是如果数据库的数据量不是很大的话，那么查询效率也不会提高太多，反而会增加创建索引维护索引带来的资源消耗。</p>
+<h3 id="索引的底层数据结构"><a href="#索引的底层数据结构" class="headerlink" title="索引的底层数据结构"></a>索引的底层数据结构</h3><h4 id="hash表-amp-b-树"><a href="#hash表-amp-b-树" class="headerlink" title="hash表&amp;b+树"></a>hash表&amp;b+树</h4><p>因为hash表中存储的数据都是以键值对的格式，所以通过hash算法，我们可以很容易通过键来获取相应的value。但是同样的也存在hash冲突的问题，解决hash冲突的问题就是通过链地址的方法。</p>
+<p>问题：既然hash索引的这么快，为什么MySQL不使用hash作为索引的数据结构呢？</p>
+<ol>
+<li>首先是因为hash冲突的原因，但是这不是根本原因</li>
+<li>根本原因是：Hash索引不支持顺序和范围查询（例如：我们要对数据库的数据进行排序或者范围查询，那么将是很大的问题）</li>
+</ol>
+<h4 id="B树-amp-B-树"><a href="#B树-amp-B-树" class="headerlink" title="B树&amp;B+树"></a>B树&amp;B+树</h4><p>问题：它们俩有什么异同点？</p>
+<ul>
+<li>b树的所有节点都存放键也存放data，但是b+树只在叶子节点存放key和data，其他的节点都只存放key。</li>
+<li>b树的叶子节点都是独立的，但是b+树的叶子节点都有一条引用链指向相邻的叶子节点</li>
+<li>b树的检索对范围内所有的节点的关键字都做二分查找，而b+树则是从根节点到叶子节点依次进行检索</li>
+</ul>
+<h3 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h3><h4 id="主键索引"><a href="#主键索引" class="headerlink" title="主键索引"></a>主键索引</h4><p>数据表中主键使用的就是主键索引</p>
+<h4 id="二级索引"><a href="#二级索引" class="headerlink" title="二级索引"></a>二级索引</h4><p>定义：二级索引称为辅助索引，因为其叶子节点存储的数据是主键，我们可以通过二级索引来定义主键的位置</p>
+<ol>
+<li>唯一索引：唯一索引也是一种约束。唯一索引的属性列不能出现重复的数据，但是允许值为null，一张表可以创建多个唯一索引。建立唯一索引一般不是为了查询效率，而是保证数据的唯一性</li>
+<li>普通索引：普通索引唯一作用就是提高查询速度，一张表中允许创建多个普通索引，并且允许数据重复和null</li>
+<li>前缀索引：前缀索引只适用于字符类型的数据，前缀索引对文本的前几个字符创建索引，相比普通索引它的数据更小</li>
+<li>全文索引：全文检索主要是检索大文件数据中的关键字</li>
+</ol>
+<h3 id="聚集索引和非聚集索引"><a href="#聚集索引和非聚集索引" class="headerlink" title="聚集索引和非聚集索引"></a>聚集索引和非聚集索引</h3><h4 id="聚集索引"><a href="#聚集索引" class="headerlink" title="聚集索引"></a>聚集索引</h4><p>索引结构和数据存放在一起的叫聚集索引，主键索引叫聚集索引</p>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><p>聚集索引的查询速度非常快</p>
+<h5 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h5><ol>
+<li>依赖有顺序的数据：因为B+树是多路平衡树，如果索引的数据不是有序的，那么在插入的时候就会进行排序，如果这个排序的是整型还好，如果不是整形像是字符串或者UUID之类的，排序比较难，这样在插入和查询到时候效率会大打折扣</li>
+<li>更新代价大：因为如果数据修改的时候会影响到索引的修改，因为聚集索引的数据和索引都存在一起，修改的代价很大，所以一般主键索引都不允许修改主键</li>
+</ol>
+<h4 id="非聚集索引"><a href="#非聚集索引" class="headerlink" title="非聚集索引"></a>非聚集索引</h4><p>非聚集索引就是索引的数据和索引是分开存放的</p>
+<p>二级索引属于非聚集索引</p>
+<h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><p>更新代价小于聚集索引，因为它的节点没有存放数据</p>
+<h5 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h5><ol>
+<li>依赖有序的数据（和聚集索引一样）</li>
+<li>可能会二次查询（最大的缺点）：当找到索引所对应的指针或者主键后，可能会根据指针或者主键再进行一次查询</li>
+</ol>
+<h3 id="创建索引需要注意的事项"><a href="#创建索引需要注意的事项" class="headerlink" title="创建索引需要注意的事项"></a>创建索引需要注意的事项</h3><ol>
+<li>选择合适的字段创建索引</li>
+<li>被频繁更新的字段应该谨慎建索引</li>
+<li>尽可能建立联合索引而不是单列索引</li>
+<li>避免冗余索引</li>
+<li>考虑在字符串类型上使用前缀索引代替普通索引</li>
+</ol>
+<h3 id="Innodb和MyiSAM对比"><a href="#Innodb和MyiSAM对比" class="headerlink" title="Innodb和MyiSAM对比"></a>Innodb和MyiSAM对比</h3><ol>
+<li>Innodb支持行锁和表锁   MYISAM只支持表锁</li>
+<li>Innodb支持事务   MYISAM不支持事务</li>
+<li>Innodb支持外键   MYISAM不支持外键</li>
+<li>Innodb支持数据恢复   MYISAM不支持系统崩溃后的数据恢复</li>
+</ol>
+<h3 id="Mysql-Innodb是怎样实现ACID的"><a href="#Mysql-Innodb是怎样实现ACID的" class="headerlink" title="Mysql Innodb是怎样实现ACID的"></a>Mysql Innodb是怎样实现ACID的</h3><ol>
+<li>Innodb使用redo log 来保证事务的持久性 </li>
+<li>Innodb使用undo log 来保证事务的原子性</li>
+<li>Innodb使用锁机制、MVCC 来保证事务的隔离性</li>
+<li>保证了以上的事务性质，才能保证一致性</li>
+</ol>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h4 id="并发事务会存在哪些问题"><a href="#并发事务会存在哪些问题" class="headerlink" title="并发事务会存在哪些问题"></a>并发事务会存在哪些问题</h4><ol>
+<li>脏读：当一个事务对数据进行修改的时候，这个数据还没有进行提交，但是另外一个事务又过来了，它查询得到的数据是没有提交的脏数据，这时候就发生了脏读的情况</li>
+<li>丢失修改：意思就是当两个事务同时查询了一个数据，然后同时要对这个数据进行修改，但是后面的修改就会覆盖前面的修改，这就叫丢失修改</li>
+<li>不可重复读：也比喻是两个事务，第一个事务读取到了数据之后，第二个事务也读取到了数据，这时候第二个事务对数据进行了修改，然后第一个事务发现前后得到的数据不一致，这种情况就是不可重读读</li>
+<li>幻读：比喻两个事务，第一个事务读取了几条数据之后，第二个事务对数据进行了增加或者删除，这时候第一个事务发现前后得到的数据不一致，这个就叫幻读</li>
+</ol>
+<ul>
+<li><p>不可重复读和幻读的区别：</p>
+<p>不可重复读针对的是修改前后的数据，而幻读针对的是增加或者删除前后的数据</p>
+</li>
+</ul>
+<h4 id="事务隔离级别有哪些？"><a href="#事务隔离级别有哪些？" class="headerlink" title="事务隔离级别有哪些？"></a>事务隔离级别有哪些？</h4><ol>
+<li>读取未提交</li>
+<li>读取已提交</li>
+<li>可重复读</li>
+<li>可串行化</li>
+</ol>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="简单介绍一下redis"><a href="#简单介绍一下redis" class="headerlink" title="简单介绍一下redis"></a>简单介绍一下redis</h3><p>​    redis是c语言开发的数据库，它与别的数据库不同的是它的数据是存在内存中的，所以读写是非常快的，因此它经常用于缓存、分布式锁甚至是消息队列。</p>
+<h2 id="Spring框架"><a href="#Spring框架" class="headerlink" title="Spring框架"></a>Spring框架</h2><ul>
+<li>spring的模块有七种：</li>
+</ul>
+<p><img src="D:\笔记\Typora\note\图片\image-20211023102751258.png" alt="image-20211023102751258"></p>
+<h3 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h3><ul>
+<li><p>什么是IOC？</p>
+<p>IOC（控制反转），是一种设计思想，DI（依赖注入）是IOC的一种实现方法，之前是手动创建对象，由程序自己控制，现在是将对象的创建交给IOC容器来控制</p>
+</li>
+<li><p>使用IOC有什么好处呢？</p>
+<p>解耦，使对象之间的耦合关系变低</p>
+<p>使用单例模式，减少内存开销，提高性能</p>
+<p>只用去写Bean的实现，而不用具体去创建Bean的实现</p>
+</li>
+<li><p>什么是依赖注入？<br>依赖注入是IOC的一种实现方式</p>
+</li>
+<li><p>依赖注入的方式有哪几种？<br>三种方式：</p>
+<ul>
+<li>接口注入</li>
+<li>setter方法注入</li>
+<li>构造器注入</li>
+</ul>
+</li>
+<li><p>IOC装配Bean的方式有哪几种？</p>
+<ul>
+<li>XML配置文件</li>
+<li>Java类<ul>
+<li>@Configuration</li>
+</ul>
+</li>
+<li>注解<ul>
+<li>@Autowire</li>
+<li>@Primary（首选注入bean）</li>
+<li>@Qualifier（按指定的bean名称进行注入）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IOC的作用域</p>
+<ul>
+<li>Singleton（单例）</li>
+<li>prototype（多例）：对象如果有多个状态，那么就是用多例</li>
+<li>request</li>
+<li>session</li>
+<li>global session</li>
+</ul>
+</li>
+<li><p>IOC的初始化过程</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211022103840462.png" alt="image-20211022103840462"></p>
+</li>
+<li><p>IOC怎么实现对象的创建和依赖管理<br><img src="D:\笔记\Typora\note\图片\image-20211022142345255.png" alt="image-20211022142345255"></p>
+<p>首先从加载Bean的配置信息到容器中，然后创建一个Bean定义的注册表，通过这个注册表实例化Bean，然后将实例化的Bean添加到Map缓存区中，供应用程序调用</p>
+</li>
+<li><p>Spring容器可以简单分成两种</p>
+<ul>
+<li>BeanFactory：面向Spring</li>
+<li>ApplicationContext：面向使用者（主要包含一下两种常用的实现类）<ul>
+<li>ClasspathXmlApplicationContext</li>
+<li>FileSystemXmlApplicationContext</li>
+<li>WebApplicationContext（主要用于Web应用）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Bean的生命周期<br><img src="D:\笔记\Typora\note\图片\image-20211022153911436.png" alt="image-20211022153911436"></p>
+<p>大致可以分为：</p>
+<ul>
+<li>实例化Bean：Ioc容器通过获取BeanDefinition对象中的信息进行实例化，实例化对象被包装在BeanWrapper对象中</li>
+<li>设置对象属性（DI）：通过BeanWrapper提供的设置属性的接口完成属性依赖注入；</li>
+<li>注入Aware接口（BeanFactoryAware， 可以用这个方式来获取其它 Bean，ApplicationContextAware）：Spring会检测该对象是否实现了xxxAware接口，并将相关的xxxAware实例注入给bean</li>
+<li>BeanPostProcessor：自定义的处理（分前置处理和后置处理）</li>
+<li>InitializingBean和init-method：执行我们自己定义的初始化方法</li>
+<li>使用</li>
+<li>destroy：bean的销毁</li>
+</ul>
+</li>
+</ul>
+<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><ul>
+<li><p>什么是AOP？<br>AOP就是面向切面编程，主要使用动态代理的方式实现，将相同逻辑的重复代码横向抽取出来，使用动态代理技术将这些重复代码织入到目标对象方法中，实现和原来一样的功能。</p>
+</li>
+<li><p>为什么使用AOP？</p>
+<p>减少相同代码的冗余度，提高代码的可维护性</p>
+</li>
+<li><p>怎么使用AOP？</p>
+<ul>
+<li>配置切面</li>
+<li>配置切入点</li>
+<li>配置切入表达式</li>
+</ul>
+</li>
+<li><p>代理能干嘛？</p>
+<p>增强对象的行为，在调用对象方法的时候，拦截方法，对方法进行改造增强</p>
+</li>
+<li><p>什么是静态代理？什么是动态代理？它们有什么区别?</p>
+<ul>
+<li>静态代理：由程序员创建或者工具生成代理类，也就是在程序运行之前，就已经确定了代理类和委托类之间的关系<ul>
+<li>优点：业务类只需要关注业务逻辑的本身。</li>
+<li>缺点<ol>
+<li>代理对象一个接口只服务于一种类型对象，如果接口方法过多，还需要对每个方法进行代理，多了很多繁琐的业务</li>
+<li>如果接口增加了方法，那么下面实现接口的所有代理类都会将这个方法进行重写，增加代码维护难度</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>动态代理：在程序运行期间，由JVM通过反射等机制动态生成，代理类和委托类是在运行期间确定关系的<ul>
+<li>优点：可以灵活的实现接口中的方法，而不是像静态代理一样全部都实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Aop的动态代理有那些方式？</p>
+<ul>
+<li><p>JDK动态代理</p>
+</li>
+<li><p>Cglib动态代理</p>
+<p>AOP默认使用的是JDK动态代理，如果代理对象没有实现的接口那么就使用Cglib进行代理</p>
+</li>
+</ul>
+</li>
+<li><p>JDK和Cglib这两种方式有什么区别？</p>
+<p>JDK是基于接口进行代理的，而Cglib是基于父类进行代理的，如果被代理的对象没有实现的接口，那么就需要使用Cglib进行代理</p>
+</li>
+<li><p>怎么选择JDK和Cglib这两种代理，原因是什么？</p>
+<ul>
+<li>如果是单例模式就使用Cglib，如果是多例模式就使用JDK</li>
+<li>原因：JDK创建对象的性能比Cglib高，而Cglib生成代理对象的性能比JDK高</li>
+</ul>
+</li>
+<li><p>Spring中AOP有哪几种实现方式？</p>
+<ul>
+<li>基于注解的方式@AspctJ</li>
+<li>基于代理（自定义代码进行实现）</li>
+<li>使用XML进行实现（POJO）</li>
+</ul>
+</li>
+</ul>
+<h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><ul>
+<li><p>SpringMVC原理是什么？</p>
+<p>简单原理：</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211023091518741.png" alt="image-20211023091518741"></p>
+<p>详细原理：</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211023091707882.png" alt="image-20211023091707882"></p>
+<p>流程讲解：</p>
+<ul>
+<li>首先用户发送请求，然后请求进入到DispatcherServlet</li>
+<li>DispatcherServlet根据请求信息从HandlerMapping中找到对应的handler</li>
+<li>找到之后，然后再请求handler适配器进行处理</li>
+<li>handler适配器根据传过来的handler进行请求的处理</li>
+<li>处理完成之后就会返回一个ModelAndView对象</li>
+<li>View resolver会根据返回的ModelAndView中的View信息进行解析，并返回对应的View</li>
+<li>然后将返回的Model数据添加进View中，进行视图渲染</li>
+<li>最后返回给浏览器</li>
+</ul>
+</li>
+</ul>
+<h3 id="循环依赖"><a href="#循环依赖" class="headerlink" title="循环依赖"></a>循环依赖</h3><p>什么是循环依赖？怎么解决循环依赖呢？<br>循环依赖就是比如有两个对象A和B，它们之间互相引用形成一个环，这样的情况叫做循环依赖</p>
+<ul>
+<li><p>怎么解决呢？<br>如果是通过构造器方式进行对象注入，那么是无法解决的，会直接报错，如果是setter方法进行注入的，那么就可以解决</p>
+<ul>
+<li><p>为什么通过构造器创建对象就不能解决循环依赖呢？</p>
+<p>因为Spring解决循环依赖是依靠Bean的中间态进行解决的，中间态指的就是，对象已经实例化，但是还没有初始化。而构造器是直接初始化了，所以无法解决。</p>
+</li>
+</ul>
+<p>Spring采用三级缓存的方式进行处理循环依赖问题。</p>
+</li>
+</ul>
+<h3 id="spring中使用了哪些设计模式"><a href="#spring中使用了哪些设计模式" class="headerlink" title="spring中使用了哪些设计模式"></a>spring中使用了哪些设计模式</h3><ul>
+<li>工厂模式：spring中的BeanFactory就是简单工厂模式的体现，根据传入唯一的标识来获得bean对象；</li>
+<li>单例模式：提供了全局的访问点BeanFactory；</li>
+<li>代理模式：AOP功能的原理就使用代理模式（1、JDK动态代理。2、CGLib字节码生成技术代理。）</li>
+<li>装饰器模式：依赖注入就需要使用BeanWrapper；</li>
+<li>观察者模式：spring中Observer模式常用的地方是listener的实现。如ApplicationListener。</li>
+<li>策略模式：Bean的实例化的时候决定采用何种方式初始化bean实例（反射或者CGLIB动态字节码生成）</li>
+</ul>
+<h3 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h3><ul>
+<li><p>Spring的事务的特性是什么？<br>ACID</p>
+<ul>
+<li>Atomicity：原子性</li>
+<li>Consistency：一致性</li>
+<li>Isolation：隔离性</li>
+<li>Isolation：持久性</li>
+</ul>
+</li>
+<li><p>事务的传播行为有哪些？</p>
+<p>七种行为：</p>
+<p>支持当前事务的情况：</p>
+<ul>
+<li>propagation_requierd：如果当前没有事务，就创建一个事务，如果当前已经存在一个事务，那么就加入到这个事务中</li>
+<li>propagation_supports：支持当前事务，如果当前没有事务，就以非事务方法执行</li>
+<li>propagation_mandatory：使用当前事务，如果没有就抛出异常</li>
+</ul>
+<p>不支持当前事务的情况：</p>
+<ul>
+<li>propagation_required_new：新建事务，如果当前存在事务，就将当前事务挂起</li>
+<li>propagation_not_supported：以非事务方式执行，如果当前存在事务，就将当前事务挂起</li>
+<li>propagation_never：以非事务方式执行，如果当前存在事务那么抛出异常</li>
+</ul>
+<p>特殊情况：</p>
+<ul>
+<li>propagation_nested：如果当前存在事务就嵌入到该事务中，如果没有就执行require一样的操作</li>
+</ul>
+</li>
+<li><p>事务的隔离级别</p>
+<ul>
+<li>读未提交</li>
+<li>读已提交</li>
+<li>可重复读</li>
+<li>串行化</li>
+</ul>
+</li>
+<li><p>如果不设置事务，会出现哪些问题</p>
+<ul>
+<li>脏读</li>
+<li>不可重复读</li>
+<li>幻读</li>
+</ul>
+</li>
+</ul>
+<h2 id="Mybatis框架"><a href="#Mybatis框架" class="headerlink" title="Mybatis框架"></a>Mybatis框架</h2><p><strong>架构图</strong></p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211024205336743.png" alt="image-20211024205336743"></p>
+<ul>
+<li><p>什么是JDBC<br>Java DataBase Connection，意思就是使用Java语言操作数据库</p>
+</li>
+<li><p>什么是ORM<br>ORM就是持久层，意思就是将数据存储到硬盘</p>
+</li>
+<li><p>什么是Mybatis<br>就是优秀的ORM框架</p>
+</li>
+<li><p>Mybatis和JDBC什么关系</p>
+</li>
+</ul>
+<h2 id="Netty"><a href="#Netty" class="headerlink" title="Netty"></a>Netty</h2><p>什么是BIO、NIO、AIO？</p>
+<ul>
+<li>BIO：同步阻塞I/O模式，保证读写都是又一个线程来完成的，在不高的并发量下是没有问题的，但是如果是百万级并发量，那么BIO会显得很无力</li>
+<li>NIO：同步非阻塞I/O模式，这个相较于传统的BIO就有了很大的提升，主要是它支持面向缓冲，基于通道的I/O实现方式，可以适用于高并发的情景</li>
+<li>AIO：异步非阻塞I/O模式，这种模式主要是有回调机制的实现，在应用操作之后就会直接返回给用户信息，然后后台再通知相应的线程完成剩余的事情。</li>
+</ul>
+<p>什么是Netty？</p>
+<ol>
+<li>Netty是基于NIO的一种客户端服务器的框架</li>
+<li>它极大的优化了TCP和UDP套接字服务器的性能，并且安全性也有很高的提升</li>
+<li>支持多种协议（FTP、HTTP、SMTP）</li>
+</ol>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><ol>
+<li><p>什么是面向对象？</p>
+<p>面向对象就是我们在设计任何东西的时候，都是以角色进行划分的，而不是关心其过程，如果关心其过程那么就是面向过程编程。面向对象易于维护、复用和扩展。</p>
+<p>面向对象的三大特性：封装、继承、多态</p>
+</li>
+<li><p>如何选用集合？</p>
+<ul>
+<li><p>如果我们要通过键值来获取数据的时候那么就选用map</p>
+<ul>
+<li>如果需要排序就选择TreeMap</li>
+<li>如果不需要排序就选择HashMap</li>
+<li>如果需要保证线程安全就选择ConcurrentHashMap</li>
+</ul>
+</li>
+<li><p>如果我们只存储元素值的时候就选择Collection集合</p>
+<ul>
+<li>如果保证元素唯一就选择Set</li>
+<li>不需要就选择Arraylist或者LinkedList</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>为什么要使用集合？ </p>
+<p>因为如果在实际开发中使用数组会有很多的局限性，比如数组一旦定义，那么长度和类型就不能改变，而且存储的类型是可重复、单一的，因此选择集合就能充分解决上述所有的问题，集合是非常灵活多变的。</p>
+</li>
+<li><p>ArrayList和Vector有什么区别？</p>
+<p>他们底层都是用数组实现的，但是ArrayList线程不安全，而Vector线程安全</p>
+</li>
+<li><p>ArrayList和LinkedList的区别</p>
+<ol>
+<li><p>它们都是不同步的，也就是它们线程都是不安全的</p>
+</li>
+<li><p>底层数据结构不同，ArrayList的底层数据结构是数组，而LinkedList底层数据结构是双向链表，在1.6之前是循环链表</p>
+</li>
+<li><p>插入和删除：</p>
+<p>ArrayList因为底层数据结构是数组，所以在查找元素的时候很快，但是在插入和删除元素的时候，复杂度为O（n-i）；LinkedList底层数据结构是双向链表，双向链表对于头尾插入和删除都是非常方便的，但是如果对一个指定的位置进行插入和删除，那么时间复杂度就为O（n）</p>
+</li>
+<li><p>是否支持快速访问</p>
+<p>ArrayList支持快速访问，LinedList不支持</p>
+</li>
+<li><p>内存空间占用</p>
+<p>ArrayList的空间浪费，就是List的初始化都会预留一定的空间；而LinkedList的空间浪费是在存储每一个节点的时候，会有多出的空间来存储这个节点的指针。</p>
+</li>
+</ol>
+</li>
+<li><p>无序性和不可重复性的含义：</p>
+<p>无序性：意思就是存储在底层的数据结构不是按数组索引存储的，而是按照哈希值决定的</p>
+<p>不可重复性：不可重复的意思就是指添加元素是按equals进行判断的，并且判断结果为false才进行存储，需要同时重写equals和hashcode方法</p>
+</li>
+<li><p>比较HashSet、LinkedHashSet、TreeSet的异同</p>
+<ul>
+<li>HashSet是Set的实现类，HashSet底层是HashMap，线程不安全，可以存储null值</li>
+<li>LinkedHashSet是HashSet的子类，可以按照添加顺序进行遍历</li>
+<li>TreeSet底层是红黑树，元素是有序的，排序的方法有自然排序和定制排序</li>
+</ul>
+</li>
+<li><p>Queue和Deque的区别</p>
+<ul>
+<li>Queue：<ul>
+<li>是单端队列，只能从一端插入元素，另一端删除元素，遵循先进先出原则</li>
+<li>Queue扩展了Collection接口因容量问题而导致操作失败后处理问题的方式不同：<ul>
+<li>操作失败后抛出异常</li>
+<li>返回特殊值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Deque<ul>
+<li>Deque是双端队列，可以在两端进行插入和删除</li>
+<li>Deque扩展了Queue接口，增加了在队头队尾的增加和删除功能，失败后处理的方式不同，分为两类：抛出异常、返回特殊值</li>
+</ul>
+</li>
+<li>ArrayDeque和LinkdeList的区别：它们都实现了Deque，都具有队列功能，但是有什么区别呢？<ul>
+<li>ArrayDeque是通过可变长的数组和双指针实现的，而LinkedList是通过链表实现的</li>
+<li>ArrayQueue不支持存储null值，而LinkedList支持</li>
+<li>ArrayQueue是在1.6引入的，而LinkedList是1.2就已经引入了</li>
+<li>ArrayDeque插入时可能就存在扩容，但是均摊后，插入的时间依然为O(1)，LinkedList虽然不存在扩容，但是每插入一个都需要申请新的存储空间，均摊性比较差</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>HashMap和HashTable的区别</p>
+<ol>
+<li>HashMap的线程是不安全的，而HashTable是线程安全的，因为HashTable方法基本都经过了synchronized修饰，如果要保证线程安全，那么可以使用ConcurrentHashMap</li>
+<li>HashMap的效率比HashTable的效率，而且HashTable现在几乎不用了</li>
+<li>HashMap可以存储null值和null键，但是HashTable不行，如果插入则会报空指针异常</li>
+<li>如果没有指定容量的默认值，那么HashMap的默认容量是16，而HashTable的容量是11，而且每次扩容HashMap都是原有的两倍，而HashTable是原来的2n+1。</li>
+<li>底层数据结构：HashMap在1.8以后有很大的改动，首先是扩容机制，之前的扩容就是数组的扩容，但是1。8之后，首先是判断数组的长度是否＜64，如果＜那么就会先将数组扩容，而不是将链表变成红黑树，如果数组长度大于64，而且链表的长度大于8，那么就会将链表转换成红黑树</li>
+</ol>
+</li>
+<li><p>HashMap和HashSet的区别</p>
+<ol>
+<li>HashMap实现了Map接口，HashSet实现了Set接口</li>
+<li>HashMap存储的是键值对，HashSet存储的是对象</li>
+<li>HashMap调用put进行添加，HashSet调用add进行添加</li>
+<li>HashMap的hashcode是通过键来计算的，HashSet是通过对象进行计算的，如果两个对象的hashCode值一样，那么就会进行equals判断</li>
+</ol>
+</li>
+<li><p>HashMap和TreeMap的区别</p>
+<p>TreeMap主要是多了对集合中元素的排序功能和对元素的搜索功能</p>
+</li>
+<li><p>HashMap常见的遍历方式有哪几种？</p>
+<ol>
+<li><p>使用iterator EntrySet进行遍历</p>
+</li>
+<li><p>使用iterator KeySet进行遍历</p>
+</li>
+<li><p>使用for each EntrySet进行遍历</p>
+</li>
+<li><p>使用for each KeySet进行遍历</p>
+</li>
+<li><p>使用Lambda表达式进行遍历</p>
+</li>
+<li><p>使用Streams API 单线程方式遍历</p>
+</li>
+<li><p>使用Streams API多线程方式遍历</p>
+<p>性能比较：EntrySet最快，KeySet最慢</p>
+<p>删除数据的安全性：用map.remove()是不安全的，用iterator.remove()是安全的，</p>
+<p>总结：不管是遍历还是删除数据，建议都使用Iterator的EntrySet来操作</p>
+</li>
+</ol>
+</li>
+<li><p>ConcurrentHashMap和HashTable的区别</p>
+<p>主要的区别：实现线程的安全的方式不同</p>
+<ul>
+<li>ConcurrentHashMap的数据结构1.7是分段数组+链表，1.8是数组+链表+红黑树；HashTable的底层数据结构数组+链表</li>
+<li>ConcurrentHashMap在1.7的时候，它使用的锁是分段式锁，也就是将数据分开进行加锁，这样做在高并发下就不会因为抢占一把锁而造成阻塞，从而提高并发的效率；在1.8的时候使用的是synchronized+CAS来实现锁；HashTable使用的加锁机制是synchronized，同一把锁，这样加锁确实可以保证线程的安全，但是效率非常低，当同时访问一个同步方法的时候，可能会造成阻塞或者轮询，效率大打折扣。</li>
+</ul>
+</li>
+<li><p>ConcurrentHashMap线程安全底层的具体实现</p>
+<ul>
+<li>在1.7的时候，因为它的底层数据结构是分段数组+链表进行实现的，这个分段数组相当于HashMap里面的数组，里面包含链表，也就是HashEntry，每个分段数组守护着一个链表，当我们对HashEntry里面的数据进行修改的时候，就必须先获取分段锁。</li>
+<li>在1.8的时候，因为它的底层数据结构变成了数组+链表+红黑树，取消了分段锁，使用的是synchronized和CAS对链表的头结点进行加锁，因为只要hash不冲突，那么就不会产生并发。</li>
+</ul>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Mr Hou</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://hwm156542114.github.io/2021/11/16/java-fu-xi-mian-shi/">http://hwm156542114.github.io/2021/11/16/java-fu-xi-mian-shi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Mr Hou</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">谢谢你的鼓励和支持哦~</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>希望得到你的建议哦</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/valine/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+	enableQQ: true,
+	boolean: true,
+        appId: 'x2wGr7vQoDcz4NKt9QHNsd9g-MdYXbMMI',
+        appKey: '2xPSDkVRiClIVcbl0VhVmvAQ',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '有问题，欢迎提出，作者会尽量回答！',
+	requiredFields: ['nick','mail'], 
+        emojiCDN: '//i0.hdslb.com/bfs/emote/', 
+        emojiMaps: {
+          "tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+	  "tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+	  "tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+	  "tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+	  "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+	  "tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+	  "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+	  "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+	  "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+	  "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+	  "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+	  "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+	  "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+	  "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+	  "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+	  "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+	  "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+	  "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+	  "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+	  "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+	  "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+	  "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+	  "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+	  "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+	  "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+	  "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+	  "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+	  "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+	  "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+          "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+          "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+	  "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+	  "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+	  "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+	  "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+	  "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+	  "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+	  "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+	  "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+	  "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+	  "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+	  "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+	  "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+	  "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+	  "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+	  "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+	  "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+	  "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+	  "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+	  "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"
+		// ... 更多表情
+	}
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/11/16/xiang-mu-fu-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="项目复习">
+                        
+                        <span class="card-title">项目复习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">电商项目</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/16/ji-suan-ji-wang-luo-de-zu-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="计算机网络的组成">
+                        
+                        <span class="card-title">计算机网络的组成</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">计算机网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <a href="/about" target="_blank">Mr Hou</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">56.5k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2021";
+                        var startMonth = "11";
+                        var startDate = "10";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hwm156542114" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:156542114@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=156542114" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 156542114" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/js/matery.js"></script>
+
+    
+
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "af3a6a9b"
+        });
+        daovoice('update');
+    </script>
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+  <!-- 动态标题 -->
+    <script type="text/javascript"> var OriginTitile = document.title, st; 
+        document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
+        
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+
+</html>

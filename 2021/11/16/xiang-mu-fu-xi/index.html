@@ -4,8 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="心灵树洞, MrHou">
-    <meta name="description" content="心灵树洞 | MrHou">
+    <meta name="keywords" content="项目复习, MrHou">
+    <meta name="description" content="项目总体流程通过Nginx搭建域名
+首先使用Nginx搭建了一个域名访问环境。
+
+为什么需要要使用nginx搭建这个域名访问呢？
+首先从正向代理和反向代理来看：
+
+正向代理：就是客户端在访问某些网址的时候，通过代理服务器进行访问，这样就隐藏">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>心灵树洞 | MrHou</title>
+    <title>项目复习 | MrHou</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.iohttps://img0.baidu.com/it/u=1040699198,4243503392&fm=26&fmt=auto">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/awesome/css/all.min.css">
@@ -588,16 +594,15 @@
 </header>
 
     
-    
 
-    
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">心灵树洞</h1>
+                    <h1 class="description center-align post-title">项目复习</h1>
                 </div>
             </div>
         </div>
@@ -605,9 +610,108 @@
 </div>
 
 
-    
 
-    <main class="post-container content">
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        background-color: rgb(255, 255, 255,0.7);
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
         <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
@@ -615,12 +719,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE/">
+                                <span class="chip bg-color">电商项目</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -629,28 +746,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-11
+                    2021-11-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-12
+                    2021-11-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    15 分
                 </div>
                 
 
@@ -673,51 +790,289 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="世界那么精彩，为什么不多去看看呢？"><a href="#世界那么精彩，为什么不多去看看呢？" class="headerlink" title="世界那么精彩，为什么不多去看看呢？"></a>世界那么精彩，为什么不多去看看呢？</h1>
-                
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/css/bb.css">
-                    <style>
-                        @font-face {
-                            font-family: "iconfont";
-                            src: url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.eot?t=1586882866168');
-                            /* IE9 */
-                            src: url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.eot?t=1586882866168#iefix') format('embedded-opentype'),
-                                /* IE6-IE8 */
-                            url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALcAAsAAAAAB2gAAAKPAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCfgqCUII8ATYCJAMMCwgABCAFhG0HQBuEBsiuMRkynL4YFCHtLKs4b+k7/80U8DwHIB6+xtr7u3vniDZI6tmnkyDS8NC5iFgJlE7pTPcO8e5b+803aYQy8YtH1JPKyZzY3ttb1EonioVGSBAiRJp4JV9cFppCxLpe2z8sUs37O4QEDFRM0lFeAw4XN6bQPG06zTG8DRwHFOBeGEVWIjE+mP8wduVFPCbQNK4ktN8/OgFJhbEqEFemLkEyFVcUVqoL1ZKDRbyIqafb9AA8+9+PX41IklQyY+PBSZ8KnR+9iBx0OxZcp8PxvGDHyFgACnFY6j8QCfMLIppKPmoCrGtW8OG/y0eufLX/8AiJqDKa22AGWpMzUth6p6aARySQQRUUL4AnSBmuyvIwPdbz21OX5ybO5duOJifaLl6cvkrd1HR7kWEy6yikff29PvgO17V/Tf/9f/oN3PDqz22a719IYlZJHQetpLY08MV6fwFDrF0B6F4XyB3/FyEEnZnU2XGtVwHvpxtA1d6pftKB4AcoWo4U1QQbiiy35Xow27whbwK2NNFlhAc99zeOtM4S6ikFQ1IzhqxuglAoC6ho2UBV3Raa5g0cbxnCRURpYM4pQOh3h6TXG7J+j4RCeULFqFdU9UcETYfRdGHLVJjpHk6SIBXlTTQV5mmWS6SD1jHSVx2JJ1U+a4p4YKawvrSSLQ2QR3yMLcGa3hBCQ40zF/vBc+Q4DH3OLFJExRDCb64un5S9qaIwF9L2cEQiEBWSbUImBePR3PFCOvf5MUS3yiHhNR0VySmEC5jTo7qKWgvCgN5r1XEtrwTW6BoEQYM0HONC/cBLHDPPIL98noUohAqjR7uvWVV1HlVbfWV+o/t8J6DJOJ4jRY6idmVKnmVS1q8tK8zfBAAA') format('woff2'),
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.woff?t=1586882866168') format('woff'),
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.ttf?t=1586882866168') format('truetype'),
-                                /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.svg?t=1586882866168#iconfont') format('svg');
-                            /* iOS 4.1- */
-                        }
+                <h1 id="项目总体流程"><a href="#项目总体流程" class="headerlink" title="项目总体流程"></a>项目总体流程</h1><h2 id="通过Nginx搭建域名"><a href="#通过Nginx搭建域名" class="headerlink" title="通过Nginx搭建域名"></a>通过Nginx搭建域名</h2><ol>
+<li><p>首先使用Nginx搭建了一个域名访问环境。</p>
+<ul>
+<li><p>为什么需要要使用nginx搭建这个域名访问呢？</p>
+<p>首先从正向代理和反向代理来看：</p>
+<ul>
+<li>正向代理：就是客户端在访问某些网址的时候，通过代理服务器进行访问，这样就隐藏了自己的信息进行访问，保证客户端信息的安全</li>
+<li>反向代理：就是搭建项目环境的时候，通过一个代理服务器，屏蔽内网的服务器信息，对外保暴露的是代理服务器的信息，这样别人通过访问代理服务器，然后代理服务器转发请求到内网服务器上进行访问</li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211026111446446.png" alt="image-20211026111446446"></li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211026153825451.png" alt="image-20211026153825451"></li>
+</ul>
+</li>
+<li><p>为什么使用Nginx搭配网关进行搭建？<br>因为如果直接使用Nginx路由到端口上，那么如果在集群模式下，一个服务对应多个端口，就需要配置多个端口信息，这样很麻烦，所以通过网关进行路由，这样即使在集群环境下搭建的微服务，我们只需要路由到网管，然后让网关进行服务的调用即可</p>
+</li>
+</ul>
+<p><img src="D:\笔记\Typora\note\图片\image-20211026110547414.png" alt="image-20211026110547414"></p>
+<p>如何搭建的？</p>
+<ul>
+<li>首先安装Nginx，然后修改Nginx的配置文件，因为要映射到本机器上的网关上，所以首先配置一个上游服务器地址请求转发到网关上，配置了这个地址之后，再配置Nginx的代理地址，这个代理地址指向的是上游服务器的地址，那么通过这个代理地址，我们每次访问Nginx，都会访问它的80默认端口，然后Nginx会通过代理地址转发到上游服务器地址，再通过上游服务器地址访问网关。</li>
+</ul>
+<p>遇到的问题：一开始在阿里云上部署的Nginx，然后通过本地的域名访问阿里云上的Nginx，发现Nginx一直无法访问本地服务器，一直报服务器错误，然后网上查了一下说，本地服务器需要备案才能访问内网，然后我去阿里云上看了一下需要备案，还要搞好多东西，我心里想着就是做一个项目，没想到这么麻烦，就没有备案，在网上查了好多方法，然后看到一个可以内网穿透的软件，通过那个软件可以代理一个内网穿透的地址，这个地址可以访问内网，然后我就花了十来块钱买了一个月，本来心里想着这下没问题了吧，但是后面使用动静分离那一块，一直出现静态资源无法访问，最终，没办法，就在本地安装了一个Nginx，好了一切问题都解决了，但是这个代理好像没什么太大意义！！！</p>
+</li>
+</ol>
+<h2 id="通过认证服务完成了社交登陆功能（验证码，接口防刷）"><a href="#通过认证服务完成了社交登陆功能（验证码，接口防刷）" class="headerlink" title="通过认证服务完成了社交登陆功能（验证码，接口防刷）"></a>通过认证服务完成了社交登陆功能（验证码，接口防刷）</h2><ul>
+<li><p>首先是注册功能，这里使用了阿里云的验证码进行验证，验证成功之后就可以进行注册了，但是因为验证码的条数是要钱的，所以如果一直被别人刷的话，那验证码的条数就浪费了，因此做了一个接口防刷的功能</p>
+<p><strong>如何实现接口防刷的？</strong></p>
+<ul>
+<li>这里使用到了Redis，每次发送短信验证码请求的时候，就会将这个手机号和验证码绑定在一起，然后一起存到redis中，并且设置过期时间为一分钟，如果下次相同的手机号再次发送短信验证，首先会将这个手机号获取，然后通过手机号查询redis中是否存在该手机号，如果存在，那么就直接返回错误信息，如果没有，那么就输入验证码进行注册功能。</li>
+</ul>
+<p><strong>除了使用这个方法进行防刷，你还了解其他的吗？</strong></p>
+<ul>
+<li>对单个手机号进行请求限制，如果这个手机号在规定时间段里发送的次数过多，就可以限制这个手机号此时间段内不能再发请求了</li>
+<li>对单个Ip进行限制，这样虽然可以防止在一个ip地址下，多个手机号被刷的次数，但是同样的，因为一个小区可能都使用的一个ip地址，如果此时别人也在使用注册功能，那么将是一个很大的问题</li>
+<li>网关进行控制，把当前时间段，同一个手机号多次恶意注册的请求拦截</li>
+</ul>
+<p><strong>如何实现密码的加密的？</strong></p>
+<ul>
+<li>密码加密主要是保证用户信息的安全性，即使用户信息不小心暴露出去，也不能通过账号和验证码进行登录。实现密码的加密方式主要是使用MD5进行加密的，因为在网上看到了很多对MD5进行破解的软件，因此这里我使用了MD5盐值加密，使用这个会随机的在密码的基础上加一个字符串，这样就能保证密码永远对应的都是不同MD5值，有更高的安全性</li>
+</ul>
+</li>
+<li><p>社交登录功能</p>
+<p><strong>什么是OAuth2.0</strong></p>
+<ul>
+<li>OAuth2.0就是开放授权，意思就是用户可以通过给第三方授权，然后获取自己的相关信息，而不需要将用户的账户和密码提供给第三方网站。</li>
+</ul>
+<p><strong>说说OAuth2.0的工作原理？</strong><br><img src="D:\笔记\Typora\note\图片\image-20211026165107270.png" alt="image-20211026165107270"></p>
+<p><strong>如何实现社交登陆的？</strong></p>
+<ul>
+<li>这里首先是在微博的开放平台注册了一个个人应用，然后这个应用对应的域名就是本机服务的域名，注册成功。我们可以通过第三方的授权认证登录微博账户，然后通过这个微博注册的应用返回给我们该用户的相关信息，并且在登录的时候会判断这个用户信息是否存在，如果不存在则需要存储当前新用户，如果存在那么就登陆成功。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Session共享问题"><a href="#Session共享问题" class="headerlink" title="Session共享问题"></a>Session共享问题</h2><p><strong>session的原理？</strong></p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211026190414554.png" alt="image-20211026190414554"></p>
+<ul>
+<li>首先用户第一次访问服务器进行登录，登陆成功之后，就会将用户信息保存在session中，然后session会将sessionId返回给浏览器，浏览器就会将这个sessionId存在cookie中，这样，下一次访问页面的时候会带上cookie进行访问。浏览器关闭，清除回话cookie，那么下一次再进来，就需要重新登录</li>
+</ul>
+<p><strong>session如果在集群环境下会出现什么问题？</strong></p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211026191241293.png" alt="image-20211026191241293"></p>
+<ul>
+<li>如果是在同一个域名，但是不同服务的情况下：<ul>
+<li>在这种情况下，如果浏览器第一次访问当了第一个服务器，那么会在该服务器存储session，并且返回sessionId存储在浏览器中，但是如果浏览器下一次访问的时候，通过负载均衡直接转到另一个服务器上，那么这个时候带上之前的cookie显然是不能进行访问的。</li>
+</ul>
+</li>
+<li>如果是在不同域名，不同服务下，session是不能共享的</li>
+</ul>
+<p><strong>如何解决这个session不能共享的问题呢？？？</strong></p>
+<ul>
+<li><img src="D:\笔记\Typora\note\图片\image-20211026191759759.png" alt="image-20211026191759759"></li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211026192011245.png" alt="image-20211026192011245"></li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211026192036706.png" alt="image-20211026192036706"></li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211026192234226.png" alt="image-20211026192234226"></li>
+</ul>
+<p><strong>通过Spring Session解决了session不能共享的问题</strong></p>
+<ul>
+<li><p>是怎么解决的呢？</p>
+<p>首先导入SpringSession的依赖，然后这里在配置文件中指定存储类型为redis，然后写一个session配置类，主要用于放大作用域和解决序列化问题。解决的流程就是，将登录的用户的session通过redis进行保存，这样以后用户在访问页面的时候，不管访问哪个服务器，服务器都可以直接从redis中找出对应的session与之匹配，然后进行访问</p>
+</li>
+<li><p>SpringSession的核心原理是什么?</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211026202113997.png" alt="image-20211026202113997"></p>
+<p>​    <img src="D:\笔记\Typora\note\图片\image-20211026202153693.png" alt="image-20211026202153693"></p>
+<ul>
+<li>它的核心原理有两个重要的点：<ul>
+<li>第一个：给容器中添加了一个SessionRepository的组件，这个组件主要的作用是让redis操作session，相当于redis的Dao</li>
+<li>第二个：SessionRepositoryFilter，存储过滤器，这个过滤器在创建的时候就会自动的从容器中获取SessionRepository，最重要的就是它里面的doFilter方法，这个方法将原声的request和responce都包装成了Wrapper类型的request和responce，然后后续我们的操作中获取session中的信息，都是从SessionRepository中获取而不是在原声的服务器中获取。</li>
+<li><strong>装饰者模式</strong>（责任链模式）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用Redis做缓存提高性能"><a href="#使用Redis做缓存提高性能" class="headerlink" title="使用Redis做缓存提高性能"></a>使用Redis做缓存提高性能</h2><ul>
+<li>使用缓存存在哪些问题呢？<ul>
+<li>缓存穿透<ul>
+<li><img src="D:\笔记\Typora\note\图片\image-20211028212006633.png" alt="image-20211028212006633"></li>
+</ul>
+</li>
+<li>缓存击穿<ul>
+<li><img src="D:\笔记\Typora\note\图片\image-20211028212745319.png" alt="image-20211028212745319"></li>
+</ul>
+</li>
+<li>缓存雪崩<ul>
+<li><img src="D:\笔记\Typora\note\图片\image-20211028212123327.png" alt="image-20211028212123327"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="接口幂等性"><a href="#接口幂等性" class="headerlink" title="接口幂等性"></a>接口幂等性</h2><ul>
+<li>什么是接口幂等？<ul>
+<li>接口幂等就是，比如我们在进行一个提交操作的时候，这时候如果因为网络延迟，我们点了多次提交，然后就会出现多次重复提交的问题，这样可能我们自身只需要一次提交，但是却提交了很多次，这就是接口幂等</li>
+</ul>
+</li>
+<li>哪些情况需要防止接口幂等<ul>
+<li>用户多次点击提交按钮</li>
+<li>用户页面回退，再次点击提交</li>
+<li>微服务互相调用，因为网络或者别的原因调用失败，使用feign的失败重试机制</li>
+<li>其他业务…</li>
+</ul>
+</li>
+<li>怎么解决接口幂等性？<ul>
+<li>Token（令牌）机制<ul>
+<li>用户在提交请求的时候，首先会输入验证码，然后请求会将验证码一起携带传到服务器，服务器会根据传过来的验证码，和存在于redis中的验证码作比较，如果存在，那么就表示请求是第一次进来，如果不存在则表示请求是重复请求。</li>
+<li><strong>存在哪些危险性呢？</strong><ul>
+<li>验证完成之后，是先删除token再执行业务逻辑，还是先执行业务逻辑再删除呢？<ul>
+<li>先删除token，可能业务还没有执行完成，但是服务器中断，导致这次请求调用失败</li>
+<li>后删除token，可能业务完成了，但是token没来的及删除，服务器中断，导致下一次请求又会重新执行一次业务</li>
+<li>最好是先删除token，这样即使服务调用失败，也不会造成什么损失</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>如何解决呢？</strong><ul>
+<li>Token获取、比较、删除必须是原子性的，所以如果使用令牌机制，那么就可以选择redis中的lua脚本进行原子性操作，这样就不会出现上述问题了。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>各种锁机制</li>
+<li>数据库唯一索引约束</li>
+<li>redis防重</li>
+<li>全局请求唯一ID</li>
+</ul>
+</li>
+</ul>
+<h2 id="多线程异步编排"><a href="#多线程异步编排" class="headerlink" title="多线程异步编排"></a>多线程异步编排</h2><ul>
+<li><p><strong>初始化线程有哪几种方式？</strong></p>
+<p>有四种方式</p>
+<ul>
+<li>继承Thread类</li>
+<li>实现Runnable接口</li>
+<li>实现callable接口</li>
+<li>线程池</li>
+</ul>
+</li>
+<li><p><strong>说说Runnable和Callable的区别</strong></p>
+<p>1）Runnable提供run方法，无法通过throws抛出异常，所有CheckedException必须在run方法内部处理。Callable提供call方法，直接抛出Exception异常。</p>
+<p>2）Runnable的run方法无返回值，Callable的call方法提供返回值用来表示任务运行的结果</p>
+<p>3）Runnable可以作为Thread构造器的参数，通过开启新的线程来执行，也可以通过线程池来执行。而Callable只能通过线程池执行。</p>
+<ul>
+<li>Callable任务通过线程池的submit方法提交。且submit方法返回Future对象，通过Future的get方法可以获得具体的计算结果。而且get是个阻塞的方法，如果任务未执行完，则一直等待。</li>
+</ul>
+</li>
+<li><p><strong>Future和FutureTask的区别</strong></p>
+<ul>
+<li>对于Calleble来说，Future和FutureTask均可以用来获取任务执行结果，不过Future是个接口，FutureTask是Future的具体实现，而且FutureTask还间接实现了Runnable接口，也就是说FutureTask可以作为Runnable任务提交给线程池。</li>
+</ul>
+</li>
+<li><p><strong>什么是异步任务？什么情况下使用异步任务？</strong></p>
+<ul>
+<li><p>不等任务执行完，直接执行下一个任务。</p>
+</li>
+<li><p><img src="D:\笔记\Typora\note\图片\image-20211106110532332.png" alt="image-20211106110532332"></p>
+<p>​    按照上面程序的执行顺序，如果是同步任务的话，会依次按照ABC进行执行，但是AC运行的比较快，如果等待B完成之后再完成AC，那么就会使整个程序运行的非常慢，因此使用异步任务，不用等B执行完成，直接运行AC,从而提高效率</p>
+</li>
+</ul>
+</li>
+<li><p><strong>线程池的七大参数知道吗？</strong></p>
+<ul>
+<li><img src="D:\笔记\Typora\note\图片\image-20211106111054642.png" alt="image-20211106111054642"></li>
+<li>核心线程数：就是线程池创建的时候，里面就有的线程数，称为核心线程数</li>
+<li>最大线程数：如果此时阻塞队列满了，核心线程全部都在运行，那么就会开始最大线程数来执行任务</li>
+<li>存活时间：当开启了最大线程来完成了自己的任务的时候，并且任务执行完了，此时除了核心线程外，其他的额外线程就会在规定的时间里进行销毁</li>
+<li>时间单位：存活时间的单位</li>
+<li>阻塞队列：当线程都在运行，此时还有任务进来的时候，任务不会被直接，而是加入到阻塞队列中</li>
+<li>线程工厂：指定创建线程的工厂</li>
+<li>饱和策略：当开启了最大线程数，且阻塞队列也满了，但是现在还有任务正在加入，那么就会执行饱和策略，默认的饱和策略就是拒绝策略<ul>
+<li>Abort策略：默认策略，新任务提交时直接抛出未检查的异常RejectedExecutionException，该异常可由调用者捕获。</li>
+<li>CallerRuns策略：为调节机制，既不抛弃任务也不抛出异常，而是将某些任务回退到调用者。不会在线程池的线程中执行新的任务，而是在调用exector的线程中运行新的任务。</li>
+<li>Discard策略：新提交的任务被抛弃。</li>
+<li>DiscardOldest策略：队列的是“队头”的任务，然后尝试提交新的任务。（不适合工作队列为优先队列场景）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>为什么使用线程池？</strong></p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211106112026608.png" alt="image-20211106112026608"></p>
+</li>
+<li><p><strong>在业务中， 你是怎么使用多线程异步任务来完成的？</strong></p>
+<ul>
+<li>首先来看一下主要的方法</li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211106144546689.png" alt="image-20211106144546689"></li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211106145259026.png" alt="image-20211106145259026"></li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211106145200436.png" alt="image-20211106145200436"></li>
+<li>具体实现</li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211106145633587.png" alt="image-20211106145633587"></li>
+<li><img src="D:\笔记\Typora\note\图片\image-20211106145751611.png" alt="image-20211106145751611"></li>
+</ul>
+</li>
+</ul>
+<p><img src="D:\笔记\Typora\note\图片\image-20211106102203574.png" alt="image-20211106102203574"></p>
+<h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><ul>
+<li>分布式事务会存在那些问题？<ul>
+<li>本地事务回滚，而远程服务不回滚</li>
+</ul>
+</li>
+<li>怎么解决？<ul>
+<li><img src="D:\笔记\Typora\note\图片\image-20211028095407700.png" alt="image-20211028095407700"></li>
+</ul>
+</li>
+<li>CAP定理<ul>
+<li><img src="D:\笔记\Typora\note\图片\image-20211028100639121.png" alt="image-20211028100639121"></li>
+</ul>
+</li>
+<li>面临问题<br>现在互联网的集群规模越来越大，如果保证一致性，那么就要舍弃可用性，但是因为网络原因，或者节点故障而导致服务调用失败是常态，所以如果要保证可用性，就只能舍弃C而保证AP</li>
+<li>BASE理论<ul>
+<li>BASE理论是对CAP的一种延伸，意思就是即使无法做到强一致性，也可以做到弱一致性（最终一致性）</li>
+</ul>
+</li>
+<li>使用Seata解决分布式事务</li>
+</ul>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><ul>
+<li><p>消息队列的应用场景<br><img src="D:\笔记\Typora\note\图片\image-20211027105938326.png" alt="image-20211027105938326"></p>
+<p>异步处理：比如一个注册功能，在注册的时候会首先将注册信息写入数据库，然后后面可能还需要发送邮件，发送信息等操作，这一系列操作都完成之后，才可以算真正的注册成功，但是这样非常的耗时，因此可以采用消息队列进行异步处理，也就是将用户的注册请求保存在消息队列中，然后直接让消息队列进行后续的异步处理逻辑</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027141911689.png" alt="image-20211027141911689"></p>
+<p>应用解耦：比如现在有两个微服务，他们之间需要一起调用实现一组操作，这个时候，可以通过消息中间件将他们分开，也就是解耦，让后面的服务不再依赖前面的服务，前面服务只需要将请求和数据存到消息队列中，而后面的服务只需要取出这些请求和数据进行相应的处理即可</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027141923484.png" alt="image-20211027141923484"></p>
+<p>流量控制：例如现在一个系统是百万级并发的秒杀系统，那么这时候可能会出现每秒百万的请求进来，这时候即使服务器能承受的了这么多的请求，但是等待处理的话，后续还有请求进来，将会一直阻塞，然后系统会崩溃，这时候就可以通过消息队列将这些请求全部存储起来，这样将请求的后续操作慢慢进行，就不会导致服务器崩溃的情况了。</p>
+</li>
+<li><p>消息队列的定义<br><img src="D:\笔记\Typora\note\图片\image-20211027144735349.png" alt="image-20211027144735349"></p>
+</li>
+<li><p>RabbitMQ的概念：</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027150940156.png" alt="image-20211027150940156"></p>
+<ul>
+<li>首先会有一个生产者来生产消息</li>
+<li><strong>消息</strong>是由消息头和消息体组成的，这其中消息头中有一个重要属性：<strong>Route-Key：路由键</strong></li>
+<li><strong>交换机</strong>用来接收生产者生产的消息的，并将消息路由给服务器中的队列</li>
+<li><strong>Broker</strong>消息中间键的服务器</li>
+<li><strong>Queue</strong>消息队列，用于存储消息的</li>
+<li><strong>VHost</strong>虚拟主机，主机之间互相隔离，互不影响</li>
+<li><strong>Consumer</strong>消费者</li>
+</ul>
+<p>具体工作流程：</p>
+<p>​    首先生产者生产信息，然后将这些信息发送到消息服务器中，服务器会根据消息找到指定的交换机，然后交换机会通过路由键找到指定的队列，通过交换机与队列的绑定关系，将信息发送到队列中，然后由消费者通过与服务器建立连接，通过信道进行信息的传输</p>
+</li>
+<li><p>交换机类型<br><img src="D:\笔记\Typora\note\图片\image-20211027154236657.png" alt="image-20211027154236657"></p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027155524216.png" alt="image-20211027155524216"></p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027154304851.png" alt="image-20211027154304851"></p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027154317506.png" alt="image-20211027154317506"></p>
+</li>
+<li><p>消息确认机制<br><img src="D:\笔记\Typora\note\图片\image-20211027165225226.png" alt="image-20211027165225226"></p>
+</li>
+<li><p>p-&gt;b</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027200533738.png" alt="image-20211027200533738"></p>
+</li>
+<li><p>e-&gt;q</p>
+</li>
+</ul>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027211744153.png" alt="image-20211027211744153"></p>
+<ul>
+<li><p>q-&gt;c</p>
+<p><img src="D:\笔记\Typora\note\图片\image-20211027211937323.png" alt="image-20211027211937323"></p>
+</li>
+<li><p>延时队列</p>
+<ul>
+<li>使用场景<ul>
+<li>下单成功之后，但是一直没有完成支付，那么在规定的时间内，如果一直没完成，那么时间结束，就会自动关单，并且将锁定的库存释放</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
-                        .iconfont {
-                            font-family: "iconfont" !important;
-                            font-size: 16px;
-                            font-style: normal;
-                            -webkit-font-smoothing: antialiased;
-                            -moz-osx-font-smoothing: grayscale;
-                        }
-
-                        .icon-lianjie:before {
-                            content: "\e6a3";
-                        }
-
-                        .icon-lianjie-copy:before {
-                            content: "\e6a4";
-                        }
-                    </style>
-                    <main id="app">
-                        <p class="tip">共计发送 {{count}} 条说说</p>
-                        <div class="timenode" v-for="item in contents" v-cloak>
-                            <div class="meta">
-                                <p><time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time></p>
-                            </div>
-                            <div class="body">
-                                <p v-html='item.attributes.content'></p>
-                            </div>
-                        </div>
-                    </main>
                 
             </div>
             <hr/>
@@ -743,7 +1098,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hwm156542114.github.io/bb/index.html">http://hwm156542114.github.io/bb/index.html</a>
+                    <a href="http://hwm156542114.github.io/2021/11/16/xiang-mu-fu-xi/">http://hwm156542114.github.io/2021/11/16/xiang-mu-fu-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -780,7 +1135,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE/">
+                                    <span class="chip bg-color">电商项目</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1273,18 +1632,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/bb/index.html">
+                <a href="/2021/11/16/dan-li-mo-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="心灵树洞">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="单例模式">
                         
-                        <span class="card-title">心灵树洞</span>
+                        <span class="card-title">单例模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1294,18 +1652,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mr Hou
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1313,16 +1682,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/bb/index.html">
+                <a href="/2021/11/16/java-fu-xi-mian-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="心灵树洞">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="JAVA复习面试">
                         
-                        <span class="card-title">心灵树洞</span>
+                        <span class="card-title">JAVA复习面试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1333,17 +1702,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mr Hou
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1373,117 +1753,104 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
-    </main>
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
 
-    <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
-    <script type="text/javascript">
-        var {
-            Query
-        } = AV;
-        AV.init({
-            appId: "yygXBV3nGgxAre2UfbVQddYS-MdYXbMMI",
-            appKey: "1wy3QgyAujeKUIdp8j0PCoAS",
-            serverURLs: 'https://yygXBV3n.api.lncldglobal.com'
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
         });
 
-        var query = new AV.Query('content');
-        var app = new Vue({
-            el: '#app',
-            data: {
-                page: 0,
-                count: 0,
-                contents: []
-            },
-            methods: {
-                loadMore: function (event) {
-                    getData(++this.page);
-                }
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
-        })
+        });
 
-        function urlToLink(str) {
-            //增加发图片功能
-            var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-            var re_forpic = /\bhttps?:\/\/.*?(\.gif|\.jpeg|\.png|\.jpg|\.bmp|\.webp)/g;
-            str = str.replace(re, function (website) {
-                return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>链接 </a>";
-            });
-            str = str.replace(re_forpic, function (imgurl) {
-                return "<img src='" + imgurl + "' /> ";
-            });
-	    str = qqWechatEmotionParser(str)
-            return str;
-        }
-
-        //友好地显示时间
-        function timeago(dateTimeStamp) {
-            var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示。
-            var hour = minute * 60;
-            var day = hour * 24;
-            var week = day * 7;
-            var month = day * 30;
-            var now = new Date().getTime(); //获取当前时间毫秒
-            var diffValue = now - dateTimeStamp; //时间差
-            if (diffValue < 0) {
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
                 return;
             }
-            var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-            var hourC = diffValue / hour;
-            var dayC = diffValue / day;
-            var weekC = diffValue / week;
-            var monthC = diffValue / month;
-            if (monthC >= 1 && monthC <= 3) {
-                result = " " + parseInt(monthC) + " 月前"
-            } else if (weekC >= 1 && weekC <= 3) {
-                result = " " + parseInt(weekC) + " 周前"
-            } else if (dayC >= 1 && dayC <= 6) {
-                result = " " + parseInt(dayC) + " 天前"
-            } else if (hourC >= 1 && hourC <= 23) {
-                result = " " + parseInt(hourC) + " 小时前"
-            } else if (minC >= 1 && minC <= 59) {
-                result = " " + parseInt(minC) + " 分钟前"
-            } else if (diffValue >= 0 && diffValue <= minute) {
-                result = "刚刚"
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
             } else {
-                var datetime = new Date();
-                datetime.setTime(dateTimeStamp);
-                var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                result = Nmonth + "-" + Ndate
+                w = w + 14;
             }
-            return result;
-        }
+            $('#' + targetId).width(w);
+        };
 
-        function getData(page = 0) {
-            query.descending('createdAt').skip(page * 10).limit(10).find().then(function (results) {
-                if (results.length == 0) {
-                    alert('之前没发表过说说')
-                } else {
-                    let resC = results;
-                    reqData = false;
-                    resC.forEach((i) => {
-                        let dateTmp = new Date(i.createdAt);
-                        i.attributes.time = timeago(dateTmp);
-                        i.attributes.content = urlToLink(i.attributes.content);
-                        app.contents.push(i);
-                    })
-                }
-
-            }, function (error) {
-            });
-        }
-
-        getData(0);
-
-        query.count().then(function (count) {
-            app.count = count;
-        }, function (error) {
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
         });
-    </script>
+        
+    });
+</script>
 
     
+
+</main>
+
 
 
 

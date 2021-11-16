@@ -4,8 +4,17 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="心灵树洞, MrHou">
-    <meta name="description" content="心灵树洞 | MrHou">
+    <meta name="keywords" content="Spring源码分析, MrHou">
+    <meta name="description" content="加载Bean
+封装资源文件 对Resource使用EncodedResource进行封装
+
+获取输入流，在Resource中获取对应的输入流
+
+进入核心部分：数据准备阶段
+
+获取对XML文件的验证模式
+
+DTD：文本类型定义–&amp;gt;验证X">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +26,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>心灵树洞 | MrHou</title>
+    <title>Spring源码分析 | MrHou</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.iohttps://img0.baidu.com/it/u=1040699198,4243503392&fm=26&fmt=auto">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/awesome/css/all.min.css">
@@ -588,16 +597,15 @@
 </header>
 
     
-    
 
-    
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">心灵树洞</h1>
+                    <h1 class="description center-align post-title">Spring源码分析</h1>
                 </div>
             </div>
         </div>
@@ -605,9 +613,108 @@
 </div>
 
 
-    
 
-    <main class="post-container content">
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+        background-color: rgb(255, 255, 255,0.7);
+        border-radius: 10px;
+        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
         <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
@@ -615,12 +722,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/spring/">
+                                <span class="chip bg-color">spring</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -629,28 +749,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-11
+                    2021-11-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-12
+                    2021-11-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    15
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    8 分
                 </div>
                 
 
@@ -673,51 +793,175 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="世界那么精彩，为什么不多去看看呢？"><a href="#世界那么精彩，为什么不多去看看呢？" class="headerlink" title="世界那么精彩，为什么不多去看看呢？"></a>世界那么精彩，为什么不多去看看呢？</h1>
-                
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/css/bb.css">
-                    <style>
-                        @font-face {
-                            font-family: "iconfont";
-                            src: url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.eot?t=1586882866168');
-                            /* IE9 */
-                            src: url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.eot?t=1586882866168#iefix') format('embedded-opentype'),
-                                /* IE6-IE8 */
-                            url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALcAAsAAAAAB2gAAAKPAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCfgqCUII8ATYCJAMMCwgABCAFhG0HQBuEBsiuMRkynL4YFCHtLKs4b+k7/80U8DwHIB6+xtr7u3vniDZI6tmnkyDS8NC5iFgJlE7pTPcO8e5b+803aYQy8YtH1JPKyZzY3ttb1EonioVGSBAiRJp4JV9cFppCxLpe2z8sUs37O4QEDFRM0lFeAw4XN6bQPG06zTG8DRwHFOBeGEVWIjE+mP8wduVFPCbQNK4ktN8/OgFJhbEqEFemLkEyFVcUVqoL1ZKDRbyIqafb9AA8+9+PX41IklQyY+PBSZ8KnR+9iBx0OxZcp8PxvGDHyFgACnFY6j8QCfMLIppKPmoCrGtW8OG/y0eufLX/8AiJqDKa22AGWpMzUth6p6aARySQQRUUL4AnSBmuyvIwPdbz21OX5ybO5duOJifaLl6cvkrd1HR7kWEy6yikff29PvgO17V/Tf/9f/oN3PDqz22a719IYlZJHQetpLY08MV6fwFDrF0B6F4XyB3/FyEEnZnU2XGtVwHvpxtA1d6pftKB4AcoWo4U1QQbiiy35Xow27whbwK2NNFlhAc99zeOtM4S6ikFQ1IzhqxuglAoC6ho2UBV3Raa5g0cbxnCRURpYM4pQOh3h6TXG7J+j4RCeULFqFdU9UcETYfRdGHLVJjpHk6SIBXlTTQV5mmWS6SD1jHSVx2JJ1U+a4p4YKawvrSSLQ2QR3yMLcGa3hBCQ40zF/vBc+Q4DH3OLFJExRDCb64un5S9qaIwF9L2cEQiEBWSbUImBePR3PFCOvf5MUS3yiHhNR0VySmEC5jTo7qKWgvCgN5r1XEtrwTW6BoEQYM0HONC/cBLHDPPIL98noUohAqjR7uvWVV1HlVbfWV+o/t8J6DJOJ4jRY6idmVKnmVS1q8tK8zfBAAA') format('woff2'),
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.woff?t=1586882866168') format('woff'),
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.ttf?t=1586882866168') format('truetype'),
-                                /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-                            url('//at.alicdn.com/t/font_1755564_z4mhxbw13mq.svg?t=1586882866168#iconfont') format('svg');
-                            /* iOS 4.1- */
-                        }
+                <h1 id="加载Bean"><a href="#加载Bean" class="headerlink" title="加载Bean"></a>加载Bean</h1><ol>
+<li><p>封装资源文件 对Resource使用EncodedResource进行封装</p>
+</li>
+<li><p>获取输入流，在Resource中获取对应的输入流</p>
+</li>
+<li><p>进入核心部分：数据准备阶段</p>
+<ol>
+<li><p>获取对XML文件的验证模式</p>
+<ul>
+<li><p>DTD：文本类型定义–&gt;验证XML文档格式是否正确</p>
+</li>
+<li><p>XSD：XML schemas Defination –&gt;验证XML文档格式是否正确</p>
+</li>
+</ul>
+<p>有了上面的两种xml文档的校验模式，spring会在进行校验模式的时候判断如果手动指定了验证模式（自定义的），那么就使用自定义的模式进行校验，如果没有指定则按照默认的验证校验模式。如果使用默认的校验模式，那么就会根据xml文件判断使用的是DTD还是XSD验证模式</p>
+</li>
+<li><p>加载XML文件，并得到对应的Document对象</p>
+<p>EntityResolver：因为每次验证都会根据xml文件里面的声明去网上找相应的校验文件，这样会很费时间，因此使用这个方法将需要校验的文件直接保存在本地，在需要使用的时候直接从本地进行加载校验，而不需要从网上下载。</p>
+<p>DTDResolver和SchemasResolver负责xml文件的解析</p>
+</li>
+<li><p>根据返回的Document注册Bean信息</p>
+<p>doRegisterBeanDefinations这个方法就是解析的核心部分，这里在做解析的时候，前后使用了<strong>模板方法</strong>设计模式针对对Bean解析前后的相应处理</p>
+<ul>
+<li>profile属性：这个属性主要是指定了开发、部署环境，用这个属性可以指定想要的开发环境</li>
+<li>解析注册BeanDefination，首先通过node.getnamespaceURI获取命名空间，然后通过对比spring中固定的命名空间，如果相同则使用<strong>默认的方法进行解析</strong>，如果不同则使用用户自定义的方法进行解析</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="默认标签的解析"><a href="#默认标签的解析" class="headerlink" title="默认标签的解析"></a>默认标签的解析</h1><p>这里会分四种情况，分别对import、alias、bean和beans做出不同的处理</p>
+<h2 id="Bean标签的解析及注册"><a href="#Bean标签的解析及注册" class="headerlink" title="Bean标签的解析及注册"></a>Bean标签的解析及注册</h2><ol>
+<li><p>首先委派BeanDefinationDelegate类的parseBeanDefinationElement方法进行元素解析，返回BeanDefinationHolder类型的实例，经过这个方法，bdHolder已经包含配置文件中配置的各种属性，例如：class、name、id、alias之类的属性</p>
+<p><strong>进入到parseBeanDefinationElement方法</strong></p>
+<ol>
+<li>提取元素中的id和name属性</li>
+<li>进一步解析其他所有属性，并统一封装成GenericBeanDefination类型实例中<ol>
+<li>创建用于属性承载的BeanDefination：BeanDefination是一个接口，spring中有三种实现（RootBeanDefination、ChildBeanDefination、GenericBeanDefination）</li>
+<li>解析各种属性（parseBeanDefinationAttributes），存到BeanDefination中</li>
+<li>解析子元素（construct-args、property…）</li>
+</ol>
+</li>
+<li>如果检测到bean没有指定的beanName，那么使用默认规则为此Bean生成BeanName（通过beanClassName生成名字）</li>
+<li>将获取到的信息封装到BeanDefinationHolder中</li>
+</ol>
+</li>
+<li><p>当返回的bdHolder不为空的时候，如存在默认标签的子节点下还有自定义的属性，还需要再次对自定义标签进行解析</p>
+<p>寻找自定义标签并根据自定义标签寻找命名空间处理器，进行解析</p>
+</li>
+<li><p>解析完成之后，需要对解析后的bdHolder进行注册，注册操作委派给BeanDefinationReaderUtils的registerBeanDefination方法</p>
+<ol>
+<li>通过BeanName注册<ol>
+<li>对AbstractBeanDefination校验methodOverrides属性</li>
+<li>对BeanName已经注册过的情况，如果不允许Bean覆盖，那么就会抛出异常，否则覆盖</li>
+<li>加入map缓存</li>
+<li>清除解析之前留下的beanName缓存</li>
+</ol>
+</li>
+<li>通过别名注册<ol>
+<li>alias与beanName相同不需要处理，删除原有的alias</li>
+<li>若aliasName已经使用，那么进行覆盖操作</li>
+<li>循环检查</li>
+<li>注册alias</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>最后发出响应事件，通知相关监视器，bean加载完成</p>
+</li>
+</ol>
+<h2 id="alias标签解析"><a href="#alias标签解析" class="headerlink" title="alias标签解析"></a>alias标签解析</h2><p>别名注册，就是将当前的Bean起多个别名，以适用于各种不同的场景</p>
+<p>解析过程与Bean类似。。</p>
+<h2 id="impor标签解析"><a href="#impor标签解析" class="headerlink" title="impor标签解析"></a>impor标签解析</h2><ol>
+<li>获取resource属性所表示的路径</li>
+<li>解析路径中的系统属性</li>
+<li>判断location是绝对路径还是相对路径</li>
+<li>如果是绝对路径则递归调用bean的解析过程，执行另一次的解析</li>
+<li>如果是相对路径，则计算出绝对路径进行解析</li>
+<li>通知监视器完成</li>
+</ol>
+<h2 id="嵌入式Beans标签的解析"><a href="#嵌入式Beans标签的解析" class="headerlink" title="嵌入式Beans标签的解析"></a>嵌入式Beans标签的解析</h2><p>。。。</p>
+<h1 id="自定义标签的解析"><a href="#自定义标签的解析" class="headerlink" title="自定义标签的解析"></a>自定义标签的解析</h1><h2 id="获取标签的命名空间"><a href="#获取标签的命名空间" class="headerlink" title="获取标签的命名空间"></a>获取标签的命名空间</h2><p>getNamespaceURI</p>
+<h2 id="提取自定义标签处理器"><a href="#提取自定义标签处理器" class="headerlink" title="提取自定义标签处理器"></a>提取自定义标签处理器</h2><p>通过Namespacehandler进行提取，这里就提到了之前自定义的处理器，如果命名空间与命名空间处理器有映射关系，那么就会从缓存中获取映射关系，如果不存在于缓存中，那么就使用自定义的处理器进行初始化后，存到缓存中</p>
+<ol>
+<li>获取已经配置的handler映射</li>
+<li>根据命名空间找到对应的信息</li>
+<li>已经做过解析的情况直接从缓存中读取</li>
+<li>没有做过解析，则返回类路径，使用反射将类路径转化为类</li>
+<li>初始化类，调用自定义的NamespaceHandler的初始化方法</li>
+<li>记录在缓存中</li>
+</ol>
+<h2 id="标签解析"><a href="#标签解析" class="headerlink" title="标签解析"></a>标签解析</h2><p>得到解析器后，就会将工作委派给解析器去进行解析</p>
+<h1 id="Bean的加载"><a href="#Bean的加载" class="headerlink" title="Bean的加载"></a>Bean的加载</h1><ol>
+<li><p>转换对应的BeanName</p>
+<ul>
+<li>去除FactoryBean的修饰符</li>
+<li>取指定的alias所表示的最终BeanName</li>
+</ul>
+</li>
+<li><p>尝试从缓存中加载单例<br>单例在spring的同一个容器中只会被创建一次，后续再获取bean直接从单例缓存中获取。这里只是尝试获取，首先尝试从缓存中加载，如果加载不成功再尝试去singeletonFactory中加载。因为在创建单例bean的时候，会存在依赖注入问题，因此为了<strong>避免依赖注入</strong>，在spring中创建bean的原则是不等bean创建完成就会将创建bean的ObjectFactory提早曝光加入到缓存中，一旦下一个bean创建时候需要依赖上一个bean，直接使用Objectfactory</p>
+</li>
+<li><p>bean的实例化<br>如果缓存中得到了bean的原始状态，那么就需要对bean进行实例化，从而得到需要的bean</p>
+</li>
+<li><p>原型模型的依赖检查<br>只有在单例模式下才会进行循环依赖检查</p>
+</li>
+<li><p>检查parentBeanFactory<br>如果缓存没有数据的话，就转到父类工厂去加载</p>
+</li>
+<li><p>将存储XML文件的GenericBeanDefination转换为RootBeanDefination<br>后续操作都是针对RootBeanDefination，因此需要转换，如果BeanName是子bean的话，那么就会同时合并父类相关的属性</p>
+</li>
+<li><p>寻找依赖</p>
+<p>如果某些属性用到了其他属性，其他属性依赖其他的Bean，那么此时就需要递归查找加载依赖的bean</p>
+</li>
+<li><p>针对不同的scope进行bean的创建<br>针对不同的scope进行不同类型的初始化</p>
+</li>
+<li><p>类型转换</p>
+</li>
+</ol>
+<h2 id="循环依赖"><a href="#循环依赖" class="headerlink" title="循环依赖"></a>循环依赖</h2><ol>
+<li><p>什么是循环依赖？</p>
+<p>就是两个或两个以上的bean，在方法中互相调用对方，然后他们之间的调用关系形成了一个环，这样的情况叫做循环依赖。</p>
+</li>
+<li><p>spring如何解决循环依赖的？</p>
+<p>spring中循环以来包含<strong>构造器循环依赖</strong>和<strong>setter方法循环依赖</strong></p>
+<ul>
+<li><p>构造器循环依赖</p>
+<p>通过构造器产生的循环依赖是无法解决的，只能抛出异常</p>
+<p>因为在创建的过程中，比如有A、B、C三个bean对象，这三个对象互相调用对方，在创建A的时候，会在创建池中有标识A创建，但是创建过程中发现里面还有B创建，这时候就会先去创建B这个对象，然后在创建池中标识B的创建，但是B中又包含C的调用，这时候就需要创建C，然后在创建池中标识C的创建，但是这个时候C里面调用了A，这时候又会去创建A，但是在创建池中已经有A创建的标识，因此会直接抛出错误。（如果对象创建完成，则会将创建池中的标识清除掉）</p>
+</li>
+<li><p>setter循环依赖（只能解决单例模式下的循环依赖）</p>
+<p>首先在创建A的时候，会先根据无参构造器，先创建一个bean，并且暴露一个ObjectFactory，用于返回一个提前曝光的一个创建中的bean，这样即使有循环依赖，但是因为创建的无参构造bean，即使在创建池中遇到这个依赖的bean，可以通过无参构造的bean进行返回，从而完成创建，并且不造成循环依赖</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="创建Bean"><a href="#创建Bean" class="headerlink" title="创建Bean"></a>创建Bean</h2><h3 id="创建bean的实例"><a href="#创建bean的实例" class="headerlink" title="创建bean的实例"></a>创建bean的实例</h3><ol>
+<li>如果工厂方法不为空，那么使用工厂方法初始化策略</li>
+<li>因为构造方法有很多参数，不同的参数需要不同的构造函数或对应的工厂方法<ol>
+<li>第2步如果进行了解析，那么就直接使用解析好的构造方法，不需要再次锁定<ol>
+<li>构造函数注入</li>
+<li>默认构造函数构造</li>
+</ol>
+</li>
+<li>如果没有解析则需要根据参数解析构造器<ol>
+<li>构造函数注入</li>
+<li>默认构造函数构造</li>
+</ol>
+</li>
+<li>构造函数注入<ol>
+<li>构造函数参数的确定<ul>
+<li>根据explicArgs参数判断</li>
+<li>缓存中获取</li>
+<li>配置文件获取</li>
+</ul>
+</li>
+<li>构造函数确定</li>
+<li>根据确定的构造函数转换对应的参数类型</li>
+<li>构造函数不确定性的验证</li>
+<li>根据实例化策略以及得到的构造函数和构造函数的参数来实例化bean</li>
+</ol>
+</li>
+<li>不带参数的构造方法</li>
+</ol>
+</li>
+<li>实例化策略</li>
+</ol>
+<h1 id="使用过的设计模式"><a href="#使用过的设计模式" class="headerlink" title="使用过的设计模式"></a>使用过的设计模式</h1><ol>
+<li>模板设计模式：在解析Bean的时候用过这个方法，主要是如果对解析Bean前后有相应的操作就会继承那两个方法进行操作。</li>
+</ol>
 
-                        .iconfont {
-                            font-family: "iconfont" !important;
-                            font-size: 16px;
-                            font-style: normal;
-                            -webkit-font-smoothing: antialiased;
-                            -moz-osx-font-smoothing: grayscale;
-                        }
-
-                        .icon-lianjie:before {
-                            content: "\e6a3";
-                        }
-
-                        .icon-lianjie-copy:before {
-                            content: "\e6a4";
-                        }
-                    </style>
-                    <main id="app">
-                        <p class="tip">共计发送 {{count}} 条说说</p>
-                        <div class="timenode" v-for="item in contents" v-cloak>
-                            <div class="meta">
-                                <p><time v-bind:datetime="item.attributes.time">{{item.attributes.time}}</time></p>
-                            </div>
-                            <div class="body">
-                                <p v-html='item.attributes.content'></p>
-                            </div>
-                        </div>
-                    </main>
                 
             </div>
             <hr/>
@@ -743,7 +987,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hwm156542114.github.io/bb/index.html">http://hwm156542114.github.io/bb/index.html</a>
+                    <a href="http://hwm156542114.github.io/2021/11/16/spring-yuan-ma-fen-xi/">http://hwm156542114.github.io/2021/11/16/spring-yuan-ma-fen-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -780,7 +1024,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/spring/">
+                                    <span class="chip bg-color">spring</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1273,18 +1521,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/bb/index.html">
+                <a href="/2021/11/16/arraylist-yuan-ma-fen-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="心灵树洞">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="ArrayList源码分析">
                         
-                        <span class="card-title">心灵树洞</span>
+                        <span class="card-title">ArrayList源码分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1294,18 +1541,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mr Hou
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ArrayList/">
+                        <span class="chip bg-color">ArrayList</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1313,16 +1571,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/bb/index.html">
+                <a href="/2021/11/16/dan-li-mo-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/24.jpg" class="responsive-img" alt="心灵树洞">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/20.jpg" class="responsive-img" alt="单例模式">
                         
-                        <span class="card-title">心灵树洞</span>
+                        <span class="card-title">单例模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1333,17 +1591,28 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-16
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Mr Hou
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1373,117 +1642,104 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/codeBlock/codeShrink.js"></script>
 
 
-    </main>
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
 
-    <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
-    <script type="text/javascript">
-        var {
-            Query
-        } = AV;
-        AV.init({
-            appId: "yygXBV3nGgxAre2UfbVQddYS-MdYXbMMI",
-            appKey: "1wy3QgyAujeKUIdp8j0PCoAS",
-            serverURLs: 'https://yygXBV3n.api.lncldglobal.com'
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
         });
 
-        var query = new AV.Query('content');
-        var app = new Vue({
-            el: '#app',
-            data: {
-                page: 0,
-                count: 0,
-                contents: []
-            },
-            methods: {
-                loadMore: function (event) {
-                    getData(++this.page);
-                }
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
             }
-        })
+        });
 
-        function urlToLink(str) {
-            //增加发图片功能
-            var re = /\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-            var re_forpic = /\bhttps?:\/\/.*?(\.gif|\.jpeg|\.png|\.jpg|\.bmp|\.webp)/g;
-            str = str.replace(re, function (website) {
-                return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>链接 </a>";
-            });
-            str = str.replace(re_forpic, function (imgurl) {
-                return "<img src='" + imgurl + "' /> ";
-            });
-	    str = qqWechatEmotionParser(str)
-            return str;
-        }
-
-        //友好地显示时间
-        function timeago(dateTimeStamp) {
-            var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示。
-            var hour = minute * 60;
-            var day = hour * 24;
-            var week = day * 7;
-            var month = day * 30;
-            var now = new Date().getTime(); //获取当前时间毫秒
-            var diffValue = now - dateTimeStamp; //时间差
-            if (diffValue < 0) {
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
                 return;
             }
-            var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-            var hourC = diffValue / hour;
-            var dayC = diffValue / day;
-            var weekC = diffValue / week;
-            var monthC = diffValue / month;
-            if (monthC >= 1 && monthC <= 3) {
-                result = " " + parseInt(monthC) + " 月前"
-            } else if (weekC >= 1 && weekC <= 3) {
-                result = " " + parseInt(weekC) + " 周前"
-            } else if (dayC >= 1 && dayC <= 6) {
-                result = " " + parseInt(dayC) + " 天前"
-            } else if (hourC >= 1 && hourC <= 23) {
-                result = " " + parseInt(hourC) + " 小时前"
-            } else if (minC >= 1 && minC <= 59) {
-                result = " " + parseInt(minC) + " 分钟前"
-            } else if (diffValue >= 0 && diffValue <= minute) {
-                result = "刚刚"
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
             } else {
-                var datetime = new Date();
-                datetime.setTime(dateTimeStamp);
-                var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                result = Nmonth + "-" + Ndate
+                w = w + 14;
             }
-            return result;
-        }
+            $('#' + targetId).width(w);
+        };
 
-        function getData(page = 0) {
-            query.descending('createdAt').skip(page * 10).limit(10).find().then(function (results) {
-                if (results.length == 0) {
-                    alert('之前没发表过说说')
-                } else {
-                    let resC = results;
-                    reqData = false;
-                    resC.forEach((i) => {
-                        let dateTmp = new Date(i.createdAt);
-                        i.attributes.time = timeago(dateTmp);
-                        i.attributes.content = urlToLink(i.attributes.content);
-                        app.contents.push(i);
-                    })
-                }
-
-            }, function (error) {
-            });
-        }
-
-        getData(0);
-
-        query.count().then(function (count) {
-            app.count = count;
-        }, function (error) {
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
         });
-    </script>
+        
+    });
+</script>
 
     
+
+</main>
+
 
 
 
