@@ -799,13 +799,13 @@
 <li>正向代理：就是客户端在访问某些网址的时候，通过代理服务器进行访问，这样就隐藏了自己的信息进行访问，保证客户端信息的安全</li>
 <li>反向代理：就是搭建项目环境的时候，通过一个代理服务器，屏蔽内网的服务器信息，对外保暴露的是代理服务器的信息，这样别人通过访问代理服务器，然后代理服务器转发请求到内网服务器上进行访问</li>
 <li><img src="D:\笔记\Typora\note\图片\image-20211026111446446.png" alt="image-20211026111446446"></li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211026153825451.png" alt="image-20211026153825451"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026153825451.png" alt="image-20211026111446447"></li>
 </ul>
 </li>
 <li><p>为什么使用Nginx搭配网关进行搭建？<br>因为如果直接使用Nginx路由到端口上，那么如果在集群模式下，一个服务对应多个端口，就需要配置多个端口信息，这样很麻烦，所以通过网关进行路由，这样即使在集群环境下搭建的微服务，我们只需要路由到网管，然后让网关进行服务的调用即可</p>
 </li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20211026110547414.png" alt="image-20211026110547414"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026110547414.png" alt="image-20211026110547414"></p>
 <p>如何搭建的？</p>
 <ul>
 <li>首先安装Nginx，然后修改Nginx的配置文件，因为要映射到本机器上的网关上，所以首先配置一个上游服务器地址请求转发到网关上，配置了这个地址之后，再配置Nginx的代理地址，这个代理地址指向的是上游服务器的地址，那么通过这个代理地址，我们每次访问Nginx，都会访问它的80默认端口，然后Nginx会通过代理地址转发到上游服务器地址，再通过上游服务器地址访问网关。</li>
@@ -835,7 +835,7 @@
 <ul>
 <li>OAuth2.0就是开放授权，意思就是用户可以通过给第三方授权，然后获取自己的相关信息，而不需要将用户的账户和密码提供给第三方网站。</li>
 </ul>
-<p><strong>说说OAuth2.0的工作原理？</strong><br><img src="D:\笔记\Typora\note\图片\image-20211026165107270.png" alt="image-20211026165107270"></p>
+<p><strong>说说OAuth2.0的工作原理？</strong><br><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026165107270.png" alt="image-20211026165107270"></p>
 <p><strong>如何实现社交登陆的？</strong></p>
 <ul>
 <li>这里首先是在微博的开放平台注册了一个个人应用，然后这个应用对应的域名就是本机服务的域名，注册成功。我们可以通过第三方的授权认证登录微博账户，然后通过这个微博注册的应用返回给我们该用户的相关信息，并且在登录的时候会判断这个用户信息是否存在，如果不存在则需要存储当前新用户，如果存在那么就登陆成功。</li>
@@ -843,12 +843,12 @@
 </li>
 </ul>
 <h2 id="Session共享问题"><a href="#Session共享问题" class="headerlink" title="Session共享问题"></a>Session共享问题</h2><p><strong>session的原理？</strong></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211026190414554.png" alt="image-20211026190414554"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026190414554.png" alt="image-20211026190414554"></p>
 <ul>
 <li>首先用户第一次访问服务器进行登录，登陆成功之后，就会将用户信息保存在session中，然后session会将sessionId返回给浏览器，浏览器就会将这个sessionId存在cookie中，这样，下一次访问页面的时候会带上cookie进行访问。浏览器关闭，清除回话cookie，那么下一次再进来，就需要重新登录</li>
 </ul>
 <p><strong>session如果在集群环境下会出现什么问题？</strong></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211026191241293.png" alt="image-20211026191241293"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026191241293.png" alt="image-20211026191241293"></p>
 <ul>
 <li>如果是在同一个域名，但是不同服务的情况下：<ul>
 <li>在这种情况下，如果浏览器第一次访问当了第一个服务器，那么会在该服务器存储session，并且返回sessionId存储在浏览器中，但是如果浏览器下一次访问的时候，通过负载均衡直接转到另一个服务器上，那么这个时候带上之前的cookie显然是不能进行访问的。</li>
@@ -858,10 +858,10 @@
 </ul>
 <p><strong>如何解决这个session不能共享的问题呢？？？</strong></p>
 <ul>
-<li><img src="D:\笔记\Typora\note\图片\image-20211026191759759.png" alt="image-20211026191759759"></li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211026192011245.png" alt="image-20211026192011245"></li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211026192036706.png" alt="image-20211026192036706"></li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211026192234226.png" alt="image-20211026192234226"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026191759759.png" alt="image-20211026191759759"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026192011245.png" alt="image-20211026192011245"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026192036706.png" alt="image-20211026192036706"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026192234226.png" alt="image-20211026192234226"></li>
 </ul>
 <p><strong>通过Spring Session解决了session不能共享的问题</strong></p>
 <ul>
@@ -869,8 +869,8 @@
 <p>首先导入SpringSession的依赖，然后这里在配置文件中指定存储类型为redis，然后写一个session配置类，主要用于放大作用域和解决序列化问题。解决的流程就是，将登录的用户的session通过redis进行保存，这样以后用户在访问页面的时候，不管访问哪个服务器，服务器都可以直接从redis中找出对应的session与之匹配，然后进行访问</p>
 </li>
 <li><p>SpringSession的核心原理是什么?</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211026202113997.png" alt="image-20211026202113997"></p>
-<p>​    <img src="D:\笔记\Typora\note\图片\image-20211026202153693.png" alt="image-20211026202153693"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026202113997.png" alt="image-20211026202113997"></p>
+<p>​    <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211026202153693.png" alt="image-20211026202153693"></p>
 <ul>
 <li>它的核心原理有两个重要的点：<ul>
 <li>第一个：给容器中添加了一个SessionRepository的组件，这个组件主要的作用是让redis操作session，相当于redis的Dao</li>
@@ -884,15 +884,15 @@
 <h2 id="使用Redis做缓存提高性能"><a href="#使用Redis做缓存提高性能" class="headerlink" title="使用Redis做缓存提高性能"></a>使用Redis做缓存提高性能</h2><ul>
 <li>使用缓存存在哪些问题呢？<ul>
 <li>缓存穿透<ul>
-<li><img src="D:\笔记\Typora\note\图片\image-20211028212006633.png" alt="image-20211028212006633"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211028212006633.png" alt="image-20211028212006633"></li>
 </ul>
 </li>
 <li>缓存击穿<ul>
-<li><img src="D:\笔记\Typora\note\图片\image-20211028212745319.png" alt="image-20211028212745319"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211028212745319.png" alt="image-20211028212745319"></li>
 </ul>
 </li>
 <li>缓存雪崩<ul>
-<li><img src="D:\笔记\Typora\note\图片\image-20211028212123327.png" alt="image-20211028212123327"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211028212123327.png" alt="image-20211028212123327"></li>
 </ul>
 </li>
 </ul>
@@ -962,14 +962,14 @@
 <ul>
 <li><p>不等任务执行完，直接执行下一个任务。</p>
 </li>
-<li><p><img src="D:\笔记\Typora\note\图片\image-20211106110532332.png" alt="image-20211106110532332"></p>
+<li><p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106110532332.png" alt="image-20211106110532332"></p>
 <p>​    按照上面程序的执行顺序，如果是同步任务的话，会依次按照ABC进行执行，但是AC运行的比较快，如果等待B完成之后再完成AC，那么就会使整个程序运行的非常慢，因此使用异步任务，不用等B执行完成，直接运行AC,从而提高效率</p>
 </li>
 </ul>
 </li>
 <li><p><strong>线程池的七大参数知道吗？</strong></p>
 <ul>
-<li><img src="D:\笔记\Typora\note\图片\image-20211106111054642.png" alt="image-20211106111054642"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106111054642.png" alt="image-20211106111054642"></li>
 <li>核心线程数：就是线程池创建的时候，里面就有的线程数，称为核心线程数</li>
 <li>最大线程数：如果此时阻塞队列满了，核心线程全部都在运行，那么就会开始最大线程数来执行任务</li>
 <li>存活时间：当开启了最大线程来完成了自己的任务的时候，并且任务执行完了，此时除了核心线程外，其他的额外线程就会在规定的时间里进行销毁</li>
@@ -986,32 +986,32 @@
 </ul>
 </li>
 <li><p><strong>为什么使用线程池？</strong></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211106112026608.png" alt="image-20211106112026608"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106112026608.png" alt="image-20211106112026608"></p>
 </li>
 <li><p><strong>在业务中， 你是怎么使用多线程异步任务来完成的？</strong></p>
 <ul>
 <li>首先来看一下主要的方法</li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211106144546689.png" alt="image-20211106144546689"></li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211106145259026.png" alt="image-20211106145259026"></li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211106145200436.png" alt="image-20211106145200436"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106144546689.png" alt="image-20211106144546689"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106145259026.png" alt="image-20211106145259026"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106145200436.png" alt="image-20211106145200436"></li>
 <li>具体实现</li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211106145633587.png" alt="image-20211106145633587"></li>
-<li><img src="D:\笔记\Typora\note\图片\image-20211106145751611.png" alt="image-20211106145751611"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106145633587.png" alt="image-20211106145633587"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106145751611.png" alt="image-20211106145751611"></li>
 </ul>
 </li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20211106102203574.png" alt="image-20211106102203574"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211106102203574.png" alt="image-20211106102203574"></p>
 <h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><ul>
 <li>分布式事务会存在那些问题？<ul>
 <li>本地事务回滚，而远程服务不回滚</li>
 </ul>
 </li>
 <li>怎么解决？<ul>
-<li><img src="D:\笔记\Typora\note\图片\image-20211028095407700.png" alt="image-20211028095407700"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211028095407700.png" alt="image-20211028095407700"></li>
 </ul>
 </li>
 <li>CAP定理<ul>
-<li><img src="D:\笔记\Typora\note\图片\image-20211028100639121.png" alt="image-20211028100639121"></li>
+<li><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211028100639121.png" alt="image-20211028100639121"></li>
 </ul>
 </li>
 <li>面临问题<br>现在互联网的集群规模越来越大，如果保证一致性，那么就要舍弃可用性，但是因为网络原因，或者节点故障而导致服务调用失败是常态，所以如果要保证可用性，就只能舍弃C而保证AP</li>
@@ -1022,17 +1022,17 @@
 <li>使用Seata解决分布式事务</li>
 </ul>
 <h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><ul>
-<li><p>消息队列的应用场景<br><img src="D:\笔记\Typora\note\图片\image-20211027105938326.png" alt="image-20211027105938326"></p>
+<li><p>消息队列的应用场景<br><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027105938326.png" alt="image-20211027105938326"></p>
 <p>异步处理：比如一个注册功能，在注册的时候会首先将注册信息写入数据库，然后后面可能还需要发送邮件，发送信息等操作，这一系列操作都完成之后，才可以算真正的注册成功，但是这样非常的耗时，因此可以采用消息队列进行异步处理，也就是将用户的注册请求保存在消息队列中，然后直接让消息队列进行后续的异步处理逻辑</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211027141911689.png" alt="image-20211027141911689"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027141911689.png" alt="image-20211027141911689"></p>
 <p>应用解耦：比如现在有两个微服务，他们之间需要一起调用实现一组操作，这个时候，可以通过消息中间件将他们分开，也就是解耦，让后面的服务不再依赖前面的服务，前面服务只需要将请求和数据存到消息队列中，而后面的服务只需要取出这些请求和数据进行相应的处理即可</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211027141923484.png" alt="image-20211027141923484"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027141923484.png" alt="image-20211027141923484"></p>
 <p>流量控制：例如现在一个系统是百万级并发的秒杀系统，那么这时候可能会出现每秒百万的请求进来，这时候即使服务器能承受的了这么多的请求，但是等待处理的话，后续还有请求进来，将会一直阻塞，然后系统会崩溃，这时候就可以通过消息队列将这些请求全部存储起来，这样将请求的后续操作慢慢进行，就不会导致服务器崩溃的情况了。</p>
 </li>
-<li><p>消息队列的定义<br><img src="D:\笔记\Typora\note\图片\image-20211027144735349.png" alt="image-20211027144735349"></p>
+<li><p>消息队列的定义<br><img src="D:/%E7%AC%94%E8%AE%B0/Typora/note/%E5%9B%BE%E7%89%87/image-20211027144735349.png" alt="image-20211027144735349"></p>
 </li>
 <li><p>RabbitMQ的概念：</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211027150940156.png" alt="image-20211027150940156"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027150940156.png" alt="image-20211027150940156"></p>
 <ul>
 <li>首先会有一个生产者来生产消息</li>
 <li><strong>消息</strong>是由消息头和消息体组成的，这其中消息头中有一个重要属性：<strong>Route-Key：路由键</strong></li>
@@ -1045,23 +1045,23 @@
 <p>具体工作流程：</p>
 <p>​    首先生产者生产信息，然后将这些信息发送到消息服务器中，服务器会根据消息找到指定的交换机，然后交换机会通过路由键找到指定的队列，通过交换机与队列的绑定关系，将信息发送到队列中，然后由消费者通过与服务器建立连接，通过信道进行信息的传输</p>
 </li>
-<li><p>交换机类型<br><img src="D:\笔记\Typora\note\图片\image-20211027154236657.png" alt="image-20211027154236657"></p>
+<li><p>交换机类型<br><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027154236657.png" alt="image-20211027154236657"></p>
 <p><img src="D:\笔记\Typora\note\图片\image-20211027155524216.png" alt="image-20211027155524216"></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211027154304851.png" alt="image-20211027154304851"></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211027154317506.png" alt="image-20211027154317506"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027154304851.png" alt="image-20211027154304851"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027154317506.png" alt="image-20211027154317506"></p>
 </li>
-<li><p>消息确认机制<br><img src="D:\笔记\Typora\note\图片\image-20211027165225226.png" alt="image-20211027165225226"></p>
+<li><p>消息确认机制<br><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027165225226.png" alt="image-20211027165225226"></p>
 </li>
 <li><p>p-&gt;b</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211027200533738.png" alt="image-20211027200533738"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027200533738.png" alt="image-20211027200533738"></p>
 </li>
 <li><p>e-&gt;q</p>
 </li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20211027211744153.png" alt="image-20211027211744153"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027211744153.png" alt="image-20211027211744153"></p>
 <ul>
 <li><p>q-&gt;c</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211027211937323.png" alt="image-20211027211937323"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211027211937323.png" alt="image-20211027211937323"></p>
 </li>
 <li><p>延时队列</p>
 <ul>

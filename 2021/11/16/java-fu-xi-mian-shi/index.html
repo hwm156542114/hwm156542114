@@ -1486,7 +1486,7 @@ for (int i =1; i&lt;=30 ; i++) {
 <li>Exclusive（独占）：只有一个线程能执行。这里分为两种情况：公平和非公平竞争</li>
 <li>Share：可以多个线程同时执行</li>
 </ol>
-<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="有哪几种类加载器"><a href="#有哪几种类加载器" class="headerlink" title="有哪几种类加载器"></a>有哪几种类加载器</h3><p><img src="D:\笔记\Typora\note\图片\image-20210924164846691.png" alt="image-20210924164846691"></p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><h3 id="有哪几种类加载器"><a href="#有哪几种类加载器" class="headerlink" title="有哪几种类加载器"></a>有哪几种类加载器</h3><p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210924164846691.png" alt="image-20210924164846691"></p>
 <h3 id="简单介绍一下程序计数器"><a href="#简单介绍一下程序计数器" class="headerlink" title="简单介绍一下程序计数器"></a>简单介绍一下程序计数器</h3><p>程序计数器是线程私有的，每个线程都有一个程序计数器，它是随着线程的创建而创建，随着线程的销毁而销毁</p>
 <p>它有两个作用：</p>
 <ol>
@@ -1633,7 +1633,7 @@ for (int i =1; i&lt;=30 ; i++) {
 <h2 id="Spring框架"><a href="#Spring框架" class="headerlink" title="Spring框架"></a>Spring框架</h2><ul>
 <li>spring的模块有七种：</li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20211023102751258.png" alt="image-20211023102751258"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211023102751258.png" alt="image-20211023102751258"></p>
 <h3 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h3><ul>
 <li><p>什么是IOC？</p>
 <p>IOC（控制反转），是一种设计思想，DI（依赖注入）是IOC的一种实现方法，之前是手动创建对象，由程序自己控制，现在是将对象的创建交给IOC容器来控制</p>
@@ -1677,9 +1677,9 @@ for (int i =1; i&lt;=30 ; i++) {
 </ul>
 </li>
 <li><p>IOC的初始化过程</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211022103840462.png" alt="image-20211022103840462"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211022103840462.png" alt="image-20211022103840462"></p>
 </li>
-<li><p>IOC怎么实现对象的创建和依赖管理<br><img src="D:\笔记\Typora\note\图片\image-20211022142345255.png" alt="image-20211022142345255"></p>
+<li><p>IOC怎么实现对象的创建和依赖管理<br><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211022142345255.png" alt="image-20211022142345255"></p>
 <p>首先从加载Bean的配置信息到容器中，然后创建一个Bean定义的注册表，通过这个注册表实例化Bean，然后将实例化的Bean添加到Map缓存区中，供应用程序调用</p>
 </li>
 <li><p>Spring容器可以简单分成两种</p>
@@ -1693,7 +1693,7 @@ for (int i =1; i&lt;=30 ; i++) {
 </li>
 </ul>
 </li>
-<li><p>Bean的生命周期<br><img src="D:\笔记\Typora\note\图片\image-20211022153911436.png" alt="image-20211022153911436"></p>
+<li><p>Bean的生命周期<br><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211022153911436.png" alt="image-20211022153911436"></p>
 <p>大致可以分为：</p>
 <ul>
 <li>实例化Bean：Ioc容器通过获取BeanDefinition对象中的信息进行实例化，实例化对象被包装在BeanWrapper对象中</li>
@@ -1768,9 +1768,9 @@ for (int i =1; i&lt;=30 ; i++) {
 <h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><ul>
 <li><p>SpringMVC原理是什么？</p>
 <p>简单原理：</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211023091518741.png" alt="image-20211023091518741"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211023091518741.png" alt="image-20211023091518741"></p>
 <p>详细原理：</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211023091707882.png" alt="image-20211023091707882"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211023091707882.png" alt="image-20211023091707882"></p>
 <p>流程讲解：</p>
 <ul>
 <li>首先用户发送请求，然后请求进入到DispatcherServlet</li>
@@ -1848,7 +1848,7 @@ for (int i =1; i&lt;=30 ; i++) {
 </li>
 </ul>
 <h2 id="Mybatis框架"><a href="#Mybatis框架" class="headerlink" title="Mybatis框架"></a>Mybatis框架</h2><p><strong>架构图</strong></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20211024205336743.png" alt="image-20211024205336743"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211024205336743.png" alt="image-20211024205336743"></p>
 <ul>
 <li><p>什么是JDBC<br>Java DataBase Connection，意思就是使用Java语言操作数据库</p>
 </li>

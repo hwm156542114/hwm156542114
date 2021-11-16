@@ -795,21 +795,21 @@ Spring Cloud的版本用英文来区分的原因是因为根据火车站名来�
 <li><p>Spring Cloud的版本用英文来区分的原因是因为根据火车站名来定的</p>
 </li>
 <li><p>它们俩之间的版本约束</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210306105531571.png" alt="image-20210306105531571"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210306105531571.png" alt="image-20210306105531571"></p>
 <ul>
 <li><p>这里需要注意的是：并不是都用最新版的就是最好的，而是有一定的约束条件，根据上下图来选择<em><strong>最佳版本搭配使用</strong></em></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210306105840939.png" alt="image-20210306105840939"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/featureimages/image-20210306105840939.png" alt="image-20210306105840939"></p>
 </li>
-<li><p><img src="D:\笔记\Typora\note\图片\image-20210306110441367.png" alt="image-20210306110441367"></p>
+<li><p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210306110441367.png" alt="image-20210306110441367"></p>
 </li>
-<li><p><img src="D:\笔记\Typora\note\图片\image-20210306110508237.png" alt="image-20210306110508237"></p>
+<li><p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210306110508237.png" alt="image-20210306110508237"></p>
 </li>
 <li><p>这里也有我们版本的最佳选择</p>
 </li>
 </ul>
 </li>
 <li><p>升级引发的惨案</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210306113137764.png" alt="image-20210306113137764"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210306113137764.png" alt="image-20210306113137764"></p>
 </li>
 </ol>
 <h2 id="2-配置运行环境"><a href="#2-配置运行环境" class="headerlink" title="2.配置运行环境"></a>2.配置运行环境</h2><ol>
@@ -1180,15 +1180,15 @@ eureka:
 <h2 id="4-Zookeeper的使用"><a href="#4-Zookeeper的使用" class="headerlink" title="4.Zookeeper的使用"></a>4.Zookeeper的使用</h2><ol>
 <li><p>首先要在Linux系统中，启动Zookeeper注册中心</p>
 </li>
-<li><p>在项目的pom文件中多添加一个依赖<img src="D:\笔记\Typora\note\图片\image-20210310120300775.png" alt="image-20210310120300775"></p>
+<li><p>在项目的pom文件中多添加一个依赖<img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310120300775.png" alt="image-20210310120300775"></p>
 </li>
-<li><p>然后编写yml文件<img src="D:\笔记\Typora\note\图片\image-20210310120437519.png" alt="image-20210310120437519"></p>
+<li><p>然后编写yml文件<img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310120437519.png" alt="image-20210310120437519"></p>
 </li>
 <li><p>主启动类</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210310120523019.png" alt="image-20210310120523019"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310120523019.png" alt="image-20210310120523019"></p>
 </li>
 <li><p>在启动的时候，会报错，是因为Zookeeper依赖里面含有Zookeeper的旧版本，使之与我们在Linux系统安装的Zookeeper版本不匹配导致报错</p>
-<p>解决办法：<img src="D:\笔记\Typora\note\图片\image-20210310120713683.png" alt="image-20210310120713683"></p>
+<p>解决办法：<img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310120713683.png" alt="image-20210310120713683"></p>
 </li>
 <li><p>思考：Zookeeper的服务节点是临时节点还是持久节点</p>
 <p>​        答：是临时节点，它相比较于eureka，没有保护机制，而是在某一段时间内，如果客户端没有发送心跳数据包就直接删除。</p>
@@ -1242,8 +1242,8 @@ spring:
 </li>
 </ol>
 <h2 id="6-三大注册中心的异同点"><a href="#6-三大注册中心的异同点" class="headerlink" title="6.三大注册中心的异同点"></a>6.三大注册中心的异同点</h2><p><img src="D:\笔记\Typora\note\图片\image-20210310133646113.png" alt="image-20210310133646113"></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210310133708206.png" alt="image-20210310133708206"></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210310133719084.png" alt="image-20210310133719084"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310133708206.png" alt="image-20210310133708206"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310133719084.png" alt="image-20210310133719084"></p>
 <h2 id="7-Ribbon"><a href="#7-Ribbon" class="headerlink" title="7.Ribbon"></a>7.Ribbon</h2><h3 id="简介：-1"><a href="#简介：-1" class="headerlink" title="简介："></a>简介：</h3><p>​    ribbon是基于Netflix Ribbon实现的一套客户端负载<strong>均衡的工具</strong></p>
 <p>​    Ribbon是Netflix发布的开源项目，主要功能是提供 <strong>客户端的软件负载均衡算法和服务调用</strong></p>
 <p>​    我们可以很容易的使用Ribbon实现自定义的负载均衡算法</p>
@@ -1300,7 +1300,7 @@ spring:
 <ul>
 <li>负载均衡的算法：</li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20210310212616061.png" alt="image-20210310212616061"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310212616061.png" alt="image-20210310212616061"></p>
 <ul>
 <li><p>负载均衡的接口与类实现</p>
 <p><img src="D:\笔记\Typora\note\图片\image-20210310213007243.png" alt="image-20210310213007243"></p>
@@ -1308,7 +1308,7 @@ spring:
 <li><p>查看源码，首先进入到IRul接口中，然后CTRL+Alt+b显示其所有的实现类</p>
 </li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20210310213120384.png" alt="image-20210310213120384"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310213120384.png" alt="image-20210310213120384"></p>
 <ul>
 <li><p>RoundRobinRule就是轮询负载均衡的类</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//这里是对服务地址的选择</span>
@@ -1366,7 +1366,7 @@ spring:
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="手写Ribbon轮询负载均衡算法并使用"><a href="#手写Ribbon轮询负载均衡算法并使用" class="headerlink" title="手写Ribbon轮询负载均衡算法并使用"></a>手写Ribbon轮询负载均衡算法并使用</h3><p>过程图：</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210310222003535.png" alt="image-20210310222003535"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210310222003535.png" alt="image-20210310222003535"></p>
 <ol>
 <li><p>首先去掉在order工程，下面的Configuration类，里面自动注入RestTemplate的@LoadBalanced注解</p>
 </li>
@@ -1433,7 +1433,7 @@ spring:
 <p>​    前面在使用Ribbon+RestTemplate时，利用Rest Template对http请求的封装处理，形成了一套模板化的调用方法。但是在实际开发过程中，由于对服务依赖的调用可能不止一处，往往一个接口会被多处调用，所以通常都会针对每个微服务自行封装一些客户端类来包装这些依赖服务的调用。所以，Feign在此基础上做了进一步封装，由它来帮助我们定义和实现依赖服务接口的定义。在Feign的实现下，<strong>我们只需要创建一个接口并使用注解的方式来配置它（以前是Dao接口上面标注Mapper注解，现在时一个微服务接口上面标注一个Feign注解即可）</strong>，即可完成对服务提供方的接口绑定，简化了使用Spring cloud Ribbon时，自动封装服务调用客户端的开发量。</p>
 <p>​    Feign集成了Ribbon</p>
 <p>​        利用Ribbon维护了payment的服务列表信息，并且通过轮询实现了客户端的负载均衡。而与Ribbon不同的是，<strong>通过feign只需要定义服务绑定接口且以声明式的方法，</strong>优雅而简单的实现了服务调用</p>
-<h3 id="Feign与OpenFeign的区别"><a href="#Feign与OpenFeign的区别" class="headerlink" title="Feign与OpenFeign的区别"></a>Feign与OpenFeign的区别</h3><p><img src="D:\笔记\Typora\note\图片\image-20210311101020998.png" alt="image-20210311101020998"></p>
+<h3 id="Feign与OpenFeign的区别"><a href="#Feign与OpenFeign的区别" class="headerlink" title="Feign与OpenFeign的区别"></a>Feign与OpenFeign的区别</h3><p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210311101020998.png" alt="image-20210311101020998"></p>
 <h3 id="Feign的使用"><a href="#Feign的使用" class="headerlink" title="Feign的使用"></a>Feign的使用</h3><ol>
 <li><p>创建一个消费者项目</p>
 </li>
@@ -1706,7 +1706,7 @@ ribbon:
 <ul>
 <li>熔断过程中的三大状态：</li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20210311205815632.png" alt="image-20210311205815632"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210311205815632.png" alt="image-20210311205815632"></p>
 <ul>
 <li>熔断的三个重要参数：</li>
 </ul>
@@ -1809,7 +1809,7 @@ ribbon:
 <li>container运行时，接受请求，并为每个请求分配一个线程（一般从线程池中获取空闲线程）然后调用Service</li>
 <li>container关闭时调用destory销毁</li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20210314144009513.png" alt="image-20210314144009513"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210314144009513.png" alt="image-20210314144009513"></p>
 <p><strong>上述模型的缺点</strong></p>
 <p>​    servlet是一个简单的网络IO模型，当请求进入servlet container时，就会为其绑定一个线程，在<strong>并发不高的场景下</strong>这种模型是适用的，但是一旦高并发（比如抽风用jemeter压），线程数量就会上涨，而线程资源代价是昂贵的（上下文切换，内存消耗大）严重影响请求的处理时间。在一些简单业务场景下，不希望为每个request分配一个线程，只需要1个或者几个线程就能应对极大并发的请求，这种业务场景下servlet模型没有优势</p>
 <p>​    所以zuul1.x是<strong>基于servlet之上的一个阻塞式处理模型</strong>，即spring实现了处理所有request请求的一个servlet并由该servlet阻塞式处理，所以Zuul无法摆脱servlet模型的弊端</p>
@@ -1820,8 +1820,8 @@ ribbon:
 <li>断言：开发人员可以匹配HTTP请求中的所有内容（请求头，请求参数），如果请求与断言相匹配则进行路由</li>
 <li>过滤：指的是Spring框架中GatewayFilter的实例，使用过滤器，可以在请求被路由前或者之后对请求进行修改</li>
 </ol>
-<p><img src="D:\笔记\Typora\note\图片\image-20210314153602944.png" alt="image-20210314153602944"></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210314153702611.png" alt="image-20210314153702611"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210314153602944.png" alt="image-20210314153602944"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210314153702611.png" alt="image-20210314153702611"></p>
 <p>客户端向Spring cloudGateWay发出请求，然后再Mapping中找到与请求相匹配的路由，将其发送到GateWayWebHandler</p>
 <p>Handler再通过指定的过滤器链将请求发送到实际的服务执行业务逻辑，然后返回</p>
 <p>过滤器之间用虚线分开是因为过滤器可能会在发送代理请求之前或者之后执行业务逻辑</p>
@@ -1953,7 +1953,7 @@ eureka:
 4. 当配置发生变动时，服务不需要重启即可感知到配置文件的变化，并应用新的配置
 5. 将配置信息以REST接口的形式暴露
 </code></pre>
-<p><img src="D:\笔记\Typora\note\图片\image-20210315091817638.png" alt="image-20210315091817638"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210315091817638.png" alt="image-20210315091817638"></p>
 <h3 id="操作使用"><a href="#操作使用" class="headerlink" title="操作使用"></a>操作使用</h3><ol>
 <li><p>新建两个工程，一个是config服务端，一个是config客户端</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!-这里是服务端导入的依赖</span> <span class="token attr-name">--</span><span class="token punctuation">&gt;</span></span>
@@ -2081,10 +2081,10 @@ management:
 <h2 id="12-bus总线"><a href="#12-bus总线" class="headerlink" title="12.bus总线"></a>12.bus总线</h2><h3 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h3><p>​    bug总线解决了上面我们的spring cloud config最后因为在远程配置中心修改文件的时候，我们的客户端不能实时的更新配置，而是需要重启才行，然后解决方法是发送一个post请求解决问题，但是我们每次更新都需要发送一个请求未免太麻烦了，这时候bus总线就体现了它的使用价值</p>
 <h3 id="简介：-3"><a href="#简介：-3" class="headerlink" title="简介："></a>简介：</h3><p>​    spring cloud bus 配合 spring cloud config 使用可以实现配置的动态刷新</p>
 <p>​    spring cloud bus是用来将分布式系统的节点与轻量级消息系统连接起来的框架，<strong>它整合了Java的事件处理机制和消息中间件的功能。</strong>spring cloud bus目前支持RabbitMQ和Kafka</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210316170332385.png" alt="image-20210316170332385"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210316170332385.png" alt="image-20210316170332385"></p>
 <p>这个图是bus通过向一个客户端进行发送，然后这个客户端再向其他客户端进行转发</p>
 <p>​        spring cloud bus能管理和传播分布式系统间的消息，就像一个分布式执行器，可用于广播状态更改、时间推送等，也可以当作微服务间的通信通道</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210316170855107.png" alt="image-20210316170855107"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210316170855107.png" alt="image-20210316170855107"></p>
 <h3 id="为什么被称为操作总线"><a href="#为什么被称为操作总线" class="headerlink" title="为什么被称为操作总线"></a>为什么被称为操作总线</h3><h4 id="什么是总线"><a href="#什么是总线" class="headerlink" title="什么是总线"></a>什么是总线</h4><p>​    在微服务架构的系统中，<strong>通常会使用轻量级的消息代理</strong>来构建一个<strong>共用的消息主题</strong>，并让系统中所有微服务实例都连接上来，由于 <strong>该主题中产生的消息会被所有实例监听和消费，所以称它为消息总线。</strong>在总线上的各个实例，都可以方便的广播一些需要让其他连接在该主题上的实例都知道的消息</p>
 <h4 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h4><p>​    configClient实例都监听MQ中同一个topic（默认是springcloudbus）。当一个服务刷新数据的时候，它会把这个信息放入到topic中，这样其他监听同一topic的服务就能得到通知，然后去更新自身的配置</p>
 <h3 id="实际操作使用"><a href="#实际操作使用" class="headerlink" title="实际操作使用"></a>实际操作使用</h3><ol>
@@ -2137,7 +2137,7 @@ management:
 </ul>
 </li>
 </ul>
-<p><img src="D:\笔记\Typora\note\图片\image-20210317095910865.png" alt="image-20210317095910865"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210317095910865.png" alt="image-20210317095910865"></p>
 <ul>
 <li>为什么用cloudStream？<ul>
 <li>这些中间件的差异性导致我们实际项目开发给我们造成了一定的困扰，我们如果用了两个消息队列的其中一种，后面的业务需求，我想往另外一种消息队列进行迁移，这时候无疑就是一个灾难性的，<strong>一大堆东西都要重新推倒重新做</strong>，因为它跟我们的系统耦合了，这时候spring cloud stream 给我们提供了一种解耦合的方式</li>
@@ -2150,8 +2150,8 @@ management:
 </ul>
 </li>
 </ul>
-<h3 id="SpringCloudStream标准流程套路"><a href="#SpringCloudStream标准流程套路" class="headerlink" title="SpringCloudStream标准流程套路"></a>SpringCloudStream标准流程套路</h3><p><img src="D:\笔记\Typora\note\图片\image-20210317101033342.png" alt="image-20210317101033342"></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210317101042001.png" alt="image-20210317101042001"></p>
+<h3 id="SpringCloudStream标准流程套路"><a href="#SpringCloudStream标准流程套路" class="headerlink" title="SpringCloudStream标准流程套路"></a>SpringCloudStream标准流程套路</h3><p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210317101033342.png" alt="image-20210317101033342"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210317101042001.png" alt="image-20210317101042001"></p>
 <h3 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h3><ol>
 <li><p>创建stream流的服务端和客户端</p>
 </li>
@@ -2302,7 +2302,7 @@ eureka:
 </li>
 </ol>
 <h2 id="14-sleuth-Zipkin"><a href="#14-sleuth-Zipkin" class="headerlink" title="14.sleuth +Zipkin"></a>14.sleuth +Zipkin</h2><p><img src="D:\笔记\Typora\note\图片\image-20210317182456061.png" alt="image-20210317182456061"></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210317182502828.png" alt="image-20210317182502828"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210317182502828.png" alt="image-20210317182502828"></p>
 <h2 id="15-Cloud-Alibaba"><a href="#15-Cloud-Alibaba" class="headerlink" title="15.Cloud Alibaba"></a>15.Cloud Alibaba</h2><h3 id="有哪些功能："><a href="#有哪些功能：" class="headerlink" title="有哪些功能："></a>有哪些功能：</h3><ol>
 <li>服务限流降级：默认支持Servlet、Feign、Rest Template、Dubbo和Rocket MQ限流降级功能的接入，可以在运行时通过控制台实时修改限流降级规则，还支持查看限流降级Metrics监控</li>
 <li>服务注册与发现：适配SpringCloud服务注册与发现标准，默认集成了Ribbon的支持</li>
@@ -2481,13 +2481,13 @@ server-url:
 <h5 id="Sentinel持久化"><a href="#Sentinel持久化" class="headerlink" title="Sentinel持久化"></a>Sentinel持久化</h5><ol>
 <li>首先在客户端添加以下的配置文件</li>
 </ol>
-<p><img src="D:\笔记\Typora\note\图片\image-20210326203526258.png" alt="image-20210326203526258"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210326203526258.png" alt="image-20210326203526258"></p>
 <ol start="2">
 <li><p>然后在nacos中配置中心配置以下信息</p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210326203602222.png" alt="image-20210326203602222"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210326203602222.png" alt="image-20210326203602222"></p>
 </li>
 </ol>
-<p><img src="D:\笔记\Typora\note\图片\image-20210326203613771.png" alt="image-20210326203613771"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210326203613771.png" alt="image-20210326203613771"></p>
 <h3 id="3-Seata"><a href="#3-Seata" class="headerlink" title="3. Seata"></a>3. Seata</h3><h4 id="简介：-6"><a href="#简介：-6" class="headerlink" title="简介："></a>简介：</h4><ol>
 <li><p>什么是Seata：</p>
 <p>Seata是一款开源的分布式事务解决方案，致力于提供高性能和简单易用的分布式事务服务。Seata将为用户提供了AT、TCC、SAG和XA事务模式，为用户打造一站式的分布式解决方案。</p>
@@ -2506,7 +2506,7 @@ server-url:
 <p>管理分支事务处理的资源，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚</p>
 </li>
 </ol>
-<p><img src="D:\笔记\Typora\note\图片\image-20210326210229190.png" alt="image-20210326210229190"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210326210229190.png" alt="image-20210326210229190"></p>
 <ol>
 <li>TM向TC申请开启一个全局事务，全部事务创建成功并生成一个全局唯一的XID</li>
 <li>XID在微服务调用链路的上下文中传播</li>
@@ -2532,7 +2532,7 @@ server-url:
 </ol>
 </li>
 </ol>
-<p><img src="D:\笔记\Typora\note\图片\image-20210330114218900.png" alt="image-20210330114218900"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210330114218900.png" alt="image-20210330114218900"></p>
 <ol start="2">
 <li>二阶段回滚：<ol>
 <li>二阶段如果是回滚的话，Seata就需要回滚一阶段已经执行的业务SQL，还原业务数据</li>
@@ -2541,8 +2541,8 @@ server-url:
 </ol>
 </li>
 </ol>
-<p><img src="D:\笔记\Typora\note\图片\image-20210330114702918.png" alt="image-20210330114702918"></p>
-<p><img src="D:\笔记\Typora\note\图片\image-20210330121819368.png" alt="image-20210330121819368"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210330114702918.png" alt="image-20210330114702918"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20210330121819368.png" alt="image-20210330121819368"></p>
 
                 
             </div>
