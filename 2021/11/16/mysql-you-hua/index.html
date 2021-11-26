@@ -4,15 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="单例模式, MrHou">
-    <meta name="description" content="单例模式特点：
+    <meta name="keywords" content="Mysql优化, MrHou">
+    <meta name="description" content="MySQL优化Mysql的结构体系配置文件分析（基于Windows环境）
+主配置文件：‪my.ini
 
-在JVM中，单例模式能保证对象实例只有一个
-构造器必须是私有的，外部无法通过构造器创建对象实例
-没有公开的set方法，外部不能通过set方法进行对象的创建
-对外公开提供一个get方法，通过get方法可以获取对象实例
+二进制日志log-bin：存在于Mysql\Data\DESKTOP-bin.000377
 
-优点">
+错误日志log-error：存在于Mysq">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>单例模式 | MrHou</title>
+    <title>Mysql优化 | MrHou</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.iohttps://img0.baidu.com/it/u=1040699198,4243503392&fm=26&fmt=auto">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/awesome/css/all.min.css">
@@ -607,12 +605,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">单例模式</h1>
+                    <h1 class="description center-align post-title">Mysql优化</h1>
                 </div>
             </div>
         </div>
@@ -731,8 +729,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                <span class="chip bg-color">设计模式</span>
+                            <a href="/tags/mysql/">
+                                <span class="chip bg-color">mysql</span>
                             </a>
                         
                     </div>
@@ -743,8 +741,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
-                                设计模式
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
                             </a>
                         
                     </div>
@@ -763,21 +761,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-16
+                    2021-11-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    10 分
                 </div>
                 
 
@@ -800,120 +798,166 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>特点：</p>
+                <h1 id="MySQL优化"><a href="#MySQL优化" class="headerlink" title="MySQL优化"></a>MySQL优化</h1><h2 id="Mysql的结构体系"><a href="#Mysql的结构体系" class="headerlink" title="Mysql的结构体系"></a>Mysql的结构体系</h2><h3 id="配置文件分析（基于Windows环境）"><a href="#配置文件分析（基于Windows环境）" class="headerlink" title="配置文件分析（基于Windows环境）"></a>配置文件分析（基于Windows环境）</h3><ul>
+<li><p>主配置文件：‪<strong>my.ini</strong></p>
+</li>
+<li><p>二进制日志log-bin：存在于Mysql\Data\DESKTOP-bin.000377</p>
+</li>
+<li><p>错误日志log-error：存在于Mysql\Data\DESKTOP.err</p>
+</li>
+<li><p>查询日志log</p>
+</li>
+<li><p>数据文件</p>
+<ul>
+<li>两系统</li>
+<li>frm文件：存放表结构</li>
+<li>myd文件：存放表数据</li>
+<li>myi文件：存放表索引</li>
+</ul>
+</li>
+</ul>
+<h3 id="Mysql架构图"><a href="#Mysql架构图" class="headerlink" title="Mysql架构图"></a>Mysql架构图</h3><p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211120101113394.png" alt="image-20211120101113394"></p>
+<p><strong>1.客户端</strong>：各种语言都提供了连接mysql数据库的方法，比如jdbc、php、go等，可根据选择 的后端开发语言选择相应的方法或框架连接mysql</p>
+<p><strong>2.server层</strong>：包括连接器、查询缓存、分析器、优化器、执行器等，涵盖mysql的大多数核心服务功能，以及所有的内置函数（例如日期、世家、数 学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图等。</p>
+<p><strong>3.存储引擎层</strong>（可插拔式）：负责数据的存储和提取，是真正与底层物理文件打交道的组件。 数据本质是存储在磁盘上的，通过特定的存储引擎对数据进行有组织的存放并根据业务需要对数据进行提取。存储引擎的架构模式是插件式的，支持Innodb，MyIASM、Memory等多个存储引擎。现在最<strong>常用的存储引擎是Innodb</strong>，它从mysql5.5.5版本开始成为了默认存储引擎。</p>
+<p><strong>4.物理文件层</strong>：存储数据库真正的表数据、日志等。物理文件包括：redolog、undolog、binlog、errorlog、querylog、slowlog、data、index等</p>
+<h4 id="执行流程"><a href="#执行流程" class="headerlink" title="执行流程"></a>执行流程</h4><p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211123091604837.png" alt="image-20211123091604837"></p>
 <ol>
-<li>在JVM中，单例模式能保证对象实例只有一个</li>
-<li>构造器必须是私有的，外部无法通过构造器创建对象实例</li>
-<li>没有公开的set方法，外部不能通过set方法进行对象的创建</li>
-<li>对外公开提供一个get方法，通过get方法可以获取对象实例</li>
+<li>客户端要与数据库建立连接，需要通过连接器进行TCP握手以及身份校验，连接成功之后就可以操作数据库了</li>
+<li>进行一条语句的查询，首先是查询缓存中是否存在，如果存在直接返回，如果不存在就通过分析器分析语法是否正确</li>
+<li>语法分析完成之后就通过优化器进行优化，首先得判断是否有索引，有的话判断使用什么索引；其次就是对执行顺序进行优化</li>
+<li>通过执行器进行SQL语句的执行</li>
 </ol>
+<h3 id="主流存储存储引擎的了解与区分"><a href="#主流存储存储引擎的了解与区分" class="headerlink" title="主流存储存储引擎的了解与区分"></a>主流存储存储引擎的了解与区分</h3><table>
+<thead>
+<tr>
+<th align="center">对比</th>
+<th align="center">MyISAM</th>
+<th align="center">Innodb</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">主外键</td>
+<td align="center">不支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">事务</td>
+<td align="center">不支持</td>
+<td align="center">支持</td>
+</tr>
+<tr>
+<td align="center">行锁与表锁</td>
+<td align="center">只支持表锁</td>
+<td align="center">支持行锁和表锁</td>
+</tr>
+<tr>
+<td align="center">缓存</td>
+<td align="center">只缓存索引，不缓存数据</td>
+<td align="center">索引和数据都缓存，内存要求高，内存大小影响性能</td>
+</tr>
+<tr>
+<td align="center">表空间</td>
+<td align="center">小</td>
+<td align="center">大</td>
+</tr>
+<tr>
+<td align="center">关注点</td>
+<td align="center">性能</td>
+<td align="center">事务</td>
+</tr>
+<tr>
+<td align="center">默认安装</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+</tr>
+</tbody></table>
+<h2 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h2><h3 id="慢的原因？"><a href="#慢的原因？" class="headerlink" title="慢的原因？"></a>慢的原因？</h3><ul>
+<li>查询语句写的太烂</li>
+<li>索引失效（单值索引、复合索引）</li>
+<li>关联查询太多join（设计缺陷或不得已的需求）</li>
+<li>服务器调优及各个参数设置</li>
+</ul>
+<h3 id="常见的join连接你知道几种？"><a href="#常见的join连接你知道几种？" class="headerlink" title="常见的join连接你知道几种？"></a>常见的join连接你知道几种？</h3><p>一共七中：</p>
+<ul>
+<li><p>内连接：select * from tableA a inner join tableB b on a.id = b.id </p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211120142721719.png" alt="image-20211120142721719"></p>
+</li>
+<li><p>左连接：select * from tbaleA a left join tableB b on a.id = b.id</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211120142703301.png" alt="image-20211120142703301"></p>
+</li>
+<li><p>右连接：select * from tbaleA a right join tableB b on a.id = b.id</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211120142757970.png" alt="image-20211120142757970"></p>
+</li>
+<li><p>去除公共部分的左连接：select * from tbaleA a left join tableB b on a.id = b.id where b.id is null;</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211120142830366.png" alt="image-20211120142830366"></p>
+</li>
+<li><p>去除公共部分的右连接：select * from tbaleA a rignt join tableB b on a.id = b.id where a.id is null;</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211120142841235.png" alt="image-20211120142841235"></p>
+</li>
+<li><p>全连接：select * from tbaleA a left join tableB b on a.id = b.id union select * from tbaleA a right join tableB b on a.id = b.id</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211120142855372.png" alt="image-20211120142855372"></p>
+</li>
+<li><p>去除公共部分的全连接：select * from tbaleA a left join tableB b on a.id = b.id where b.id is null union select * from tbaleA a right join tableB b on a.id = b.id where a.id is null</p>
+<p><img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/Typora/image-20211120142905731.png" alt="image-20211120142905731"></p>
+</li>
+</ul>
+<h2 id="Mysql索引"><a href="#Mysql索引" class="headerlink" title="Mysql索引"></a>Mysql索引</h2><h3 id="B-索引"><a href="#B-索引" class="headerlink" title="B+索引"></a>B+索引</h3><p>数据结构：B+树的非叶子节点全部存储的是索引，而叶子节点存储的全部都是数据，这样相较于B树，B+树的每个节点可以存储更多的索引，树高会更低，而且B+树的叶子节点是由指针进行连接的，这样就可以实现范围查找</p>
 <p>优点：</p>
-<ol>
-<li>某些类创建非常繁琐，使用单例模式避免对象的频繁创建，而造成性能损耗</li>
-<li>省去了new操作符，减轻系统内存使用频率，减轻GC的压力</li>
-<li>避免对资源的重复占用</li>
-</ol>
-<h2 id="饿汉式单例模式"><a href="#饿汉式单例模式" class="headerlink" title="饿汉式单例模式"></a>饿汉式单例模式</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>为什么说是饿汉式呢？</p>
-<p>​    因为它在类加载的时候就直接把实例创建了出来，后面的方法直接进行返回即可</p>
-<p>应用场景：</p>
-<p>​    适用于热点数据，在启动JVM的时候，就将热点数据创建好，这样也可以避免预热阶段，直接就可以使用了。</p>
-<p>为什么是线程安全的？</p>
-<p>​    因为类加载的方式是按需加载，且只加载一次，因此在访问单例对象的时候，其实单例对象的实例已经创建好了。因此饿汉式天生就是线程安全的。</p>
-<h2 id="懒汉式单例模式"><a href="#懒汉式单例模式" class="headerlink" title="懒汉式单例模式"></a>懒汉式单例模式</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>instance<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-         <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>懒汉式单例模式是<strong>非线程安全的</strong></p>
-<p>为什么叫懒汉式呢？</p>
-<p>​    因为类加载的时候，并不会直接将这个实例创建出来，而是在需要使用的时候进行创建</p>
-<p>使用场景</p>
-<p>​    适用于那些不热门的数据，因为只有在需要使用的时候进行调用并创建，这样就不会造成不必要的空间浪费</p>
-<p>为什么是非线程安全的呢？</p>
-<p>​    这里假设有两个线程，第一个线程和第二个线程现在都进行了if的判断，进入到了对象的创建，那么这两个线程就会创建两个对象。</p>
-<p>那么针对这个懒汉式的非线程安全使用下面加锁的方式进行解决</p>
-<h2 id="懒汉式加锁"><a href="#懒汉式加锁" class="headerlink" title="懒汉式加锁"></a>懒汉式加锁</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">synchronized</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这样直接在获取对象实例的方法上加锁，虽然保证了线程的安全，但是这样加锁性能太低了，那么如何解决呢？？？</p>
-<h2 id="懒汉式加锁进阶"><a href="#懒汉式加锁进阶" class="headerlink" title="懒汉式加锁进阶"></a>懒汉式加锁进阶</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">Singleton</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这样把锁加在方法内，而且进行了一次判断，这样性能比上一个性能有提高，但是JVM对代码的运行会有运行优化，也就是在运行期间会进行指令重排操作，意思就是比如现在一个线程已经创建好了实例，而且JVM内存中也开辟了空间给这个实例，但是还没有初始化完成，而这个时候另一个线程判断instance不为空，那么直接返回进行调用，发现还没有实例化而出现错误，那么又如何解决这个问题呢？？？</p>
-<h2 id="懒汉式加锁进阶加强-volatile"><a href="#懒汉式加锁进阶加强-volatile" class="headerlink" title="懒汉式加锁进阶加强(volatile)"></a>懒汉式加锁进阶加强(volatile)</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">volatile</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>instance <span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">synchronized</span><span class="token punctuation">(</span><span class="token class-name">Singleton</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>instance<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            	<span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>volatile主要是防止代码运行时的指令重排，可以保证，在创建实例完成，并且初始化之后，另外的线程才能对实例进行使用，那么这个已经很完美了，但是还有比这个更好的方式进行实现吗？？</p>
-<h2 id="基于静态内部类实现的单例模式"><a href="#基于静态内部类实现的单例模式" class="headerlink" title="基于静态内部类实现的单例模式"></a>基于静态内部类实现的单例模式</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
-	<span class="token keyword">private</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
-    
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">SingletonFactory</span><span class="token punctuation">{</span>
-        <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> instance <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Singleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Singleton</span> <span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token class-name">SingletonFactory</span><span class="token punctuation">.</span>instance<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="基于枚举的单例模式"><a href="#基于枚举的单例模式" class="headerlink" title="基于枚举的单例模式"></a>基于枚举的单例模式</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token keyword">enum</span> <span class="token class-name">Singleton</span><span class="token punctuation">{</span>
-	<span class="token class-name">Instance</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h2 id="为什么使用单例模式而不使用静态类呢"><a href="#为什么使用单例模式而不使用静态类呢" class="headerlink" title="为什么使用单例模式而不使用静态类呢?"></a>为什么使用单例模式而不使用静态类呢?</h2><ol>
-<li>单例模式有懒汉模式，可以按需进行资源加载，而静态类会直接加载进内存中</li>
-<li>静态类每次创建使用之后，都会被GC掉，而单例对象不会被GC</li>
-</ol>
+<ul>
+<li>因为不再需要进行全表扫描，只需要对树进行搜索即可，所以查找速度快很多。</li>
+<li>因为 B+ Tree 的有序性，所以除了用于查找，还可以用于排序和分组。</li>
+<li>可以指定多个列作为索引列，多个索引列共同组成键。</li>
+<li>适用于全键值、键值范围和键前缀查找，其中键前缀查找只适用于最左前缀查找。如果不是按照索引列的顺序进行查找，则无法使用索引。</li>
+</ul>
+<h4 id="主索引"><a href="#主索引" class="headerlink" title="主索引"></a>主索引</h4><p>主索引的叶子节点 data 域记录着完整的数据记录，这种索引方式被称为聚簇索引。因为无法把数据行存放在两个不同的地方，所以一个表只能有一个聚簇索引。</p>
+<h4 id="辅助索引"><a href="#辅助索引" class="headerlink" title="辅助索引"></a>辅助索引</h4><p>辅助索引的叶子节点的 data 域记录着主键的值，因此在使用辅助索引进行查找时，需要先查找到主键值，然后再到主索引中进行查找，这个过程也被称作回表。</p>
+<h3 id="Hash索引"><a href="#Hash索引" class="headerlink" title="Hash索引"></a>Hash索引</h3><p>哈希索引能以 O(1) 时间进行查找，但是失去了有序性：</p>
+<ul>
+<li>无法用于排序与分组；</li>
+<li>只支持精确查找，无法用于部分查找和范围查找。</li>
+</ul>
+<p>InnoDB 存储引擎有一个特殊的功能叫“自适应哈希索引”，当某个索引值被使用的非常频繁时，会在 B+Tree 索引之上再创建一个哈希索引，这样就让 B+Tree 索引具有哈希索引的一些优点，比如快速的哈希查找。</p>
+<h3 id="有序数组"><a href="#有序数组" class="headerlink" title="有序数组"></a>有序数组</h3><p>解决问题：hash索引是无序的，而且只支持等值查询的情况，那么如何解决呢？</p>
+<p>有序数组：不仅可以根据下标直接查询到数据，而且因为它是有序的，所以可以范围查找，但是同样具有缺点，那就是增加和删除的时候会改变当前的数据结构，会讲当前节点的后面节点全部左右移动，这样成本非常高。（这里又引申出hash索引可以增加删除方便，但是不能排序以及范围查询）</p>
+<p>适用场景：历史数据，比如：历史订单，账单之类的信息</p>
+<h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h3><p>平衡二叉树是有序的，所以支持范围查询，而且它的查询和更新复杂度为O(log(N))，但是同样是不支持来做索引的，因为平衡二叉树在数据很多的情况下，树会很高，这样就会造成查询的成本会很高</p>
+<h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><p>B树比平衡二叉树更优，因为在B树的一个节点可以存储多个数据，这样就可以使树更加的矮，但是B树相比较于B+树还是略显不足的</p>
+<h3 id="全文索引"><a href="#全文索引" class="headerlink" title="全文索引"></a>全文索引</h3><p>全文索引使用倒排索引实现，它记录着关键词到其所在文档的映射。</p>
+<h3 id="空间数据索引"><a href="#空间数据索引" class="headerlink" title="空间数据索引"></a>空间数据索引</h3><p>MyISAM 存储引擎支持空间数据索引（R-Tree），可以用于地理数据存储。空间数据索引会从所有维度来索引数据，可以有效地使用任意维度来进行组合查询。</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ul>
+<li><p>B树的一个节点存储多大的数据最好呢？</p>
+<p>一页的大小，或者是页的整数倍最好，因为每次磁盘的读取都是读取一页的数据，如果小于一页就造成就会造成资源浪费，如果多余一页但是不是整数倍，也会多读一页，同样会造成资源浪费，因此选择读取的数据为页的整数倍最好</p>
+</li>
+<li><p>什么是回表？</p>
+<p>回表就是进行一个SQL语句查询的时候，这个语句例如：select * from user where name = ‘123’，这个表中存在ID主键索引和name字段索引，那么执行这个SQL语句的时候会先通过name索引找到值为123的Id，然后进行回表，通过id查询这条数据的信息</p>
+</li>
+<li><p>有什么方法解决回表呢？</p>
+<p><strong>索引覆盖</strong>，意思就是将查询的返回结果换成ID，因为查询name索引的时候就会获取到ID，这样就不需要通过回表操作再次查询数据</p>
+</li>
+<li><p>什么是最左匹配原则</p>
+<p>例如现在有四个索引，a,b,c,d,那么这个时候我的查询条件是a = 1,b =2,c &gt;3,d= 4，查询的结果列中只会显示a，b，c，因为c是范围查询，d就排不了序了</p>
+</li>
+</ul>
+<h2 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h2><ul>
+<li>Explain</li>
+<li>覆盖索引</li>
+<li>联合索引</li>
+<li>最左匹配原则</li>
+<li>索引下推</li>
+</ul>
+<h3 id="唯一索引和普通索引的选择"><a href="#唯一索引和普通索引的选择" class="headerlink" title="唯一索引和普通索引的选择"></a>唯一索引和普通索引的选择</h3><p>当需要更新一个数据页时，如果数据页在内存中就直接更新，而如果这个数据页还没有在内存中的话，在不影响数据一致性的前提下，InooDB会将这些更新操作缓存在change buffer中，这样就不需要从磁盘中读入这个数据页了。</p>
+<p>在下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行change buffer中与这个页有关的操作，通过这种方式就能保证这个数据逻辑的正确性。</p>
+<p>需要说明的是，虽然名字叫作change buffer，实际上它是可以持久化的数据。也就是说，change buffer在内存中有拷贝，也会被写入到磁盘上。</p>
+<p>将change buffer中的操作应用到原数据页，得到最新结果的过程称为merge。</p>
+<p>除了访问这个数据页会触发merge外，系统有后台线程会定期merge。在数据库正常关闭（shutdown）的过程中，也会执行merge操作。</p>
+<p>显然，如果能够将更新操作先记录在change buffer，减少读磁盘，语句的执行速度会得到明显的提升。而且，数据读入内存是需要占用buffer pool的，所以这种方式还能够避免占用内存，提高内存利用率</p>
+<p><strong>唯一索引一般一直使用内存操作数据，而普通索引会使用change buffer</strong></p>
+<h4 id="change-buffer的使用场景"><a href="#change-buffer的使用场景" class="headerlink" title="change buffer的使用场景"></a>change buffer的使用场景</h4><p>因为merge的时候是真正进行数据更新的时刻，而change buffer的主要目的就是将记录的变更动作缓存下来，所以在一个数据页做merge之前，change buffer记录的变更越多（也就是这个页面上要更新的次数越多），收益就越大。</p>
+<p>因此，对于<strong>写多读少</strong>的业务来说，页面在写完以后马上被访问到的概率比较小，此时change buffer的使用效果最好，这种业务模型常见的就是账单类、日志类的系统。</p>
+<p>反过来，假设一个业务的更新模式是写入之后马上会做查询，那么即使满足了条件，将更新先记录在change buffer，但之后由于马上要访问这个数据页，会立即触发merge过程。这样随机访问IO的次数不会减少，反而增加了change buffer的维护代价，所以，对于这种业务模式来说，change buffer反而起到了副作用。</p>
+<h2 id="事务隔离级别与MVCC"><a href="#事务隔离级别与MVCC" class="headerlink" title="事务隔离级别与MVCC"></a>事务隔离级别与MVCC</h2><p><code>MVCC（Multi-Version Concurrency Control ，多版本并发控制）</code>指的就是在使用<code>读已提交（READ COMMITTD）、可重复读（REPEATABLE READ）</code>这两种隔离级别的事务在执行普通的SELECT操作时访问记录的版本链的过程，这样子可以使不同事务的读-写、写-读操作并发执行，从而提升系统性能。</p>
+<p>这两个隔离级别的一个很大不同就是：<code>生成ReadView的时机不同</code>，READ COMMITTD在每一次进行普通SELECT操作前都会生成一个ReadView，而REPEATABLE READ只在第一次进行普通SELECT操作前生成一个ReadView，数据的可重复读其实就是ReadView的重复使用。</p>
 
                 
             </div>
@@ -940,7 +984,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://hwm156542114.github.io/2021/11/16/dan-li-mo-shi/">http://hwm156542114.github.io/2021/11/16/dan-li-mo-shi/</a>
+                    <a href="http://hwm156542114.github.io/2021/11/16/mysql-you-hua/">http://hwm156542114.github.io/2021/11/16/mysql-you-hua/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -978,8 +1022,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-                                    <span class="chip bg-color">设计模式</span>
+                                <a href="/tags/mysql/">
+                                    <span class="chip bg-color">mysql</span>
                                 </a>
                             
                         </div>
@@ -1478,13 +1522,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/16/spring-yuan-ma-fen-xi/">
+                <a href="/2021/11/16/arraylist-yuan-ma-fen-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Spring源码分析">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/9.jpg" class="responsive-img" alt="ArrayList源码分析">
                         
-                        <span class="card-title">Spring源码分析</span>
+                        <span class="card-title">ArrayList源码分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1512,8 +1556,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/spring/">
-                        <span class="chip bg-color">spring</span>
+                    <a href="/tags/ArrayList/">
+                        <span class="chip bg-color">ArrayList</span>
                     </a>
                     
                 </div>
@@ -1527,13 +1571,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/16/xiang-mu-fu-xi/">
+                <a href="/2021/11/16/spring-yuan-ma-fen-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/5.jpg" class="responsive-img" alt="项目复习">
+                        <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/11.jpg" class="responsive-img" alt="Spring源码分析">
                         
-                        <span class="card-title">项目复习</span>
+                        <span class="card-title">Spring源码分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1561,8 +1605,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%94%B5%E5%95%86%E9%A1%B9%E7%9B%AE/">
-                        <span class="chip bg-color">电商项目</span>
+                    <a href="/tags/spring/">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                 </div>

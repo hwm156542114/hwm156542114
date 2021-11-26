@@ -1901,7 +1901,7 @@ p.search-result-summary{
     position: fixed;
     right: 15px;
     bottom: 15px;
-    padding-top: 15px;
+    padding-top: 50px;
     margin-bottom: 0;
     z-index: 998;
 }
