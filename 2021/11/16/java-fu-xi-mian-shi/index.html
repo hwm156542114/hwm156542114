@@ -732,8 +732,8 @@ J">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
                             </a>
                         
                     </div>
@@ -744,8 +744,8 @@ J">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                学习
+                            <a href="/categories/Java/" class="post-category">
+                                Java
                             </a>
                         
                     </div>
@@ -764,21 +764,21 @@ J">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-19
+                    2021-12-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    19.3k
+                    20.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    67 分
+                    71 分
                 </div>
                 
 
@@ -1369,6 +1369,16 @@ for (int i =1; i&lt;=30 ; i++) {
 <p>如何避免死锁？</p>
 <p>就是在分配资源的时候借助算法（银行家算法）来对资源分配进行计算，使其进入安全状态</p>
 <p>安全状态：系统能够按照某种推进顺序，为每个进程分配所需的资源，直到进程所需的资源全部完成分配。</p>
+<p><strong>Java中是如何解决死锁问题的？</strong></p>
+<ul>
+<li><p>出现死锁一般都是<code>获取锁的顺序不一致</code>，容易导致死锁状况</p>
+<p>解决：可以让线程获取锁的顺序一致，可以减少死锁的情况</p>
+</li>
+<li><p>加锁时限</p>
+<p>在尝试获取锁的时候加一个超时时间，这也就意味着在尝试获取锁的过程中若超过了这个时限该线程则放弃对该锁请求。若一个线程没有在给定的时限内成功获得所有需要的锁，则会进行回退并释放所有已经获得的锁，然后等待一段随机的时间再重试。这段随机的等待时间让其它线程有机会尝试获取相同的这些锁，并且让该应用在没有获得锁的时候可以继续运行</p>
+</li>
+<li></li>
+</ul>
 <h3 id="sleep和wait方法的异同"><a href="#sleep和wait方法的异同" class="headerlink" title="sleep和wait方法的异同"></a>sleep和wait方法的异同</h3><ol>
 <li>sleep没有释放锁，wait释放锁</li>
 <li>它们俩都可以暂停线程，但是wait通常用于线程的交互/通信，sleep通常用于线程的暂停</li>
@@ -1816,8 +1826,8 @@ for (int i =1; i&lt;=30 ; i++) {
 <li>观察者模式：spring中Observer模式常用的地方是listener的实现。如ApplicationListener。</li>
 <li>策略模式：Bean的实例化的时候决定采用何种方式初始化bean实例（反射或者CGLIB动态字节码生成）</li>
 </ul>
-<h3 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h3><ul>
-<li><p>Spring的事务的特性是什么？<br>ACID</p>
+<h3 id="事务-1"><a href="#事务-1" class="headerlink" title="事务"></a>事务</h3><ul>
+<li><p><strong>Spring的事务的特性是什么？</strong><br>ACID</p>
 <ul>
 <li>Atomicity：原子性</li>
 <li>Consistency：一致性</li>
@@ -1825,7 +1835,7 @@ for (int i =1; i&lt;=30 ; i++) {
 <li>Isolation：持久性</li>
 </ul>
 </li>
-<li><p>事务的传播行为有哪些？</p>
+<li><p><strong>事务的传播行为有哪些？</strong></p>
 <p>七种行为：</p>
 <p>支持当前事务的情况：</p>
 <ul>
@@ -1844,7 +1854,7 @@ for (int i =1; i&lt;=30 ; i++) {
 <li>propagation_nested：如果当前存在事务就嵌入到该事务中，如果没有就执行require一样的操作</li>
 </ul>
 </li>
-<li><p>事务的隔离级别</p>
+<li><p><strong>事务的隔离级别</strong></p>
 <ul>
 <li>读未提交</li>
 <li>读已提交</li>
@@ -1852,12 +1862,51 @@ for (int i =1; i&lt;=30 ; i++) {
 <li>串行化</li>
 </ul>
 </li>
-<li><p>如果不设置事务，会出现哪些问题</p>
+<li><p><strong>如果不设置事务，会出现哪些问题</strong></p>
 <ul>
 <li>脏读</li>
 <li>不可重复读</li>
 <li>幻读</li>
 </ul>
+</li>
+<li><p><strong>事务的回滚机制</strong></p>
+<p>创建事务回滚就需要使用@transactional这个注解，在这个注解中有一个属性是rollbakfor，如果配置了这个属性，那么在运行期间如果报错，就会通过注解找到这儿自定义的回滚机制进行事务回滚</p>
+</li>
+<li><p><strong>配置事务方式</strong></p>
+<ul>
+<li><p>编程式事务</p>
+<p>编程式事务管理是侵入性事务管理，使用TransactionTemplate或者直接使用PlatformTransactionManager，对于编程式事务管理，Spring推荐使用TransactionTemplate。</p>
+</li>
+<li><p>声明式事务</p>
+<p>声明式事务管理建立在AOP之上，其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，执行完目标方法之后根据执行的情况提交或者回滚。<br>编程式事务每次实现都要单独实现，但业务量大功能复杂时，使用编程式事务无疑是痛苦的，而声明式事务不同，声明式事务属于无侵入式，不会影响业务逻辑的实现，只需要在配置文件中做相关的事务规则声明或者通过注解的方式，便可以将事务规则应用到业务逻辑中。<br>显然声明式事务管理要优于编程式事务管理，这正是Spring倡导的非侵入式的编程方式。唯一不足的地方就是声明式事务管理的粒度是方法级别，而编程式事务管理是可以到代码块的，但是可以通过提取方法的方式完成声明式事务管理的配置。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>事务超时</strong></p>
+<p>为了使一个应用程序很好地执行，它的事务不能运行太长时间。因此，声明式事务的下一个特性就是它的超时。</p>
+<p>假设事务的运行时间变得格外的长，由于事务可能涉及对数据库的锁定，所以长时间运行的事务会不必要地占用数据库资源。这时就可以声明一个事务在特定秒数后自动回滚，不必等它自己结束。</p>
+<p>由于超时时钟在一个事务启动的时候开始的，因此，只有对于那些具有可能启动一个新事务的传播行为（PROPAGATION_REQUIRES_NEW、PROPAGATION_REQUIRED、ROPAGATION_NESTED）的方法来说，声明事务超时才有意义。</p>
+</li>
+<li><p><strong>回滚机制</strong></p>
+<p>在默认设置下，事务只在出现运行时异常（runtime exception）时回滚，而在出现受检查异常（checked exception）时不回滚（这一行为和EJB中的回滚行为是一致的）。<br>不过，可以声明在出现特定受检查异常时像运行时异常一样回滚。同样，也可以声明一个事务在出现特定的异常时不回滚，即使特定的异常是运行时异常。</p>
+</li>
+<li><p>事务常用的参数</p>
+<p>事物配置中有哪些属性可以配置?以下只是简单的使用参考</p>
+<ol>
+<li>事务的传播性：<br>@Transactional(propagation=Propagation.REQUIRED)</li>
+<li>事务的隔离级别：<br>@Transactional(isolation = Isolation.READ_UNCOMMITTED)</li>
+</ol>
+<blockquote>
+<p>读取未提交数据(会出现脏读, 不可重复读) 基本不使用</p>
+</blockquote>
+<ol>
+<li>只读：<br>@Transactional(readOnly=true)<br>该属性用于设置当前事务是否为只读事务，设置为true表示只读，false则表示可读写，默认值为false。</li>
+<li>事务的超时性：<br>@Transactional(timeout=30)</li>
+<li>回滚：<br>指定单一异常类：@Transactional(rollbackFor=RuntimeException.class)<br>指定多个异常类：@Transactional(rollbackFor={RuntimeException.class, Exception.class})</li>
+</ol>
+<blockquote>
+<p>该属性用于设置需要进行回滚的异常类数组，当方法中抛出指定异常数组中的异常时，则进行事务回滚。</p>
+</blockquote>
 </li>
 </ul>
 <h2 id="Mybatis框架"><a href="#Mybatis框架" class="headerlink" title="Mybatis框架"></a>Mybatis框架</h2><p><strong>架构图</strong></p>
@@ -1870,6 +1919,9 @@ for (int i =1; i&lt;=30 ; i++) {
 <li><p>什么是Mybatis<br>就是优秀的ORM框架</p>
 </li>
 <li><p>Mybatis和JDBC什么关系</p>
+</li>
+<li><p><strong>如何防止SQL注入？</strong></p>
+<p>#{}或者${}，前者就是相当于一个占位符，后者就是将数据直接拼接到SQL后面，这样就可以防止SQL注入，需要注意的是使用$必须要添加@param这个注解</p>
 </li>
 </ul>
 <h2 id="Netty"><a href="#Netty" class="headerlink" title="Netty"></a>Netty</h2><p>什么是BIO、NIO、AIO？</p>
@@ -2084,8 +2136,8 @@ for (int i =1; i&lt;=30 ; i++) {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
                                 </a>
                             
                         </div>
@@ -2607,8 +2659,8 @@ for (int i =1; i&lt;=30 ; i++) {
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    学习
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    项目
                                 </a>
                             
                             
@@ -2656,8 +2708,8 @@ for (int i =1; i&lt;=30 ; i++) {
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    学习
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="post-category">
+                                    计算机网络
                                 </a>
                             
                             
@@ -2667,8 +2719,8 @@ for (int i =1; i&lt;=30 ; i++) {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">计算机网络</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+                        <span class="chip bg-color">计算机网络基本概念</span>
                     </a>
                     
                 </div>
@@ -2859,7 +2911,7 @@ for (int i =1; i&lt;=30 ; i++) {
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">65k</span>
+                        class="white-color">67.8k</span>
             
             
             

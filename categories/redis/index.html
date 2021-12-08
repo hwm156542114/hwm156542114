@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="banner, MrHou">
-    <meta name="description" content="banner | MrHou">
+    <meta name="keywords" content="分类: redis, MrHou">
+    <meta name="description" content="分类: redis | MrHou">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>banner | MrHou</title>
+    <title>分类: redis | MrHou</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.iohttps://img0.baidu.com/it/u=1040699198,4243503392&fm=26&fmt=auto">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/libs/awesome/css/all.min.css">
@@ -596,51 +596,212 @@
 
 </header>
 
-    <link rel="stylesheet" href="/css/gallery.css">
-<link type="text/css" href="/libs/fancybox/jquery.fancybox.css" rel="stylesheet">
-<link type="text/css" href="/libs/justifiedGallery/justifiedGallery.min.css" rel="stylesheet">
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                Northern Lights
+                
+            </div>
 
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/21.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">banner</h1>
-                </div>
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "不积跬步，无以至千里；不积小流，无以成江海",
+                            
+                                "Nothing is impossible if you set your mind to it",
+                            
+                                "The harder you work, the luckier you are",
+                            
+                                "放弃就是向命运低头，把自己的命运交给别人，你也会不甘吧？",
+                            
+                                "当所有人都看不起你时，就是证明自己最好的时刻",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
             </div>
         </div>
     </div>
 </div>
 
-  
 
-<div class="container">
-    <div class="photo-wrapper">
-        
-            <div class="waterfall" id="encrypt-blog">
-                <a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/0.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/0.jpg"       alt=img/banner/0.jpg>
-    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/1.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/1.jpg"       alt=img/banner/1.jpg>
-    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/2.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/2.jpg"       alt=img/banner/2.jpg>
-    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/3.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/3.jpg"       alt=img/banner/3.jpg>
-    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/4.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/4.jpg"       alt=img/banner/4.jpg>
-    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/5.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/5.jpg"       alt=img/banner/5.jpg>
-    </a><a target="_blank" href="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/6.jpg"     class="photo-item" rel="example_group noopener"     data-fancybox="images">      <img src="https://cdn.jsdelivr.net/gh/hwm156542114/MyImages/img/banner/6.jpg"       alt=img/banner/6.jpg>
-    </a>
-            </div>
-        
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+
     </div>
 </div>
 
-<script src="/libs/fancybox/fancybox.js"></script>
-<script src="/libs/justifiedGallery/justifiedGallery.min.js"></script>
-<script>
+<main class="content">
 
-  $("a[rel=example_group]").fancybox();
-  $("#encrypt-blog").justifiedGallery({margins: 5, rowHeight: 150});
+    
 
-</script>
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/Java/" title="Java: 5">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">Java
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/redis/" title="redis: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #F5EEF8;">redis
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">设计模式
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E7%AE%97%E6%B3%95/" title="算法: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">算法
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/MySQL/" title="MySQL: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">MySQL
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E5%AD%A6Java/" title="学Java: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">学Java
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" title="计算机网络: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #82E0AA;">计算机网络
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E9%A1%B9%E7%9B%AE/" title="项目: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D7BDE2;">项目
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/11/30/redis/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/hwm156542114/hwm156542114.github.io/medias/featureimages/8.jpg" class="responsive-img" alt="Redis">
+                            
+                            <span class="card-title">Redis</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                RedisRedis为什么快？​    Redis的数据是存储在内存上的，访问数据的时候可以直接访问内存即可，不需要通过cpu访问磁盘。因此可以知道redis的性能问题不在CPU上。
+Redis为什么使用单线程？
+
+redis中的单线程是针
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/redis/" class="post-category">
+                                    redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/redis%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/">
+                            <span class="chip bg-color">redis简单介绍</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
+</main>
+
+
+
 
     <footer class="page-footer bg-color">
     
